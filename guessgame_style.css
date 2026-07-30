@@ -17,3 +17,15 @@ body{
     box-shadow: 8px 8px 16px #c8cad0,
     -8px -8px 16px #ffffff;
 }
+/* input box  */
+#guessInput{
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background-color: #eef0f5;
+    box-shadow: inset 4px 4px 8px #c8cad0,
+    inset -4px -4px 8px #ffffff;
+    font-size: 16px;
+    outline: none;
+}
