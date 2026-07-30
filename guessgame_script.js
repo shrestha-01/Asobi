@@ -2,8 +2,19 @@
 var randomNum;
 var playerGuess;
 randomNum = Math.floor(MediaSourceHandle.random() * 100) + 1;
-document.getElementById("guessBrn").addEventListener("click",function(){
-    playerGuess = document.getElementById("guessInput").value;
-    //i m checking
-    document.getElementById("msgBox").textContent = "You guessed: " + playerGuess;
+var guessBtn = document.getElementById("guessBtn");
+var guessInput = document.getElementById("guessInput");
+var msgBox = document.getElementById("msgBox");
+
+guessBtn.addEventListener("click",function(){
+    playerGuess = guessInput.value;
+    playerGuess = Number(playerGuess);
+    
+    if(playerGuess > randomNum){
+        msgBox.textContent = "Nah Buddy, Try guessing lower...";
+    } else if(playerGuess < randomNum){
+        msgBox.textContent = "Nah Buddy, Try guessing higher...";
+    }  else {
+        msgBox.textContent = "Correct !";
+    }
 });
