@@ -29,3 +29,18 @@ body{
     font-size: 16px;
     outline: none;
 }
+/* guess button  */
+#guessBtn{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 12px;
+    background-color: #eef0f5;
+    box-shadow: 6px 6px 12px #c8cad0, -6px -6px 12px #ffffff;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#guessBtn:active{
+    box-shadow: inset 4px 4px 8px #c8cad0,
+    inset -4px -4px 8px #ffffff;
+}
