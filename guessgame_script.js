@@ -7,6 +7,7 @@ var guessInput = document.getElementById("guessInput");
 var msgBox = document.getElementById("msgBox");
 var guessCount = 0;
 var guessCountBox = document.getElementById("guessCountBox");
+var playAgainBtn = document.getElementById("playAgainBtn");
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
@@ -21,5 +22,12 @@ guessBtn.addEventListener("click",function(){
     }  else {
         msgBox.textContent = "Correct !";
     }
+});
 
+playAgainBtn.addEventListener("click",function(){
+    randomNum = Math.floor(Math.random() * 100) + 1;
+    guessCount = 0;
+    guessCountBox.textContent = "Guesses: 0";
+    msgBox.textContent = "";
+    guessInput.value = "";
 });
