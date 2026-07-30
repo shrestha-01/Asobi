@@ -5,8 +5,12 @@ randomNum = Math.floor(Math.random() * 100) + 1;
 var guessBtn = document.getElementById("guessBtn");
 var guessInput = document.getElementById("guessInput");
 var msgBox = document.getElementById("msgBox");
+var guessCount = 0;
+var guessCountBox = document.getElementById("guessCountBox");
 
 guessBtn.addEventListener("click",function(){
+    guessCount = guessCount + 1;
+    guessCountBox.textContent = "Guesses: " + guessCount;
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
     
@@ -17,4 +21,5 @@ guessBtn.addEventListener("click",function(){
     }  else {
         msgBox.textContent = "Correct !";
     }
+
 });
