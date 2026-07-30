@@ -1,7 +1,7 @@
 //make random number
 var randomNum;
 var playerGuess;
-randomNum = Math.floor(MediaSourceHandle.random() * 100) + 1;
+randomNum = Math.floor(Math.random() * 100) + 1;
 var guessBtn = document.getElementById("guessBtn");
 var guessInput = document.getElementById("guessInput");
 var msgBox = document.getElementById("msgBox");
