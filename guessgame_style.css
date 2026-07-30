@@ -10,40 +10,40 @@ body{
 /* main box  */
 #gameBox{
     background-color: #eef0f5;
-    border-radius: 22px;
-    padding: 38px;
+    border-radius: 20px;
+    padding: 40px;
     width: 350px;
     text-align: center;
-    box-shadow: 8px 8px 18px #c8cad0,
-    -8px -8px 14px #ffffff;
+    box-shadow: 8px 8px 15px #c8cad0,
+    -8px -8px 15px #ffffff;
 }
 /* input box  */
 #guessInput{
     width: 200px;
     padding: 10px;
     border: none;
-    border-radius: 14px;
+    border-radius: 15px;
     background-color: #eef0f5;
-    box-shadow: inset 4px 4px 9px #c8cad0,
-    inset -3px -3px 7px #ffffff;
+    box-shadow: inset 4px 4px 10px #c8cad0,
+    inset -4px -4px 10px #ffffff;
     font-size: 16px;
     outline: none;
 }
 /* guess button  */
 #guessBtn{
-    padding: 10px 22px;
+    padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background-color: #eef0f5;
-    box-shadow: 6px 6px 13px #c8cad0,
+    box-shadow: 5px 5px 15px #c8cad0,
      -5px -5px 10px #ffffff;
     font-size: 16px;
-    margin-left: 12px;
+    margin-left: 10px;
     cursor: pointer;
 }
 #guessBtn:active{
-    box-shadow: inset 4px 4px 8px #c8cad0,
-    inset -3px -3px 7px #ffffff;
+    box-shadow: inset 5px 5px 10px #c8cad0,
+    inset -5px -5px 10px #ffffff;
 }
 /* play again button */
 #playAgainBtn{
@@ -51,20 +51,20 @@ body{
     border: none;
     border-radius: 10px;
     background-color: #eef0f5;
-    box-shadow: 6px 6px 13px #c8cad0,
+    box-shadow: 5px 5px 15px #c8cad0,
     -5px -5px 10px #ffffff;
     font-size: 16px;
-    margin-top: 18px;
+    margin-top: 20px;
     cursor: pointer;
 }
 #playAgainBtn:active{
-    box-shadow: inset 4px 4px 8px #c8cad0,
-    inset -3px -3px 7px #ffffff;
+    box-shadow: inset 5px 5px 10px #c8cad0,
+    inset -5px -5px 10px #ffffff;
 }
 h1{
     color: #444;
-    font-size: 27px;
-    margin-bottom: 22px;
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 /* message text (or the hint you say) */
 #msgBox{
@@ -82,13 +82,13 @@ h1{
 #difficultyBox{
     position: relative;
     width: 210px;
-    margin: 0 auto 16px auto;
+    margin: 0 auto 15px auto;
 }
 #difficultySelect{
     background-color: #eef0f5;
-    padding: 11px;
-    border-radius: 13px;
-    box-shadow: 6px 6px 12px #c8cad0,-6px -6px 11px #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 15px #c8cad0,-5px -5px 10px #ffffff;
     display: flex;
     cursor: pointer;
     justify-content: space-between;
