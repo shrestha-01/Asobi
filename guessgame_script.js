@@ -9,6 +9,8 @@ var guessCount = 0;
 var guessCountBox = document.getElementById("guessCountBox");
 var playAgainBtn = document.getElementById("playAgainBtn");
 var maxGuess = 10;
+var difficultySelect = document.getElementById("difficultySelect");
+var difficultyBox = document.getElementById("difficultyBox");
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
@@ -36,4 +38,8 @@ playAgainBtn.addEventListener("click",function(){
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
     guessInput.value = "";
+});
+
+difficultySelect.addEventListener("click",function(){
+    difficultyBox.classList.toggle("dropdownOpen");
 });
