@@ -73,6 +73,7 @@ playAgainBtn.addEventListener("click",function(){
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
     guessInput.value = "";
+    guessHistoryBox.innerHTML = "";
 });
 
 for(var i=0; i<optionItem.length; i++){
