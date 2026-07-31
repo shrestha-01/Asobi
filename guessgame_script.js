@@ -47,7 +47,11 @@ guessBtn.addEventListener("click",function(){
     if(playerGuess == randomNum){
         distanceHintBox.textContent = "";
     } else if(distance < range * 0.05){
-        distanceHintBox.textContent = "";
+        distanceHintBox.textContent = "You are very close!";
+    } else if(distance < range * 0.2){
+        distanceHintBox.textContent = "Getting close!"
+    } else{
+        distanceHintBox.textContent = "Nah buddy, Too far!";
     }
 });
 

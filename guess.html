@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guess The Number</title>
     <link rel="stylesheet" href="guessgame_style.css">
 </head>
+
 <body>
     <!-- this box will hold the whole game -->
-        <div id="gameBox">
-            <h1>Guess The Number</h1>
-            
+    <div id="gameBox">
+        <h1>Guess The Number</h1>
+
+        <div id="gameModeBox">
+            <p id="gameModeTitle">Game Modes</p>
+
             <div id="difficultyBox">
                 <p id="bestScoreBox">Best: -</p>
                 <div id="difficultySelect">
@@ -50,14 +55,16 @@
                     <span id="impossibleValue" class="optionValue">(1 - 1M)</span>
                 </div>
             </div>
-
-            <input type="number" id="guessInput">
-            <button id="guessBtn">Guess</button>
-            <p id="msgBox"></p>
-            <p id="distanceHintBox"></p>
-            <p id="guessCountBox"> Guesses: 0</p>
-            <button id="playAgainBtn">Play Again</button>
         </div>
-     <script src="guessgame_script.js"></script>
+
+        <input type="number" id="guessInput">
+        <button id="guessBtn">Guess</button>
+        <p id="msgBox"></p>
+        <p id="distanceHintBox"></p>
+        <p id="guessCountBox"> Guesses: 0</p>
+        <button id="playAgainBtn">Play Again</button>
+    </div>
+    <script src="guessgame_script.js"></script>
 </body>
+
 </html>
