@@ -15,6 +15,7 @@ var selectValue = document.getElementById("selectValue");
 var optionItem = document.getElementsByClassName("optionItem");
 var minNum = 1;
 var maxNum = 10;
+randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 var bestScoreBox = document.getElementById("bestScoreBox");
 var scoreKey = "best_normal";
 
