@@ -24,32 +24,6 @@ guessBtn.addEventListener("click",function(){
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
     
-    if(optionId == "beginner"){
-        minNum = 1;
-        maxNum = 10;
-    } else if(optionId == "easy"){
-        minNum = 1;
-        maxNum = 50;
-    } else if(optionId == "normal"){
-        minNum = 1;
-        maxNum = 50;
-    } else if(optionId == "medium"){
-        minNum = 1;
-        maxNum = 500;
-    } else if(optionId == "hard"){
-        minNum = 1;
-        maxNum = 1000;
-    } else if(optionId == "expert"){
-        minNum = 1;
-        maxNum = 10000;
-    } else if(optionId == "master"){
-        minNum = 1;
-        maxNum = 100000;
-    } else if(optionId == "impossible"){
-        minNum = 1;
-        maxNum = 1000000;
-    }
-    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     if(guessCount >= maxGuess && playerGuess != randomNum){
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
         guessBtn.disabled = true;
@@ -87,6 +61,32 @@ for(var i=0; i<optionItem.length; i++){
         var optionValue = document.getElementById(optionId + "Value").textContent;
         selectTitle.textContent = optionTitle;
         selectValue.textContent = optionValue;
+        if(optionId == "beginner"){
+        minNum = 1;
+        maxNum = 10;
+    } else if(optionId == "easy"){
+        minNum = 1;
+        maxNum = 50;
+    } else if(optionId == "normal"){
+        minNum = 1;
+        maxNum = 100;
+    } else if(optionId == "medium"){
+        minNum = 1;
+        maxNum = 500;
+    } else if(optionId == "hard"){
+        minNum = 1;
+        maxNum = 1000;
+    } else if(optionId == "expert"){
+        minNum = 1;
+        maxNum = 10000;
+    } else if(optionId == "master"){
+        minNum = 1;
+        maxNum = 100000;
+    } else if(optionId == "impossible"){
+        minNum = 1;
+        maxNum = 1000000;
+    }
+    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
         scoreKey = "best_" + optionId;
         showBestScore();
         difficultyBox.classList.remove("dropdownOpen");
