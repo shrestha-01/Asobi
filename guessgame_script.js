@@ -19,12 +19,23 @@ randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 var bestScoreBox = document.getElementById("bestScoreBox");
 var scoreKey = "best_normal";
 var distanceHintBox = document.getElementById("distanceHintBox");
+var guessHistoryBox = document.getElementById("guessHistoryBox");
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
     guessCountBox.textContent = "Guesses: " + guessCount;
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
+    var arrow = "";
+    if(playerGuess > randomNum){
+        arrow = "&uarr;";
+    } else if(playerGuess < randomNum){
+        arrow = "&darr;";
+    }
+    var card = document.createElement("div");
+    card.className = "historyItem";
+    card.innerHTML = playerGuess + " " + arrow;
+    guessHistoryBox.appendChild(card);
     
     if(guessCount >= maxGuess && playerGuess != randomNum){
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
