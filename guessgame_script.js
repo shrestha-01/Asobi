@@ -1,4 +1,4 @@
-//make random number
+//getting elements
 var randomNum;
 var playerGuess;
 randomNum = Math.floor(Math.random() * 100) + 1;
@@ -11,6 +11,9 @@ var playAgainBtn = document.getElementById("playAgainBtn");
 var maxGuess = 10;
 var difficultySelect = document.getElementById("difficultySelect");
 var difficultyBox = document.getElementById("difficultyBox");
+var selectTitle = document.getElementById("selectTitle");
+var selectValue = document.getElementById("selectValue");
+var optionItem = document.getElementsByClassName("optionItem");
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
@@ -43,3 +46,13 @@ playAgainBtn.addEventListener("click",function(){
 difficultySelect.addEventListener("click",function(){
     difficultyBox.classList.toggle("dropdownOpen");
 });
+for(var i=0; i<optionItem.length; i++){
+    optionItem[i].addEventListener("click",function(){
+        var optionId = this.id;
+        var optionTitle = document.getElementById(optionId + "Title").textContent;
+        var optionValue = document.getElementById(optionId + "Value").textContent;
+        selectTitle.textContent = optionTitle;
+        selectValue.textContent = optionValue;
+        difficultyBox.classList.remove("dropdownOpen");
+    });
+}
