@@ -15,6 +15,8 @@ var selectValue = document.getElementById("selectValue");
 var optionItem = document.getElementsByClassName("optionItem");
 var minNum = 1;
 var maxNum = 10;
+var bestScoreBox = document.getElementById("bestScoreBox");
+var scoreKey = "best_normal";
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
@@ -58,6 +60,11 @@ guessBtn.addEventListener("click",function(){
     } else {
         msgBox.textContent = "Correct!";
         guessBtn.disabled = true;
+        var best = localStorage.getItem(scoreKey);
+        if(best == null || guessCount < best){
+            localStorage.setItem(scoreKey, guessCount);
+        }
+        showBestScore();
     }
 });
 
@@ -80,6 +87,17 @@ for(var i=0; i<optionItem.length; i++){
         var optionValue = document.getElementById(optionId + "Value").textContent;
         selectTitle.textContent = optionTitle;
         selectValue.textContent = optionValue;
+        scoreKey = "best_" + optionId;
+        showBestScore();
         difficultyBox.classList.remove("dropdownOpen");
     });
 }
+function showBestScore(){
+    var best = localStorage.getItem(scoreKey);
+    if(best == null){
+        bestScoreBox.textContent = "Best: -";
+    } else{
+        bestScoreBox.textContent = "Best: " + best;
+    }
+}
+showBestScore();
