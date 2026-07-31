@@ -64,9 +64,6 @@ playAgainBtn.addEventListener("click",function(){
     guessInput.value = "";
 });
 
-difficultySelect.addEventListener("click",function(){
-    difficultyBox.classList.toggle("dropdownOpen");
-});
 for(var i=0; i<optionItem.length; i++){
     optionItem[i].addEventListener("click",function(){
         var optionId = this.id;
@@ -102,7 +99,6 @@ for(var i=0; i<optionItem.length; i++){
     randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
         scoreKey = "best_" + optionId;
         showBestScore();
-        difficultyBox.classList.remove("dropdownOpen");
     });
 }
 function showBestScore(){

@@ -93,9 +93,3 @@ h1{
     cursor: pointer;
     justify-content: space-between;
 }
-.optionItem{
-    display: none;
-}
-#difficultyBox.dropdownOpen .optionItem{
-    display: block;
-}
