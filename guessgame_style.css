@@ -96,9 +96,6 @@ h1{
 .optionItem{
     display: none;
 }
-.optionItem{
-    display: none;
-}
 #difficultyBox.dropdownOpen .optionItem{
     display: block;
 }
