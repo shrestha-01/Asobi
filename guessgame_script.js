@@ -18,6 +18,7 @@ var maxNum = 10;
 randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 var bestScoreBox = document.getElementById("bestScoreBox");
 var scoreKey = "best_normal";
+var distanceHintBox = document.getElementById("distanceHintBox");
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
@@ -40,6 +41,13 @@ guessBtn.addEventListener("click",function(){
             localStorage.setItem(scoreKey, guessCount);
         }
         showBestScore();
+    }
+    var distance = Math.abs(randomNum - playerGuess);
+    var range = maxNum - minNum;
+    if(playerGuess == randomNum){
+        distanceHintBox.textContent = "";
+    } else if(distance < range * 0.05){
+        distanceHintBox.textContent = "";
     }
 });
 
