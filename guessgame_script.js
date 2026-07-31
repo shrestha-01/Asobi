@@ -1,7 +1,6 @@
 //getting elements
 var randomNum;
 var playerGuess;
-randomNum = Math.floor(Math.random() * 100) + 1;
 var guessBtn = document.getElementById("guessBtn");
 var guessInput = document.getElementById("guessInput");
 var msgBox = document.getElementById("msgBox");
@@ -14,6 +13,8 @@ var difficultyBox = document.getElementById("difficultyBox");
 var selectTitle = document.getElementById("selectTitle");
 var selectValue = document.getElementById("selectValue");
 var optionItem = document.getElementsByClassName("optionItem");
+var minNum = 1;
+var maxNum = 10;
 
 guessBtn.addEventListener("click",function(){
     guessCount = guessCount + 1;
@@ -21,6 +22,32 @@ guessBtn.addEventListener("click",function(){
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
     
+    if(optionId == "beginner"){
+        minNum = 1;
+        maxNum = 10;
+    } else if(optionId == "easy"){
+        minNum = 1;
+        maxNum = 50;
+    } else if(optionId == "normal"){
+        minNum = 1;
+        maxNum = 50;
+    } else if(optionId == "medium"){
+        minNum = 1;
+        maxNum = 500;
+    } else if(optionId == "hard"){
+        minNum = 1;
+        maxNum = 1000;
+    } else if(optionId == "expert"){
+        minNum = 1;
+        maxNum = 10000;
+    } else if(optionId == "master"){
+        minNum = 1;
+        maxNum = 100000;
+    } else if(optionId == "impossible"){
+        minNum = 1;
+        maxNum = 1000000;
+    }
+    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     if(guessCount >= maxGuess && playerGuess != randomNum){
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
         guessBtn.disabled = true;
