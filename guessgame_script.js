@@ -71,6 +71,10 @@ for(var i=0; i<optionItem.length; i++){
         var optionValue = document.getElementById(optionId + "Value").textContent;
         // selectTitle.textContent = optionTitle;
         // selectValue.textContent = optionValue;
+        for(var j=0; j<optionItem.length; j++){
+            optionItem[j].classList.remove("selected");
+        }
+        this.classList.add("selected");
         if(optionId == "beginner"){
         minNum = 1;
         maxNum = 10;
