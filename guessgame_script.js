@@ -44,7 +44,7 @@ guessBtn.addEventListener("click",function(){
 
 playAgainBtn.addEventListener("click",function(){
     guessBtn.disabled = false;
-    randomNum = Math.floor(Math.random() * 100) + 1;
+    randomNum = Math.floor(Math.random()* (maxNum - minNum + 1)) + minNum;
     guessCount = 0;
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
