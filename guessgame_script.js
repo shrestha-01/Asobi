@@ -156,3 +156,9 @@ startGameBtn.addEventListener("click",function(){
     scoreKey = "best_custom_" + minNum + "_" + maxNum;
     showBestScore();
 });
+guessInput.focus();
+guessInput.addEventListener("keydown",function(event){
+    if(event.key == "Enter"){
+        guessBtn.click();
+    }
+});
