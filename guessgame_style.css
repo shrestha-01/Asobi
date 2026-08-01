@@ -1,209 +1,262 @@
-body{
+body {
     background-color: #eef0f5;
-    font-family: 'Nunito'; 
+    font-family: 'Nunito';
     /* i might change font later  */
     display: flex;
     min-height: 100vh;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
-    padding: 40px 0;
+    padding: 20px;
     margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
 }
+
 /* input box  */
-#guessInput{
-    width: 200px;
+#guessInput {
+    width: 100%;
     padding: 10px;
     border: none;
     border-radius: 15px;
     background-color: #eef0f5;
     box-shadow: inset 4px 4px 10px #c8cad0,
-    inset -4px -4px 10px #ffffff;
+        inset -4px -4px 10px #ffffff;
     font-size: 16px;
     outline: none;
+    box-sizing: border-box;
 }
+
 /* guess button  */
-#guessBtn{
+#guessBtn {
+    width: 100%;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background-color: #eef0f5;
     box-shadow: 5px 5px 15px #c8cad0,
-     -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     font-size: 16px;
-    margin-left: 10px;
+    margin-top: 15px;
     cursor: pointer;
+    box-sizing: border-box;
 }
-#guessBtn:active{
+
+#guessBtn:active {
     box-shadow: inset 5px 5px 10px #c8cad0,
-    inset -5px -5px 10px #ffffff;
+        inset -5px -5px 10px #ffffff;
 }
+
 /* play again button */
-#playAgainBtn{
-    padding: 10px 20px;
+#playAgainBtn {
+    width: 100%;
     border: none;
     border-radius: 10px;
     background-color: #eef0f5;
     box-shadow: 5px 5px 15px #c8cad0,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     font-size: 16px;
-    margin-top: 20px;
+    margin-top: 10px;
     cursor: pointer;
+    flex-shrink: 0;
+    padding: 10px 20px;
 }
-#playAgainBtn:active{
+
+#playAgainBtn:active {
     box-shadow: inset 5px 5px 10px #c8cad0,
-    inset -5px -5px 10px #ffffff;
+        inset -5px -5px 10px #ffffff;
 }
-h1{
+
+h1 {
     color: #444;
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    flex-shrink: 0;
 }
+
 /* message text (or the hint you say) */
-#msgBox{
+#msgBox {
     font-size: 18px;
     color: #555;
-    margin-top: 15px;
+    margin-top: 10px;
+    flex-shrink: 0;
     min-height: 20px;
 }
-#guessCountBox{
+
+#guessCountBox {
     font-size: 14px;
     color: #888;
-    margin-top: 10px;
+    margin-top: 5px;
+    flex-shrink: 0;
 }
+
 /* game mode sidebar  */
-#gameModeBox{
+#gameModeBox {
     border-radius: 20px;
     background-color: #eef0f5;
     padding: 15px;
     width: 190px;
     box-shadow: 8px 8px 15px #c8cad0,
-    -8px -8px 15px #ffffff;
+        -8px -8px 15px #ffffff;
     flex-shrink: 0;
 }
-#gameModeTitle{
+
+#gameModeTitle {
     font-size: 14px;
     color: #888;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: left;
 }
-.optionItem{
+
+.optionItem {
     border-radius: 10px;
-    padding: 10px;
+    padding: 8px;
     text-align: left;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
     margin-bottom: 5px;
+    font-size: 14px;
 }
-.optionItem:hover{
+
+.optionItem:hover {
     background-color: #e4e6ec;
 }
-.optionItem.selected{
+
+.optionItem.selected {
     background-color: #c9b8f7;
     box-shadow: 5px 5px 10px #c8cad0,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
 }
-#gameArea{
+
+#gameArea {
     background-color: #eef0f5;
     border-radius: 20px;
-    padding: 40px;
+    padding: 20px;
     width: 350px;
     text-align: center;
     box-shadow: 8px 8px 15px #c8cad0,
-    -8px -8px 15px #ffffff;
+        -8px -8px 15px #ffffff;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
-#guessHistoryBox{
+
+#guessHistoryBox {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 10px;
     justify-content: center;
+    overflow-y: auto;
+    max-height: 150px;
 }
-.historyItem{
+
+.historyItem {
     background-color: #eef0f5;
     border-radius: 15px;
     padding: 10px 15px;
     font-size: 18px;
     font-weight: bold;
     box-shadow: 5px 5px 15px #c8cad0,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
+    flex-shrink: 0;
+    height: fit-content;
 }
-.arrowHigh{
+
+.arrowHigh {
     color: #ff5252;
 }
-.arrowLow{
+
+.arrowLow {
     color: #4287f5;
 }
-#sidebarBox{
+
+#sidebarBox {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
     background-color: #eef0f5;
     border-radius: 20px;
     padding: 15px;
     box-shadow: 8px 8px 15px #c8cad0,
-    -8px -8px 15px #ffffff;
+        -8px -8px 15px #ffffff;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
+
 /* custom game box  */
-#customGameBox{
+#customGameBox {
     background-color: #eef0f5;
     border-radius: 20px;
     padding: 15px;
     width: 190px;
     box-shadow: 8px 8px 15px #c8cad0,
-    -8px -8px 15px #ffffff;
+        -8px -8px 15px #ffffff;
 }
-#customGameTitle{
+
+#customGameTitle {
     font-size: 14px;
     color: #888;
     margin-bottom: 10px;
     text-align: left;
 }
-#customGameBox label{
+
+#customGameBox label {
     display: block;
     text-align: left;
     font-size: 13px;
     color: #555;
     width: 90px;
 }
-#customGameBox input{
+
+#customGameBox input {
     width: 70px;
     padding: 6px;
     border: none;
     background-color: #eef0f5;
     border-radius: 10px;
     box-shadow: inset 3px 3px 6px #c8cad0,
-    inset -3px -3px 6px #ffffff;
+        inset -3px -3px 6px #ffffff;
     font-size: 13px;
     outline: none;
     box-sizing: border-box;
 }
-#startGameBtn{
+
+#startGameBtn {
     width: 100%;
-    margin-top: 15px;
+    margin-top: 10px;
     padding: 10px 20px;
     border: none;
     border-radius: 10px;
     background-color: #eef0f5;
     box-shadow: 5px 5px 15px #c8cad0,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     font-size: 14px;
     cursor: pointer;
 }
-#startGameBtn:active{
+
+#startGameBtn:active {
     box-shadow: inset 5px 5px 10px #c8cad0,
-    inset -5px -5px 10px #ffffff;
+        inset -5px -5px 10px #ffffff;
 }
-#customGameBox .fieldRow{
+
+#customGameBox .fieldRow {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
-#msgBox.msgHigh, #msgBox.msgLow{
+
+#msgBox.msgHigh,
+#msgBox.msgLow {
     color: #e74c3c;
 }
-#msgBox.msgCorrect{
+
+#msgBox.msgCorrect {
     color: #2ecc71;
 }
