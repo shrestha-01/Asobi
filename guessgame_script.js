@@ -22,6 +22,7 @@ var distanceHintBox = document.getElementById("distanceHintBox");
 var guessHistoryBox = document.getElementById("guessHistoryBox");
 var minNumInput = document.getElementById("minNumInput");
 var maxNumInput = document.getElementById("maxNumInput");
+var maxGuessInput = document.getElementById("maxGuessInput");
 
 guessBtn.addEventListener("click", function () {
     guessCount = guessCount + 1;
