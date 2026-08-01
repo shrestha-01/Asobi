@@ -51,13 +51,17 @@ guessBtn.addEventListener("click", function () {
 
     if (guessCount >= maxGuess && playerGuess != randomNum) {
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
+        msgBox.className = "msgHigh";
         guessBtn.disabled = true;
     } else if (playerGuess > randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing lower...";
+        msgBox.className = "msgHigh";
     } else if (playerGuess < randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing higher...";
+        msgBox.className = "msgLow";
     } else {
-        msgBox.textContent = "Correct!";
+        msgBox.textContent = "Perfect! Thats Correct..";
+        msgBox.className ="msgCorrect";
         guessBtn.disabled = true;
         var best = localStorage.getItem(scoreKey);
         if (best == null || guessCount < best) {

@@ -201,3 +201,9 @@ h1{
     justify-content: space-between;
     margin-bottom: 10px;
 }
+#msgBox.msgHigh, #msgBox.msgLow{
+    color: #e74c3c;
+}
+#msgBox.msgCorrect{
+    color: #2ecc71;
+}
