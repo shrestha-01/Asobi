@@ -20,6 +20,7 @@ var bestScoreBox = document.getElementById("bestScoreBox");
 var scoreKey = "best_normal";
 var distanceHintBox = document.getElementById("distanceHintBox");
 var guessHistoryBox = document.getElementById("guessHistoryBox");
+var minNumInput = document.getElementById("minNumInput");
 
 guessBtn.addEventListener("click", function () {
     guessCount = guessCount + 1;
