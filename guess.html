@@ -17,7 +17,7 @@
 
         <div id="difficultyBox">
             <p id="bestScoreBox">Best: -</p>
-            <div id="beginner" class="optionItem" selected>
+            <div id="beginner" class="optionItem selected">
                 <span id="beginnerTitle" class="optionTitle">Beginner</span>
                 <span id="beginnerValue" class="optionValue">(1 - 10)</span>
             </div>
@@ -53,11 +53,13 @@
     </div>
     <div id="customGameBox">
         <p id="customGameTitle">Custom Game</p>
+        <label>Min Number</label>
         <input type="number" id="minNumInput" value="1">
         <label>Max Number</label>
         <input type="number" id="maxNumInput" value="100">
         <label>Max Guesses</label>
         <input  type="number" id="maxGuessInput" value="10">
+        <button id="startGameBtn">Start Game</button>
     </div>
     <div id="gameArea">
         <h1>Guess The Number</h1>
@@ -68,8 +70,6 @@
         <p id="guessCountBox"> Guesses: 0</p>
         <div id="guessHistoryBox"></div>
         <button id="playAgainBtn">Play Again</button>
-    </div>
-    </div>
     </div>
     <script src="guessgame_script.js"></script>
 </body>

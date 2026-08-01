@@ -8,16 +8,6 @@ body{
     align-items: center;
     gap: 20px;
 }
-/* main box  */
-#gameBox{
-    background-color: #eef0f5;
-    border-radius: 20px;
-    padding: 40px;
-    width: 600px;
-    text-align: center;
-    box-shadow: 8px 8px 15px #c8cad0,
-    -8px -8px 15px #ffffff;
-}
 /* input box  */
 #guessInput{
     width: 200px;
@@ -85,16 +75,6 @@ h1{
     width: 210px;
     margin: 0 auto 15px auto;
 }
-#difficultySelect{
-    background-color: #eef0f5;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 15px #c8cad0,
-    -5px -5px 10px #ffffff;
-    display: flex;
-    cursor: pointer;
-    justify-content: space-between;
-}
 /* game mode sidebar  */
 #gameModeBox{
     border-radius: 20px;
@@ -127,11 +107,6 @@ h1{
     background-color: #c9b8f7;
     box-shadow: 5px 5px 10px #c8cad0,
     -5px -5px 10px #ffffff;
-}
-#gameLayout{
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
 }
 #gameArea{
     background-color: #eef0f5;

@@ -23,6 +23,7 @@ var guessHistoryBox = document.getElementById("guessHistoryBox");
 var minNumInput = document.getElementById("minNumInput");
 var maxNumInput = document.getElementById("maxNumInput");
 var maxGuessInput = document.getElementById("maxGuessInput");
+var startGameBtn =  document.getElementById("startGameBtn");
 
 guessBtn.addEventListener("click", function () {
     guessCount = guessCount + 1;
@@ -133,3 +134,25 @@ function showBestScore() {
     }
 }
 showBestScore();
+//custom
+startGameBtn.addEventListener("click",function(){
+    var newMinNum;
+    var newMaxNum;
+    var newMaxGuess;
+    newMinNum = Number(minNumInput.value);
+    newMaxNum = Number(maxNumInput.value);
+    newMaxGuess = Number(maxGuessInput.value);
+    minNum = newMinNum;
+    maxNum = newMaxNum;
+    maxGuess = newMaxGuess;
+    randomNum = Math.floor(Math.random() * (maxNum-minNum+1)) + minNum;
+    guessCount = 0;
+    guessCountBox.textContent = "Guesses: 0";
+    msgBox.textContent = "";
+    distanceHintBox.textContent = "";
+    guessInput.value = "";
+    guessHistoryBox.innerHTML = "";
+    guessBtn.disabled = false;
+    scoreKey = "best_custom_" + minNum + "_" + maxNum;
+    showBestScore();
+});
