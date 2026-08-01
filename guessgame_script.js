@@ -21,54 +21,58 @@ var scoreKey = "best_normal";
 var distanceHintBox = document.getElementById("distanceHintBox");
 var guessHistoryBox = document.getElementById("guessHistoryBox");
 
-guessBtn.addEventListener("click",function(){
+guessBtn.addEventListener("click", function () {
     guessCount = guessCount + 1;
     guessCountBox.textContent = "Guesses: " + guessCount;
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
     var arrow = "";
-    if(playerGuess > randomNum){
+    var arrowClass = "";
+    if (playerGuess > randomNum) {
         arrow = "&uarr;";
-    } else if(playerGuess < randomNum){
+        arrowClass = "arrowHigh";
+    } else if (playerGuess < randomNum) {
         arrow = "&darr;";
+        arrowClass = "arrowLow";
     }
     var card = document.createElement("div");
     card.className = "historyItem";
-    card.innerHTML = playerGuess + " " + arrow;
+    card.innerHTML = playerGuess + '<span class="' + arrowClass + '">'
+        + arrow + '</span>';
     guessHistoryBox.appendChild(card);
-    
-    if(guessCount >= maxGuess && playerGuess != randomNum){
+
+    if (guessCount >= maxGuess && playerGuess != randomNum) {
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
         guessBtn.disabled = true;
-    } else if(playerGuess > randomNum){
+    } else if (playerGuess > randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing lower...";
-    } else if(playerGuess < randomNum){
+    } else if (playerGuess < randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing higher...";
     } else {
         msgBox.textContent = "Correct!";
         guessBtn.disabled = true;
         var best = localStorage.getItem(scoreKey);
-        if(best == null || guessCount < best){
+        if (best == null || guessCount < best) {
             localStorage.setItem(scoreKey, guessCount);
         }
         showBestScore();
     }
     var distance = Math.abs(randomNum - playerGuess);
     var range = maxNum - minNum;
-    if(playerGuess == randomNum){
+    if (playerGuess == randomNum) {
         distanceHintBox.textContent = "";
-    } else if(distance < range * 0.05){
+    } else if (distance < range * 0.05) {
         distanceHintBox.textContent = "You are very close!";
-    } else if(distance < range * 0.2){
+    } else if (distance < range * 0.2) {
         distanceHintBox.textContent = "Getting close!"
-    } else{
+    } else {
         distanceHintBox.textContent = "Nah buddy, Too far!";
     }
 });
 
-playAgainBtn.addEventListener("click",function(){
+playAgainBtn.addEventListener("click", function () {
     guessBtn.disabled = false;
-    randomNum = Math.floor(Math.random()* (maxNum - minNum + 1)) + minNum;
+    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     guessCount = 0;
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
@@ -76,52 +80,52 @@ playAgainBtn.addEventListener("click",function(){
     guessHistoryBox.innerHTML = "";
 });
 
-for(var i=0; i<optionItem.length; i++){
-    optionItem[i].addEventListener("click",function(){
+for (var i = 0; i < optionItem.length; i++) {
+    optionItem[i].addEventListener("click", function () {
         var optionId = this.id;
         var optionTitle = document.getElementById(optionId + "Title").textContent;
         var optionValue = document.getElementById(optionId + "Value").textContent;
         // selectTitle.textContent = optionTitle;
         // selectValue.textContent = optionValue;
-        for(var j=0; j<optionItem.length; j++){
+        for (var j = 0; j < optionItem.length; j++) {
             optionItem[j].classList.remove("selected");
         }
         this.classList.add("selected");
-        if(optionId == "beginner"){
-        minNum = 1;
-        maxNum = 10;
-    } else if(optionId == "easy"){
-        minNum = 1;
-        maxNum = 50;
-    } else if(optionId == "normal"){
-        minNum = 1;
-        maxNum = 100;
-    } else if(optionId == "medium"){
-        minNum = 1;
-        maxNum = 500;
-    } else if(optionId == "hard"){
-        minNum = 1;
-        maxNum = 1000;
-    } else if(optionId == "expert"){
-        minNum = 1;
-        maxNum = 10000;
-    } else if(optionId == "master"){
-        minNum = 1;
-        maxNum = 100000;
-    } else if(optionId == "impossible"){
-        minNum = 1;
-        maxNum = 1000000;
-    }
-    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+        if (optionId == "beginner") {
+            minNum = 1;
+            maxNum = 10;
+        } else if (optionId == "easy") {
+            minNum = 1;
+            maxNum = 50;
+        } else if (optionId == "normal") {
+            minNum = 1;
+            maxNum = 100;
+        } else if (optionId == "medium") {
+            minNum = 1;
+            maxNum = 500;
+        } else if (optionId == "hard") {
+            minNum = 1;
+            maxNum = 1000;
+        } else if (optionId == "expert") {
+            minNum = 1;
+            maxNum = 10000;
+        } else if (optionId == "master") {
+            minNum = 1;
+            maxNum = 100000;
+        } else if (optionId == "impossible") {
+            minNum = 1;
+            maxNum = 1000000;
+        }
+        randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
         scoreKey = "best_" + optionId;
         showBestScore();
     });
 }
-function showBestScore(){
+function showBestScore() {
     var best = localStorage.getItem(scoreKey);
-    if(best == null){
+    if (best == null) {
         bestScoreBox.textContent = "Best: -";
-    } else{
+    } else {
         bestScoreBox.textContent = "Best: " + best;
     }
 }

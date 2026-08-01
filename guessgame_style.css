@@ -158,3 +158,9 @@ h1{
     box-shadow: 5px 5px 15px #c8cad0,
     -5px -5px 10px #ffffff;
 }
+.arrowHigh{
+    color: #ff5252;
+}
+.arrowLow{
+    color: #4287f5;
+}
