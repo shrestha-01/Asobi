@@ -23,10 +23,10 @@ var guessHistoryBox = document.getElementById("guessHistoryBox");
 var minNumInput = document.getElementById("minNumInput");
 var maxNumInput = document.getElementById("maxNumInput");
 var maxGuessInput = document.getElementById("maxGuessInput");
-var startGameBtn =  document.getElementById("startGameBtn");
+var startGameBtn = document.getElementById("startGameBtn");
 
 guessBtn.addEventListener("click", function () {
-    if(guessInput.value == ""){
+    if (guessInput.value == "") {
         msgBox.textContent = "Ermm, Maybe enter a number first";
         return;
     }
@@ -61,7 +61,7 @@ guessBtn.addEventListener("click", function () {
         msgBox.className = "msgLow";
     } else {
         msgBox.textContent = "Perfect! Thats Correct..";
-        msgBox.className ="msgCorrect";
+        msgBox.className = "msgCorrect";
         guessBtn.disabled = true;
         var best = localStorage.getItem(scoreKey);
         if (best == null || guessCount < best) {
@@ -145,7 +145,7 @@ function showBestScore() {
 }
 showBestScore();
 //custom
-startGameBtn.addEventListener("click",function(){
+startGameBtn.addEventListener("click", function () {
     var newMinNum;
     var newMaxNum;
     var newMaxGuess;
@@ -155,7 +155,7 @@ startGameBtn.addEventListener("click",function(){
     minNum = newMinNum;
     maxNum = newMaxNum;
     maxGuess = newMaxGuess;
-    randomNum = Math.floor(Math.random() * (maxNum-minNum+1)) + minNum;
+    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     guessCount = 0;
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
@@ -167,8 +167,25 @@ startGameBtn.addEventListener("click",function(){
     showBestScore();
 });
 guessInput.focus();
-guessInput.addEventListener("keydown",function(event){
-    if(event.key == "Enter"){
+guessInput.addEventListener("keydown", function (event) {
+    if (event.key == "Enter") {
         guessBtn.click();
+    }
+});
+//reminder
+guessInput.addEventListener("input", function () {
+    if (guessInput.value != "" && Number(guessInput.value) > maxNum) {
+        guessInput.value = maxNum;
+        msgBox.textContent = "Umm only numbers between " + minNum +
+            " and " + maxNum + " allowed!";
+        msgBox.className = "msgHigh";
+    }
+});
+guessInput.addEventListener("blur", function () {
+    if (guessInput.value != "" && Number(guessInput.value) < minNum) {
+        guessInput.value = minNum;
+        msgBox.textContent = "Umm only numbers between "
+            + minNum + " and " + maxNum + " allowed !";
+        msgBox.className = "msgHigh";
     }
 });
