@@ -69,12 +69,6 @@ h1{
     color: #888;
     margin-top: 10px;
 }
-/* difficulty level menu */
-#difficultyBox{
-    position: relative;
-    width: 210px;
-    margin: 0 auto 15px auto;
-}
 /* game mode sidebar  */
 #gameModeBox{
     border-radius: 20px;
