@@ -26,6 +26,10 @@ var maxGuessInput = document.getElementById("maxGuessInput");
 var startGameBtn =  document.getElementById("startGameBtn");
 
 guessBtn.addEventListener("click", function () {
+    if(guessInput.value == ""){
+        msgBox.textContent = "Ermm, Maybe enter a number first";
+        return;
+    }
     guessCount = guessCount + 1;
     guessCountBox.textContent = "Guesses: " + guessCount;
     playerGuess = guessInput.value;
