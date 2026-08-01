@@ -47,7 +47,7 @@ guessBtn.addEventListener("click", function () {
     card.className = "historyItem";
     card.innerHTML = playerGuess + '<span class="' + arrowClass + '">'
         + arrow + '</span>';
-    guessHistoryBox.appendChild(card);
+    guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
 
     if (guessCount >= maxGuess && playerGuess != randomNum) {
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
