@@ -12,54 +12,56 @@
 </head>
 
 <body>
-    <div id="gameModeBox">
-        <p id="gameModeTitle">Game Modes</p>
+    <div id="sidebarBox">
+        <div id="gameModeBox">
+            <p id="gameModeTitle">Game Modes</p>
 
-        <div id="difficultyBox">
-            <p id="bestScoreBox">Best: -</p>
-            <div id="beginner" class="optionItem selected">
-                <span id="beginnerTitle" class="optionTitle">Beginner</span>
-                <span id="beginnerValue" class="optionValue">(1 - 10)</span>
-            </div>
-            <div id="easy" class="optionItem">
-                <span id="easyTitle" class="optionTitle">Easy</span>
-                <span id="easyValue" class="optionValue">(1 - 50)</span>
-            </div>
-            <div id="normal" class="optionItem">
-                <span id="normalTitle" class="optionTitle">Normal</span>
-                <span id="normalValue" class="optionValue">(1 - 100)</span>
-            </div>
-            <div id="medium" class="optionItem">
-                <span id="mediumTitle" class="optionTitle">Medium</span>
-                <span id="mediumValue" class="optionValue">(1 - 500)</span>
-            </div>
-            <div id="hard" class="optionItem">
-                <span id="hardTitle" class="optionTitle">Hard</span>
-                <span id="hardValue" class="optionValue">(1 - 1K)</span>
-            </div>
-            <div id="expert" class="optionItem">
-                <span id="expertTitle" class="optionTitle">Expert</span>
-                <span id="expertValue" class="optionValue">(1 - 10K)</span>
-            </div>
-            <div id="master" class="optionItem">
-                <span id="masterTitle" class="optionTitle">Master</span>
-                <span id="masterValue" class="optionValue">(1 - 100K)</span>
-            </div>
-            <div id="impossible" class="optionItem">
-                <span id="impossibleTitle" class="optionTitle">Impossible</span>
-                <span id="impossibleValue" class="optionValue">(1 - 1M)</span>
+            <div id="difficultyBox">
+                <p id="bestScoreBox">Best: -</p>
+                <div id="beginner" class="optionItem selected">
+                    <span id="beginnerTitle" class="optionTitle">Beginner</span>
+                    <span id="beginnerValue" class="optionValue">(1 - 10)</span>
+                </div>
+                <div id="easy" class="optionItem">
+                    <span id="easyTitle" class="optionTitle">Easy</span>
+                    <span id="easyValue" class="optionValue">(1 - 50)</span>
+                </div>
+                <div id="normal" class="optionItem">
+                    <span id="normalTitle" class="optionTitle">Normal</span>
+                    <span id="normalValue" class="optionValue">(1 - 100)</span>
+                </div>
+                <div id="medium" class="optionItem">
+                    <span id="mediumTitle" class="optionTitle">Medium</span>
+                    <span id="mediumValue" class="optionValue">(1 - 500)</span>
+                </div>
+                <div id="hard" class="optionItem">
+                    <span id="hardTitle" class="optionTitle">Hard</span>
+                    <span id="hardValue" class="optionValue">(1 - 1K)</span>
+                </div>
+                <div id="expert" class="optionItem">
+                    <span id="expertTitle" class="optionTitle">Expert</span>
+                    <span id="expertValue" class="optionValue">(1 - 10K)</span>
+                </div>
+                <div id="master" class="optionItem">
+                    <span id="masterTitle" class="optionTitle">Master</span>
+                    <span id="masterValue" class="optionValue">(1 - 100K)</span>
+                </div>
+                <div id="impossible" class="optionItem">
+                    <span id="impossibleTitle" class="optionTitle">Impossible</span>
+                    <span id="impossibleValue" class="optionValue">(1 - 1M)</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="customGameBox">
-        <p id="customGameTitle">Custom Game</p>
-        <label>Min Number</label>
-        <input type="number" id="minNumInput" value="1">
-        <label>Max Number</label>
-        <input type="number" id="maxNumInput" value="100">
-        <label>Max Guesses</label>
-        <input  type="number" id="maxGuessInput" value="10">
-        <button id="startGameBtn">Start Game</button>
+        <div id="customGameBox">
+            <p id="customGameTitle">Custom Game</p>
+            <label>Min Number</label>
+            <input type="number" id="minNumInput" value="1">
+            <label>Max Number</label>
+            <input type="number" id="maxNumInput" value="100">
+            <label>Max Guesses</label>
+            <input type="number" id="maxGuessInput" value="10">
+            <button id="startGameBtn">Start Game</button>
+        </div>
     </div>
     <div id="gameArea">
         <h1>Guess The Number</h1>

@@ -133,3 +133,8 @@ h1{
 .arrowLow{
     color: #4287f5;
 }
+#sidebarBox{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
