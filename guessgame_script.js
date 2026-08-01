@@ -80,6 +80,8 @@ guessBtn.addEventListener("click", function () {
     } else {
         distanceHintBox.textContent = "Nah buddy, Too far!";
     }
+    guessInput.value = "";
+    guessInput.focus();
 });
 
 playAgainBtn.addEventListener("click", function () {
