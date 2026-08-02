@@ -3,7 +3,7 @@ body {
     font-family: 'Nunito';
     /* i might change font later  */
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;

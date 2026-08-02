@@ -108,15 +108,9 @@ for (var i = 0; i < optionItem.length; i++) {
         if (optionId == "beginner") {
             minNum = 1;
             maxNum = 10;
-        } else if (optionId == "easy") {
-            minNum = 1;
-            maxNum = 50;
         } else if (optionId == "normal") {
             minNum = 1;
             maxNum = 100;
-        } else if (optionId == "medium") {
-            minNum = 1;
-            maxNum = 500;
         } else if (optionId == "hard") {
             minNum = 1;
             maxNum = 1000;
