@@ -93,12 +93,8 @@ h1 {
 
 /* game mode sidebar  */
 #gameModeBox {
-    border-radius: 20px;
-    background-color: #eef0f5;
     padding: 15px;
     width: 190px;
-    box-shadow: 8px 8px 15px #c8cad0,
-        -8px -8px 15px #ffffff;
     flex-shrink: 0;
 }
 
