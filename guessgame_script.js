@@ -25,6 +25,7 @@ var maxNumInput = document.getElementById("maxNumInput");
 var maxGuessInput = document.getElementById("maxGuessInput");
 var startGameBtn = document.getElementById("startGameBtn");
 var historyLimit = 5;
+var clearHistory = document.getElementById("clearHistory");
 
 guessBtn.addEventListener("click", function () {
     if (guessInput.value == "") {
@@ -186,4 +187,7 @@ guessInput.addEventListener("blur", function () {
             + minNum + " and " + maxNum + " allowed !";
         msgBox.className = "msgHigh";
     }
+});
+clearHistory.addEventListener("click",function(){
+    guessHistoryBox.innerHTML = "";
 });

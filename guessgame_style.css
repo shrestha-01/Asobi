@@ -130,12 +130,6 @@ h1 {
         -5px -5px 10px #ffffff;
 }
 
-#gameArea {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
 #guessHistoryBox {
     display: flex;
     flex-wrap: wrap;
@@ -286,13 +280,7 @@ h1 {
     -8px -8px 15px #ffffff;
     margin-bottom: 20px;
 }
-#historyCard{
-    background-color: #eef0f5;
-    border-radius: 15px;
-    box-shadow: 8px 8px 15px #c8cad0,
-    -8px -8px 15px #ffffff;
-    padding: 10px;
-}
+
 #hintCard{
     background-color: #eef0f5;
     border-radius: 20px;
@@ -308,15 +296,20 @@ h1 {
     gap: 15px;
     width: 500px;
 }
-#infoColumn{
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    width: 250px;
-}
 #historyTitle{
     font-size: 14px;
     color: #888;
     margin: 0 0 10px 0;
     text-align: left;
+}
+#historyTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+#clearHistory{
+    font-size: 13px;
+    color: #7c5cff;
+    cursor: pointer;
 }
