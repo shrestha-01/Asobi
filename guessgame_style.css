@@ -276,3 +276,7 @@ h1 {
     font-weight: 800;
     color: #444;
 }
+#rightsidebarBox{
+    width: 250px;
+    flex-shrink: 0;
+}
