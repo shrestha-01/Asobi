@@ -65,14 +65,19 @@
         </div>
     </div>
     <div id="gameArea">
-        <h1>Guess The Number</h1>
-        <input type="number" id="guessInput">
-        <button id="guessBtn">Guess</button>
-        <p id="msgBox"></p>
-        <p id="distanceHintBox"></p>
-        <p id="guessCountBox"> Guesses: 0</p>
-        <div id="guessHistoryBox"></div>
-        <button id="playAgainBtn">Play Again</button>
+        <div id="gameCard">
+            <h1>Guess the Number</h1>
+            <input type="number" id="guessInput">
+            <button id="guessBtn">Guess</button>
+            <p id="msgBox"></p>
+            <p id="distanceHintBox"></p>
+            <p id="guessCountBox">Guesses: 0</p>
+            <button id="playAgainBtn">Play Again</button>
+        </div>
+        <div id="historyCard">
+            <div id="guessHistoryBox"></div>
+        </div>
+        <div id="hintCard"></div>
     </div>
     <div id="rightsideBox"></div>
     <script src="guessgame_script.js"></script>
