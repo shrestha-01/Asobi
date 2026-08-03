@@ -24,6 +24,7 @@ var minNumInput = document.getElementById("minNumInput");
 var maxNumInput = document.getElementById("maxNumInput");
 var maxGuessInput = document.getElementById("maxGuessInput");
 var startGameBtn = document.getElementById("startGameBtn");
+var historyLimit = 5;
 
 guessBtn.addEventListener("click", function () {
     if (guessInput.value == "") {
@@ -48,6 +49,9 @@ guessBtn.addEventListener("click", function () {
     card.innerHTML = playerGuess + '<span class="' + arrowClass + '">'
         + arrow + '</span>';
     guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
+    while(guessHistoryBox.children.length > historyLimit){
+        guessHistoryBox.removeChild(guessHistoryBox.lastChild);
+    }
 
     if (guessCount >= maxGuess && playerGuess != randomNum) {
         msgBox.textContent = "Game Over! Actually it was " + randomNum;
