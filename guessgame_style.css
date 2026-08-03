@@ -128,8 +128,8 @@ h1 {
 
 .optionItem.selected {
     background-color: #b8a4f7;
-    /* box-shadow: 5px 5px 10px #c8cad0,
-        -5px -5px 10px #ffffff; */
+    box-shadow: 5px 5px 10px #c8cad0,
+        -5px -5px 10px #ffffff;
     color: #fff;
     font-width: 700;
 }
