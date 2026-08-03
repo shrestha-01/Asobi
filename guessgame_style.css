@@ -276,7 +276,6 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    width: 350px;
 }
 #gameCard{
     background-color: #eef0f5;
@@ -319,4 +318,21 @@ h1 {
     font-size: 13px;
     color: #7c5cff;
     cursor: pointer;
+}
+#leaderCard{
+    background-color: #eef0f5;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 8px 8px 15px #c8cad0,
+    -8px -8px 15px #ffffff;
+    margin-bottom: 20px;
+    min-height: 100px;
+}
+#reactionCard{
+    background-color: #eef0f5;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 8px 8px 15px #c8cad0,
+    -8px -8px 15px #ffffff;
+    min-height: 100px;
 }
