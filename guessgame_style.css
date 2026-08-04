@@ -435,7 +435,7 @@ h1 {
 
 /* game mode sidebar  */
 #gameModeBox {
-    padding: 15px;
+    padding: 10px;
     width: 190px;
     flex-shrink: 0;
 }
@@ -450,12 +450,12 @@ h1 {
 
 .optionItem {
     border-radius: 12px;
-    padding: 10px 12px;
+    padding: 7px 12px;
     text-align: left;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     font-size: 14px;
     align-items: center;
     color: #444;
@@ -513,7 +513,7 @@ h1 {
 #sidebarBox {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
     background-color: #eef0f5;
     border-radius: 20px;
     padding: 15px;
@@ -528,7 +528,7 @@ h1 {
 #customGameBox {
     background-color: #eef0f5;
     border-radius: 20px;
-    padding: 15px;
+    padding: 10px;
     width: 190px;
     box-shadow: 8px 8px 15px #c8cad0,
         -8px -8px 15px #ffffff;
@@ -566,7 +566,7 @@ h1 {
 #startGameBtn {
     width: 100%;
     margin-top: 10px;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: none;
     border-radius: 10px;
     background-color: #eef0f5;
@@ -585,7 +585,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 #msgBox.msgHigh,
