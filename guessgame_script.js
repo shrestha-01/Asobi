@@ -26,6 +26,11 @@ var maxGuessInput = document.getElementById("maxGuessInput");
 var startGameBtn = document.getElementById("startGameBtn");
 var historyLimit = 5;
 var clearHistory = document.getElementById("clearHistory");
+var minNumText = document.getElementById("minNumText");
+var maxNumText = document.getElementById("maxNumText");
+
+minNumText.textContent = minNum;
+maxNumText.textContent = maxNum;
 
 guessBtn.addEventListener("click", function () {
     if (guessInput.value == "") {
@@ -131,6 +136,8 @@ for (var i = 0; i < optionItem.length; i++) {
         }
         randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
         scoreKey = "best_" + optionId;
+        minNumText.textContent = minNum;
+        maxNumText.textContent = maxNum;
         showBestScore();
     });
 }
@@ -163,6 +170,8 @@ startGameBtn.addEventListener("click", function () {
     guessHistoryBox.innerHTML = "";
     guessBtn.disabled = false;
     scoreKey = "best_custom_" + minNum + "_" + maxNum;
+    minNumText.textContent = minNum;
+    maxNumText.textContent = maxNum;
     showBestScore();
 });
 guessInput.focus();
