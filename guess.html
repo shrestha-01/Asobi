@@ -68,8 +68,16 @@
         <div id="dashboard">
             <div id="gameCard">
                 <h1>Guess The Number</h1>
-                <input type="number" id="guessInput">
-                <button id="guessBtn">Guess</button>
+                <div id="rangeBox">
+                    <p>I have selected a number between</p>
+                    <span id="minNumText">1</span>
+                    <span>and</span>
+                    <span id="maxNumText">10</span>
+                </div>
+                <div id="guessBox">
+                    <input type="number" id="guessInput">
+                    <button id="guessBtn">Guess</button>
+                </div>
                 <p id="msgBox"></p>
                 <p id="distanceHintBox"></p>
                 <p id="guessCountBox">Guesses: 0</p>
