@@ -4,7 +4,8 @@ body {
     /* i might change font later  */
     display: flex;
     height: 100vh;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
     align-items: flex-start;
     gap: 20px;
     padding: 20px;
@@ -693,4 +694,11 @@ h1 {
     color: #555;
     text-align: center;
     margin-top: 20px;
+}
+#mainBox{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
 }
