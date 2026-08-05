@@ -93,16 +93,22 @@ guessBtn.addEventListener("click", function () {
     guessInput.value = "";
     guessInput.focus();
 });
-
-playAgainBtn.addEventListener("click", function () {
+//play again
+function resetGame(){
     guessBtn.disabled = false;
     randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     guessCount = 0;
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
+    msgBox.className = "";
+    distanceHintBox.textContent ="";
     guessInput.value = "";
     guessHistoryBox.innerHTML = "";
-});
+    guessInput.focus();
+}
+playAgainBtn.addEventListener("click",function(){
+    resetGame();
+})
 
 for (var i = 0; i < optionItem.length; i++) {
     optionItem[i].addEventListener("click", function () {
