@@ -140,11 +140,11 @@ for (var i = 0; i < optionItem.length; i++) {
             minNum = 1;
             maxNum = 1000000;
         }
-        randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
         scoreKey = "best_" + optionId;
         minNumText.textContent = minNum;
         maxNumText.textContent = maxNum;
         showBestScore();
+        resetGame();
     });
 }
 function showBestScore() {
