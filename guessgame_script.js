@@ -167,14 +167,7 @@ startGameBtn.addEventListener("click", function () {
     minNum = newMinNum;
     maxNum = newMaxNum;
     maxGuess = newMaxGuess;
-    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-    guessCount = 0;
-    guessCountBox.textContent = "Guesses: 0";
-    msgBox.textContent = "";
-    distanceHintBox.textContent = "";
-    guessInput.value = "";
-    guessHistoryBox.innerHTML = "";
-    guessBtn.disabled = false;
+    resetGame();
     scoreKey = "best_custom_" + minNum + "_" + maxNum;
     minNumText.textContent = minNum;
     maxNumText.textContent = maxNum;
