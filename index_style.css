@@ -28,6 +28,9 @@ body{
 }
 .hero{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .logo{
     font-family: "NV CHOOM";
