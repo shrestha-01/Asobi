@@ -44,9 +44,10 @@ body{
     letter-spacing: 3px;
 }
 .moto {
-    font-size: 20px;
+    font-size: 18px;
     color: #77758a;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
 }
 #startBtn{
     border: none;
