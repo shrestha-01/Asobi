@@ -29,6 +29,24 @@ var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
 
+//username check
+var usernameModal = document.getElementById("usernameModal");
+var usernameInput = document.getElementById("usernameInput");
+var usernameButton = document.getElementById("usernameButton");
+var asobiUsername = localStorage.getItem("asobi_username");
+if(asobiUsername){
+    usernameModal.style.display="none";
+}
+usernameButton.addEventListener("click",function(){
+    var name = usernameInput.value.trim();
+    if(name == ""){
+        return;
+    }
+    localStorage.setItem("asobi_username",name);
+    asobiUsername = name;
+    usernameModal.style.display = "none";
+});
+
 minNumText.textContent = minNum;
 maxNumText.textContent = maxNum;
 
