@@ -159,8 +159,11 @@ body {
     transition: 0.3s ease-in-out;
 }
 
-#startBtn:hover .btnIcon {
-    stroke: #24536b;
+.btnText, .btnIcon{
+    transition: 0.3s ease;
+}
+#startBtn:hover .btnText,
+#startBtn:hover .btnIcon{
     transform: translateX(3px);
 }
 
