@@ -42,7 +42,7 @@ body {
     font-family: "NV CHOOM";
     font-size: 100px;
     letter-spacing: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     text-shadow: 0 5px 10px #25233a22;
 }
 
@@ -54,8 +54,8 @@ body {
 
 .moto {
     font-size: 18px;
-    color: #77758a;
-    margin-bottom: 25px;
+    color: #8a8799;
+    margin-bottom: 30px;
     letter-spacing: 1px;
 }
 
@@ -389,4 +389,13 @@ body::after {
     right: 12%;
     opacity: 0.5;
     z-index: -1;
+}
+.smallCircle{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #d8d2f3;
+    border-radius: 50%;
+    top: 15%;
+    right: 15%;
 }
