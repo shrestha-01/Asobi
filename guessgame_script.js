@@ -104,9 +104,10 @@ function resetGame(){
     distanceHintBox.textContent ="";
     guessInput.value = "";
     guessHistoryBox.innerHTML = "";
-    guessInput.focus();
 }
 playAgainBtn.addEventListener("click",function(){
+    playAgainBtn.blur();
+    playAgainBtn.focus();
     resetGame();
 })
 
