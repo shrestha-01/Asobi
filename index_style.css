@@ -8,6 +8,10 @@
     src: url("Fonts/thealiens/thealiens-Regular.ttf")
     format("truetype");
 }
+@font-face {
+    font-family: "NV CHOOM";
+    src: url("Fonts/nv-choom-demo/NV CHOOM.ttf");
+}
 body{
     min-height: 100vh;
     background: #f5f3fa;
@@ -24,9 +28,9 @@ body{
     text-align: center;
 }
 .logo{
-    font-family: "The Aliens";
-    font-size: 180px;
-    /* letter-spacing: 2px; */
+    font-family: "NV CHOOM";
+    font-size: 100px;
+    /* letter-spacing: -5px; */
     margin-bottom: 5px;
 }
 .japanese{
@@ -323,4 +327,12 @@ body{
         left: -3px;
         opacity: 1;
     }
+}
+.logo span{
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.7s ease;
+}
+.logo span:hover{
+    transform: scaleX(1.3);
 }
