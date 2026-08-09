@@ -43,6 +43,7 @@ body {
     font-size: 100px;
     letter-spacing: 15px;
     margin-bottom: 5px;
+    text-shadow: 0 5px 10px #25233a22;
 }
 
 .japanese {
