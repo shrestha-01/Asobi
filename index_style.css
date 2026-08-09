@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face{
+    font-family: "The Aliens";
+    src: url("Fonts/thealiens/thealiens-Regular.ttf")
+    format("truetype");
+}
 body{
     min-height: 100vh;
     background: #f5f3fa;
