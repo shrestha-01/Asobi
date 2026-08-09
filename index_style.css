@@ -41,3 +41,280 @@ body{
     color: white;
     cursor: pointer;
 }
+/* design by dexter-st  */
+.btnWrap {
+    --dot-size: 6px;
+    --line-weight: 1px;
+    --line-distance: 15px 20px;
+    --animation-speed: 0.35s;
+    --dot-color: #6b7280;
+    --line-color: #9ca3af;
+
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: auto;
+    padding: var(--line-distance);
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btnWrap:has(#startBtn:hover) {
+    animation: showButtonColor 0.3s ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 3);
+}
+
+@keyframes showButtonColor {
+    0% {
+        background-color: transparent;
+    }
+
+    100% {
+        background-color: #87ceeb22;
+    }
+}
+
+#startBtn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 25px;
+
+    border: none;
+    border-radius: 30% / 200%;
+
+    background-color: #6ec6f5;
+    background-image: linear-gradient(#ffffff00, #00000015);
+
+    color: #173b50;
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 0 1px #00000022,
+        0 5px 4px #0000000a,
+        0 12px 9px #0000000f,
+        0 20px 15px #00000014;
+
+    transition:
+        background-color 0.2s ease-in-out,
+        transform 0.2s ease-in-out,
+        box-shadow 0.2s ease-in-out,
+        border-radius 0.3s ease-in-out;
+}
+
+#startBtn:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    border-radius: 10% / 200%;
+}
+
+#startBtn:active {
+    background-color: #6ec6f5;
+    transform: scale(0.98);
+}
+
+.btnIcon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+#startBtn:hover .btnIcon {
+    stroke: #24536b;
+}
+
+/* dots */
+
+.dot {
+    position: absolute;
+    width: var(--dot-size);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: var(--dot-color);
+    opacity: 0;
+}
+
+/* lines */
+
+.line {
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+
+.line.horizontal {
+    height: var(--line-weight);
+    width: 100%;
+    background-image: repeating-linear-gradient(
+        90deg,
+        transparent 0 2px,
+        var(--line-color) 2px 4px
+    );
+}
+
+.line.vertical {
+    width: var(--line-weight);
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        0deg,
+        transparent 0 2px,
+        var(--line-color) 2px 4px
+    );
+}
+
+.line.top {
+    top: 0;
+    transform: rotate(5deg) scaleX(0);
+    transform-origin: top left;
+}
+
+.line.right {
+    right: 0;
+    transform: rotate(5deg) scaleY(0);
+    transform-origin: top right;
+}
+
+.line.bottom {
+    bottom: 0;
+    transform: rotate(5deg) scaleX(0);
+    transform-origin: bottom right;
+}
+
+.line.left {
+    left: 0;
+    transform: scaleY(0);
+    transform-origin: bottom left;
+}
+
+/* dots animation */
+
+.btnWrap:has(#startBtn:hover) .dot.top.left {
+    top: 50%;
+    left: 20%;
+    animation: moveTopLeft var(--animation-speed) ease-in-out forwards;
+}
+
+.btnWrap:has(#startBtn:hover) .dot.top.right {
+    top: 50%;
+    right: 20%;
+    animation: moveTopRight var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 0.6);
+}
+
+.btnWrap:has(#startBtn:hover) .dot.bottom.right {
+    bottom: 50%;
+    right: 20%;
+    animation: moveBottomRight var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 1.2);
+}
+
+.btnWrap:has(#startBtn:hover) .dot.bottom.left {
+    bottom: 50%;
+    left: 20%;
+    animation: moveBottomLeft var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 1.8);
+}
+
+/* outline animation */
+
+.btnWrap:has(#startBtn:hover) .line.top {
+    animation: drawTop var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 0.8);
+}
+
+.btnWrap:has(#startBtn:hover) .line.right {
+    animation: drawRight var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 1.4);
+}
+
+.btnWrap:has(#startBtn:hover) .line.bottom {
+    animation: drawBottom var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 2);
+}
+
+.btnWrap:has(#startBtn:hover) .line.left {
+    animation: drawLeft var(--animation-speed) ease-in-out forwards;
+    animation-delay: calc(var(--animation-speed) * 2.4);
+}
+
+/* outline keyframes */
+
+@keyframes drawTop {
+    to {
+        transform: rotate(0deg) scaleX(1);
+    }
+}
+
+@keyframes drawRight {
+    to {
+        transform: rotate(0deg) scaleY(1);
+    }
+}
+
+@keyframes drawBottom {
+    to {
+        transform: rotate(0deg) scaleX(1);
+    }
+}
+
+@keyframes drawLeft {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+/* dot keyframes */
+
+@keyframes moveTopLeft {
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        top: -3px;
+        left: -3px;
+        opacity: 1;
+    }
+}
+
+@keyframes moveTopRight {
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        top: -3px;
+        right: -3px;
+        opacity: 1;
+    }
+}
+
+@keyframes moveBottomRight {
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        bottom: -3px;
+        right: -3px;
+        opacity: 1;
+    }
+}
+
+@keyframes moveBottomLeft {
+    90% {
+        opacity: 0.6;
+    }
+
+    100% {
+        bottom: -3px;
+        left: -3px;
+        opacity: 1;
+    }
+}
