@@ -40,7 +40,8 @@ body{
 }
 .japanese{
     font-size: 25px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
 }
 .moto {
     font-size: 20px;
