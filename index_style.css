@@ -351,3 +351,15 @@ body::before{
     opacity: 0.5;
     z-index: -1;
 }
+body::after{
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: #e4dff8;
+    border-radius: 50%;
+    bottom: 5%;
+    right: 12%;
+    opacity: 0.5;
+    z-index: -1;
+}
