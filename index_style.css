@@ -149,9 +149,14 @@ body {
 }
 
 .btnIcon {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: #24536b;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: 0.3s ease-in-out;
 }
 
 #startBtn:hover .btnIcon {
