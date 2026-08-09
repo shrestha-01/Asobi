@@ -35,7 +35,7 @@ body{
 .logo{
     font-family: "NV CHOOM";
     font-size: 100px;
-    /* letter-spacing: -10px; */
+    letter-spacing: 15px;
     margin-bottom: 5px;
 }
 .japanese{
