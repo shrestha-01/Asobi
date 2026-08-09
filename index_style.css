@@ -30,7 +30,7 @@ body{
 .logo{
     font-family: "NV CHOOM";
     font-size: 100px;
-    /* letter-spacing: -5px; */
+    /* letter-spacing: -10px; */
     margin-bottom: 5px;
 }
 .japanese{
@@ -331,8 +331,9 @@ body{
 .logo span{
     display: inline-block;
     cursor: pointer;
-    transition: transform 0.7s ease;
+    transition: transform 0.35s ease;
 }
 .logo span:hover{
     transform: scaleX(1.3);
+    /* margin: 0 5px; */
 }
