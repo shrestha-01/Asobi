@@ -1,46 +1,105 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+@font-face {
+    font-family: "The Aliens";
+    src: url("Fonts/thealiens/thealiens-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "NV CHOOM";
+    src: url("Fonts/nv-choom-demo/NV CHOOM.ttf");
+}
+
 @font-face {
     font-family: "VARINO";
-    src: url("Fonts/varino/Varino - Normal.otf");
+    src: url("Fonts/varino/Varino - Normal.ttf");
 }
-body{
+
+body {
     min-height: 100vh;
     background: #f3f1fa;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* font-family: 'VARINO'; */
 }
-.box-1{
+
+.box-1 {
     width: 600px;
     background: #ffffff;
     border-radius: 20px;
     padding: 40px;
+    box-shadow: 8px 8px 20px #d1cce8,
+        -8px -8px 20px #ffffff;
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+        5px 5px 10px #ffffff;
 }
-.title{
+
+.title {
     text-align: center;
     margin-bottom: 10px;
     font-family: 'VARINO';
 }
-.title h2{
-    font-size: 30px;
+
+.title h2 {
+    font-size: 45px;
     letter-spacing: 3px;
     color: #6a4fd6;
 }
-.controller{
-    width: 40px;
-    height: 40px;
+
+.controller {
+    width: 70px;
+    height: 70px;
     margin-bottom: 5px;
+    filter: drop-shadow(5px 5px 7px #d1cce8) 
+    drop-shadow(-5px -5px 8px #ffffff);
 }
-#asobiuser{
+
+#asobiuser {
     width: 100%;
-    padding: 15px;
-    border: 1px solid #d8d2f3;
-    border-radius: 12px;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 43px;
     font-size: 15px;
     outline: none;
     margin-top: 10px;
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+        5px 5px 10px #ffffff;
+}
+
+#submit {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: none;
+    background: #8067d8;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 5px 5px 5px #d1cce8,
+        -5px -5px 12px #ffffff;
+}
+
+.guide {
+    text-align: center;
+    font-size: 30px;
+    margin-top: 20px;
+    color: #25233a;
+    font-family: sans-serif;
+}
+
+.unique {
+    background: linear-gradient(90deg,
+            #8067d8, #e0609e);
+    -webkit-backdrop-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 5px 5px 10px #d1cce8;
 }
