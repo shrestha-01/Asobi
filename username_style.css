@@ -27,17 +27,49 @@ body {
     align-items: center;
     /* font-family: 'VARINO'; */
 }
-
+/* From Uiverse.io by dylanharriscameron */
 .box-1 {
     width: 600px;
     background: #ffffff;
     border-radius: 20px;
-    padding: 40px;
-    box-shadow: 8px 8px 20px #d1cce8,
-        -8px -8px 20px #ffffff;
+    padding: 3px;
     background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
         5px 5px 10px #ffffff;
+    position: relative;
+    clip-path: inset(0 round 20px);
+    border-radius: 20px;
+}
+.box-2 {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: #ab8fe0;
+    opacity: 0.85;
+    filter: blur(80px);
+    animation: blobMove 5s infinite ease, colorChange 3s infinite linear;
+}
+@keyframes colorChange {
+    0% { filter: blur(80px) saturate(10) hue-rotate(0deg); }
+    100% { filter: blur(80px) saturate(10) hue-rotate(360deg); }
+}
+.box-3 {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
+    padding: 20px;
+}
+@keyframes blobMove {
+    0% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
+    25% { transform: translate(-100%, -100%) translate3d(100%, 0, 0); }
+    50% { transform: translate(-100%, -100%) translate3d(100%, 100%, 0); }
+    75% { transform: translate(-100%, -100%) translate3d(0, 100%, 0); }
+    100% { transform: translate(-100%, -100%) translate3d(0, 0, 0); }
 }
 
 .title {
@@ -65,12 +97,13 @@ body {
     padding: 15px 20px;
     border: none;
     border-radius: 43px;
-    font-size: 15px;
+    font-size: 18px;
     outline: none;
     margin-top: 10px;
     background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-        5px 5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #submit {
@@ -89,7 +122,7 @@ body {
 
 .guide {
     text-align: center;
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 20px;
     color: #25233a;
     font-family: sans-serif;
