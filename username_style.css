@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "VARINO";
+    src: url("Fonts/varino/Varino - Normal.otf");
+}
+body{
+    min-height: 100vh;
+    background: #f3f1fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box-1{
+    width: 600px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+}
+.title{
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'VARINO';
+}
+.title h2{
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: #6a4fd6;
+}
