@@ -13,6 +13,10 @@
     font-family: "NV CHOOM";
     src: url("Fonts/nv-choom-demo/NV CHOOM.ttf");
 }
+@font-face{
+    font-family: "VARINO";
+    src: url("Fonts/varino/Varino - Normal.ttf");
+}
 
 body {
     min-height: 100vh;
@@ -36,11 +40,11 @@ body {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    z-index: 0;
+    z-index: 1;
 }
 
 .logo {
-    font-family: "NV CHOOM";
+    font-family: "VARINO";
     font-size: 100px;
     letter-spacing: 15px;
     margin-bottom: 10px;
