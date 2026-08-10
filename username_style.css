@@ -25,9 +25,107 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
     /* font-family: 'VARINO'; */
 }
-
+.shape{
+    position: absolute;
+    z-index: 1;
+    color: #b9a7f5;
+}
+.shapeO{
+    width: 35px;
+    height: 35px;
+    border: 5px solid #f2a7c4;
+    border-radius: 50%;
+    bottom: 20%;
+    left: 12%;
+}
+.shapeO2{
+    width: 35px;
+    height: 35px;
+    border: 5px solid #f2a7c4;
+    border-radius: 50%;
+    bottom: 20%;
+    left: 80%;
+}
+.shapeSquare{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: 20%;
+    right: 10%;
+    border: 5px solid #9ec8f5;
+    transform: rotate(30deg);
+    z-index: 2;
+}
+.shapeX{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 30%;
+    left: 15%;
+    transform: rotate(45deg);
+}
+.shapeX::before,
+.shapeX::after{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: #b9a7f5;
+    border-radius: 5px;
+    top: 10px;
+    left: 0;
+}
+.shapeX::after{
+    transform: rotate(90deg);
+}
+.shapeX2{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 10%;
+    left: 85%;
+    transform: rotate(45deg);
+}
+.shapeX2::before,
+.shapeX2::after{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    background: #b9a7f5;
+    border-radius: 5px;
+    top: 10px;
+    left: 0;
+}
+.shapeX2::after{
+    transform: rotate(90deg);
+}
+.shapetri{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid #9ec8f5;
+    top: 60%;
+    right: 20%;
+    transform: rotate(15deg);
+}
+.shapetri::after{
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: -12px;
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 18px solid #f2f1fa;
+}
 /* From Uiverse.io by dylanharriscameron */
 .box-1 {
     width: 600px;
