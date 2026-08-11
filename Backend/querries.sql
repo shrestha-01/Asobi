@@ -5,3 +5,13 @@ CREATE TABLE players(
     username VARCHAR(50) NOT NULL UNIQUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE guess_the_number_scores(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    player_id INT,
+    difficulty VARCHAR(20),
+    score INT,
+    attempts INT,
+    won TINYINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (player_id) REFERENCES players(id)
+);
