@@ -4,9 +4,25 @@
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: "The Aliens";
+    src: url("Fonts/thealiens/thealiens-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "NV CHOOM";
+    src: url("Fonts/nv-choom-demo/NV CHOOM.ttf");
+}
+
+@font-face {
+    font-family: "VARINO";
+    src: url("Fonts/varino/Varino - Normal.ttf");
+}
+
 body {
     min-height: 100vh;
     background: #f3f1fa;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .topBox {
@@ -27,6 +43,7 @@ body {
     letter-spacing: 2px;
     color: #6a4fd6;
     font-weight: bold;
+    font-family: VARINO;
 }
 
 .links {
@@ -48,4 +65,55 @@ body {
     box-shadow: 5px 5px 10px #d1cce8,
         -5px -5px 10px #ffffff;
     font-size: 15px;
+}
+
+/* the game lsit card */
+.gameCard {
+    width: 220px;
+    background: linear-gradient(145deg,
+            #f5f3fb, #e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+        -5px -5px 10px #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    margin: 30px;
+}
+
+.gameName {
+    font-size: 17px;
+    color: #25233a;
+}
+
+/* From Uiverse.io by ke1221 */
+#play {
+    display: inline-block;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 15px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c5c5c5,
+        -6px -6px 12px #ffffff;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+#play:active {
+    color: #666;
+    box-shadow: inset 4px 4px 12px #c5c5c5,
+        inset -4px -4px 12px #ffffff;
+}
+
+.gtnlogo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    box-shadow: 5px 5px 10px #d1cce8,
+        -5px -5px 10px #ffffff;
 }
