@@ -79,6 +79,15 @@ guessBtn.addEventListener("click", function () {
             localStorage.setItem(scoreKey, guessCount);
         }
         showBestScore();
+
+        var playerId = localStorage.getItem("asobi_player_id");
+        fetch("Backend/score_save.php",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + guessCount + "&attempts="+ guessCount + "&won=1"
+        });
     }
     var distance = Math.abs(randomNum - playerGuess);
     var range = maxNum - minNum;
