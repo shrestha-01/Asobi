@@ -5,9 +5,23 @@ var msgBox = document.getElementById("msgBox");
 
 submitBtn.addEventListener("click",function(){
     if(asobiUser.value == ""){
-        msgBox.textContent = "Please enter a username first";
+        msgBox.textContent = "Bruh, Please enter a username first";
         return;
     }
-    localStorage.setItem("asobi_username",asobiUser.value);
-    window.location.href = "gamelist.html";
+    fetch("Backend/get_player.php",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "username=" + encodeURIComponent(asobiUser.value)
+    })
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        var playerId = data.id;
+        localStorage.setItem("asobi_username", data.username);
+        localStorage.setItem("asobi_player_id", playerId);
+        window.location.href="gamelist.html";
+    });
 });
