@@ -56,7 +56,7 @@ guessBtn.addEventListener("click", function () {
     card.innerHTML = playerGuess + '<span class="' + arrowClass + '">'
         + arrow + '</span>';
     guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
-    while(guessHistoryBox.children.length > historyLimit){
+    while (guessHistoryBox.children.length > historyLimit) {
         guessHistoryBox.removeChild(guessHistoryBox.lastChild);
     }
 
@@ -78,15 +78,16 @@ guessBtn.addEventListener("click", function () {
         if (best == null || guessCount < best) {
             localStorage.setItem(scoreKey, guessCount);
         }
+        loadLeaderboard();
         showBestScore();
 
         var playerId = localStorage.getItem("asobi_player_id");
-        fetch("Backend/score_save.php",{
+        fetch("Backend/score_save.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + guessCount + "&attempts="+ guessCount + "&won=1"
+            body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + guessCount + "&attempts=" + guessCount + "&won=1"
         });
     }
     var distance = Math.abs(randomNum - playerGuess);
@@ -103,19 +104,35 @@ guessBtn.addEventListener("click", function () {
     guessInput.value = "";
     guessInput.focus();
 });
+// for leaderboard 
+var leaderboardList = document.getElementById("leaderboardList");
+function loadLeaderboard() {
+    fetch("Backend/leaderboard.php?difficulty=" + scoreKey)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (scores) {
+            leaderboardList.innerHTML = "";
+            for (var i = 0; i < scores.length; i++) {
+                var row = document.createElement("p");
+                row.textContent = (i + 1) + ". " + scores[i].username + " - " + scores[i].score;
+                leaderboardList.appendChild(row);
+            }
+        });
+}
 //play again
-function resetGame(){
+function resetGame() {
     guessBtn.disabled = false;
     randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
     guessCount = 0;
     guessCountBox.textContent = "Guesses: 0";
     msgBox.textContent = "";
     msgBox.className = "";
-    distanceHintBox.textContent ="";
+    distanceHintBox.textContent = "";
     guessInput.value = "";
     guessHistoryBox.innerHTML = "";
 }
-playAgainBtn.addEventListener("click",function(){
+playAgainBtn.addEventListener("click", function () {
     playAgainBtn.blur();
     playAgainBtn.focus();
     resetGame();
@@ -207,6 +224,6 @@ guessInput.addEventListener("blur", function () {
         msgBox.className = "msgHigh";
     }
 });
-clearHistory.addEventListener("click",function(){
+clearHistory.addEventListener("click", function () {
     guessHistoryBox.innerHTML = "";
 });
