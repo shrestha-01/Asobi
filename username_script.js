@@ -19,6 +19,10 @@ submitBtn.addEventListener("click",function(){
         return response.json();
     })
     .then(function(data){
+        if(data.error){
+            msgBox.textContent = data.error;
+            return;
+        }
         var playerId = data.id;
         localStorage.setItem("asobi_username", data.username);
         localStorage.setItem("asobi_player_id", playerId);

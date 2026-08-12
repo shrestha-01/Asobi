@@ -272,3 +272,11 @@ body {
     background-clip: text;
     text-shadow: 5px 5px 10px #d1cce8;
 }
+/* username errror */
+#msgBox{
+    color: #e01c2d;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}

@@ -15,7 +15,7 @@ $result = $stmt->get_result();
 $player = $result->fetch_assoc();
 
 if($player){
-    echo json_encode($player);
+    echo json_encode(["error" => "Emr.. this username is already taken"]);
     exit;
 }
 
