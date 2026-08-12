@@ -29,6 +29,7 @@ var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
 var pRank = document.getElementById("pRank");
+var totalBoard = document.getElementById("totalBoard");
 //point giving system
 var basePoints = {
     "beginner": 10,
@@ -122,7 +123,7 @@ guessBtn.addEventListener("click", function () {
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
-            body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + guessCount + "&attempts=" + guessCount + "&won=1"
+            body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + points + "&attempts=" + guessCount + "&won=1"
         })
         .then(function(){
             loadLeaderboard();
@@ -279,3 +280,19 @@ clearHistory.addEventListener("click", function () {
     guessHistoryBox.innerHTML = "";
 });
 loadLeaderboard();
+function loadTotalBoard(){
+    fetch("Backend/total_Board.php")
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(scores){
+        totalBoard.innerHTML = "";
+        for(var i=0; i<scores.length; i++){
+            var row = document.createElement("div");
+            row.className = "leaderRow";
+            row.innerHTML = '<span class="rank">' + (i+1) + '</span>' + '<span class="username">' + scores[i].username + '</span>' + '<span class="score">' + scores[i].score + '</span>';
+            totalBoard.appendChild(row);
+        }
+    });
+}
+loadTotalBoard();
