@@ -915,3 +915,29 @@ h1 {
 /* .gradient-btn{
   color: transparent;
 } */
+/* leaderboard designs */
+.leaderRow{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  margin-bottom: 6px;
+  background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
+  box-shadow: 4px 4px 8px #d1cce8,
+  -4px -4px 8px #ffffff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.rank{
+  color: #6a4fd6;
+  font-weight: bold;
+  width: 20px;
+}
+.username{
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+.score{
+  font-weight: bold;
+}

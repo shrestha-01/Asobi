@@ -11,7 +11,7 @@ if($username == ""){
 $stmt = $conn->prepare("SELECT id, username FROM players WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
-$result = $stmt->get_resutl();
+$result = $stmt->get_result();
 $player = $result->fetch_assoc();
 
 if($player){

@@ -10,7 +10,7 @@ if($playerId == "" || $difficulty == ""){
     echo json_encode(["error" => "oh no , missing data"]);
     exit;
 }
-$stmt = $conn->prepare("INSERT INTO guess_the_number_scores (player_id, difficulty, score, attempts, won) VALUES ()");
+$stmt = $conn->prepare("INSERT INTO guess_the_number_scores (player_id, difficulty, score, attempts, won) VALUES (?, ?, ?, ?, ?)");
 $stmt->bind_param("isiii", $playerId, $difficulty, $score, $attempts, $won);
 $stmt->execute();
 

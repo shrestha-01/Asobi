@@ -106,19 +106,22 @@ guessBtn.addEventListener("click", function () {
 });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
-function loadLeaderboard() {
+function loadLeaderboard(){
     fetch("Backend/leaderboard.php?difficulty=" + scoreKey)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (scores) {
-            leaderboardList.innerHTML = "";
-            for (var i = 0; i < scores.length; i++) {
-                var row = document.createElement("p");
-                row.textContent = (i + 1) + ". " + scores[i].username + " - " + scores[i].score;
-                leaderboardList.appendChild(row);
-            }
-        });
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(scores){
+        leaderboardList.innerHTML = "";
+        for(var i = 0; i< scores.length; i++){
+            var row = document.createElement("div");
+            row.className = "leaderRow";
+            row.innerHTML= '<span class="rank">' + (i + 1) + '</span>'
+            + '<span class ="username">' + scores[i].username + '</span>'
+            + '<span class="score">' + scores[i].score + '</span>';
+            leaderboardList.appendChild(row);
+        }
+    });
 }
 //play again
 function resetGame() {

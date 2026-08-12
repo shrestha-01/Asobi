@@ -15,3 +15,5 @@ CREATE TABLE guess_the_number_scores(
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (player_id) REFERENCES players(id)
 );
+SELECT * FROM players;
+SELECT * FROM guess_the_number_scores;
