@@ -17,3 +17,4 @@ CREATE TABLE guess_the_number_scores(
 );
 SELECT * FROM players;
 SELECT * FROM guess_the_number_scores;
+TRUNCATE guess_the_number_scores;

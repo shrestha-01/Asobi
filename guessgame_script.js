@@ -28,8 +28,9 @@ var historyLimit = 5;
 var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
+var pRank = document.getElementById("pRank");
 //point giving system
-var basePoints =  {
+var basePoints = {
     "beginner": 10,
     "normal": 25,
     "hard": 50,
@@ -45,7 +46,7 @@ var attemptPenalty = {
     "master": 5,
     "impossible": 6
 };
-var minimumPoints =  {
+var minimumPoints = {
     "beginner": 2,
     "normal": 5,
     "hard": 10,
@@ -93,7 +94,7 @@ guessBtn.addEventListener("click", function () {
         msgBox.textContent = "Nah Buddy, Try guessing lower...";
         msgBox.className = "msgHigh";
     } else if (playerGuess < randomNum) {
-        msgBox.textContent = "Nah Buddy, Try guessing higher...";
+        msgBox.textContent = "Nah Buddy, Try guessing higher....";
         msgBox.className = "msgLow";
     } else {
         msgBox.textContent = "Perfect! Thats Correct..";
@@ -106,9 +107,9 @@ guessBtn.addEventListener("click", function () {
         loadLeaderboard();
         showBestScore();
 
-        var difficultyName = scoreKey.replace("best_","");
-        var points = basePoints[difficultyName]  - ((guessCount - 1) * attemptPenalty[difficultyName]);
-        if(points < minimumPoints[difficultyName]){
+        var difficultyName = scoreKey.replace("best_", "");
+        var points = basePoints[difficultyName] - ((guessCount - 1) * attemptPenalty[difficultyName]);
+        if (points < minimumPoints[difficultyName]) {
             points = minimumPoints[difficultyName];
         }
 
@@ -137,22 +138,32 @@ guessBtn.addEventListener("click", function () {
 });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
-function loadLeaderboard(){
+function loadLeaderboard() {
     fetch("Backend/leaderboard.php?difficulty=" + scoreKey)
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(scores){
-        leaderboardList.innerHTML = "";
-        for(var i = 0; i< scores.length; i++){
-            var row = document.createElement("div");
-            row.className = "leaderRow";
-            row.innerHTML= '<span class="rank">' + (i + 1) + '</span>'
-            + '<span class ="username">' + scores[i].username + '</span>'
-            + '<span class="score">' + scores[i].score + '</span>';
-            leaderboardList.appendChild(row);
-        }
-    });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (scores) {
+            leaderboardList.innerHTML = "";
+            var playerName = localStorage.getItem("asobi_username");
+            var myRank = null;
+            for (var i = 0; i < scores.length; i++) {
+                var row = document.createElement("div");
+                row.className = "leaderRow";
+                row.innerHTML = '<span class="rank">' + (i + 1) + '</span>'
+                    + '<span class ="username">' + scores[i].username + '</span>'
+                    + '<span class="score">' + scores[i].score + '</span>';
+                leaderboardList.appendChild(row);
+                if (scores[i].username == playerName) {
+                    myRank = i + 1;
+                }
+            }
+            if (myRank) {
+                pRank.textContent = "Your rank: #"+myRank;
+            } else{
+                pRank.textContent = "";
+            }
+        });
 }
 //play again
 function resetGame() {
@@ -261,3 +272,4 @@ guessInput.addEventListener("blur", function () {
 clearHistory.addEventListener("click", function () {
     guessHistoryBox.innerHTML = "";
 });
+loadLeaderboard();
