@@ -54,7 +54,11 @@ var minimumPoints = {
     "master": 40,
     "impossible": 100
 };
-
+//making sure player has username
+var checkPlayerId = localStorage.getItem("asobi_player_id");
+if(checkPlayerId == null){
+    window.location.href = "index.html";
+}
 
 minNumText.textContent = minNum;
 maxNumText.textContent = maxNum;
