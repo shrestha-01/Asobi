@@ -104,7 +104,6 @@ guessBtn.addEventListener("click", function () {
         if (best == null || guessCount < best) {
             localStorage.setItem(scoreKey, guessCount);
         }
-        loadLeaderboard();
         showBestScore();
 
         var difficultyName = scoreKey.replace("best_", "");
@@ -120,6 +119,9 @@ guessBtn.addEventListener("click", function () {
                 "Content-Type": "application/x-www-form-urlencoded"
             },
             body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + guessCount + "&attempts=" + guessCount + "&won=1"
+        })
+        .then(function(){
+            loadLeaderboard();
         });
     }
     var distance = Math.abs(randomNum - playerGuess);

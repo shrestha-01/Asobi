@@ -1,12 +1,13 @@
 <?php
 require "db.php";
 $difficulty = $_GET["difficulty"];
-$sql="SELECT players.username, guess_the_number_scores.score, guess_the_number_scores.created_at
+$sql="SELECT players.username, SUM(guess_the_number_scores.score) AS score
 FROM guess_the_number_scores
 JOIN players
 ON guess_the_number_scores.player_id = players.id
 WHERE difficulty = ?
-ORDER BY score ASC
+GROUP BY players.id
+ORDER BY score DESC
 LIMIT 100";
 
 $stmt = $conn->prepare($sql);
