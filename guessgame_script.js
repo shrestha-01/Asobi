@@ -17,7 +17,7 @@ var minNum = 1;
 var maxNum = 10;
 randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 var bestScoreBox = document.getElementById("bestScoreBox");
-var scoreKey = "best_normal";
+var scoreKey = "best_beginner";
 var distanceHintBox = document.getElementById("distanceHintBox");
 var guessHistoryBox = document.getElementById("guessHistoryBox");
 var minNumInput = document.getElementById("minNumInput");
@@ -127,6 +127,7 @@ guessBtn.addEventListener("click", function () {
         })
         .then(function(){
             loadLeaderboard();
+            loadTotalBoard();
         });
     }
     var distance = Math.abs(randomNum - playerGuess);
@@ -224,6 +225,7 @@ for (var i = 0; i < optionItem.length; i++) {
         minNumText.textContent = minNum;
         maxNumText.textContent = maxNum;
         showBestScore();
+        loadLeaderboard();
         resetGame();
     });
 }
