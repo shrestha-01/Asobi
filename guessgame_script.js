@@ -28,6 +28,31 @@ var historyLimit = 5;
 var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
+//point giving system
+var basePoints =  {
+    "beginner": 10,
+    "normal": 25,
+    "hard": 50,
+    "expert": 100,
+    "master": 200,
+    "impossible": 500
+};
+var attemptPenalty = {
+    "beginner": 1,
+    "normal": 2,
+    "hard": 3,
+    "expert": 4,
+    "master": 5,
+    "impossible": 6
+};
+var minimumPoints =  {
+    "beginner": 2,
+    "normal": 5,
+    "hard": 10,
+    "expert": 20,
+    "master": 40,
+    "impossible": 100
+};
 
 
 minNumText.textContent = minNum;
@@ -80,6 +105,12 @@ guessBtn.addEventListener("click", function () {
         }
         loadLeaderboard();
         showBestScore();
+
+        var difficultyName = scoreKey.replace("best_","");
+        var points = basePoints[difficultyName]  - ((guessCount - 1) * attemptPenalty[difficultyName]);
+        if(points < minimumPoints[difficultyName]){
+            points = minimumPoints[difficultyName];
+        }
 
         var playerId = localStorage.getItem("asobi_player_id");
         fetch("Backend/score_save.php", {
