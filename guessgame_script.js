@@ -57,7 +57,7 @@ var minimumPoints = {
 };
 //making sure player has username
 var checkPlayerId = localStorage.getItem("asobi_player_id");
-if(checkPlayerId == null){
+if (checkPlayerId == null) {
     window.location.href = "index.html";
 }
 
@@ -76,10 +76,10 @@ guessBtn.addEventListener("click", function () {
     var arrow = "";
     var arrowClass = "";
     if (playerGuess > randomNum) {
-        arrow = "&uarr;";
+        arrow = "&darr;";
         arrowClass = "arrowHigh";
     } else if (playerGuess < randomNum) {
-        arrow = "&darr;";
+        arrow = "&uarr;";
         arrowClass = "arrowLow";
     }
     var card = document.createElement("div");
@@ -91,11 +91,12 @@ guessBtn.addEventListener("click", function () {
         guessHistoryBox.removeChild(guessHistoryBox.lastChild);
     }
 
-    if (guessCount >= maxGuess && playerGuess != randomNum) {
-        msgBox.textContent = "Game Over! Actually it was " + randomNum;
-        msgBox.className = "msgHigh";
-        guessBtn.disabled = true;
-    } else if (playerGuess > randomNum) {
+    // if (guessCount >= maxGuess && playerGuess != randomNum) {
+    //     msgBox.textContent = "Game over! Actually it was " + randomNum;
+    //     msgBox.className = "msgHigh";
+    //     guessBtn.disabled = true;
+    // } else 
+    if (playerGuess > randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing lower...";
         msgBox.className = "msgHigh";
     } else if (playerGuess < randomNum) {
@@ -125,10 +126,10 @@ guessBtn.addEventListener("click", function () {
             },
             body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + points + "&attempts=" + guessCount + "&won=1"
         })
-        .then(function(){
-            loadLeaderboard();
-            loadTotalBoard();
-        });
+            .then(function () {
+                loadLeaderboard();
+                loadTotalBoard();
+            });
     }
     var distance = Math.abs(randomNum - playerGuess);
     var range = maxNum - minNum;
@@ -167,8 +168,8 @@ function loadLeaderboard() {
                 }
             }
             if (myRank) {
-                pRank.textContent = "Your rank: #"+myRank;
-            } else{
+                pRank.textContent = "Your rank: #" + myRank;
+            } else {
                 pRank.textContent = "";
             }
         });
@@ -282,19 +283,19 @@ clearHistory.addEventListener("click", function () {
     guessHistoryBox.innerHTML = "";
 });
 loadLeaderboard();
-function loadTotalBoard(){
+function loadTotalBoard() {
     fetch("Backend/total_Board.php")
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(scores){
-        totalBoard.innerHTML = "";
-        for(var i=0; i<scores.length; i++){
-            var row = document.createElement("div");
-            row.className = "leaderRow";
-            row.innerHTML = '<span class="rank">' + (i+1) + '</span>' + '<span class="username">' + scores[i].username + '</span>' + '<span class="score">' + scores[i].score + '</span>';
-            totalBoard.appendChild(row);
-        }
-    });
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (scores) {
+            totalBoard.innerHTML = "";
+            for (var i = 0; i < scores.length; i++) {
+                var row = document.createElement("div");
+                row.className = "leaderRow";
+                row.innerHTML = '<span class="rank">' + (i + 1) + '</span>' + '<span class="username">' + scores[i].username + '</span>' + '<span class="score">' + scores[i].score + '</span>';
+                totalBoard.appendChild(row);
+            }
+        });
 }
 loadTotalBoard();
