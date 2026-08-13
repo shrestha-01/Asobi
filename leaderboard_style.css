@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background: #f3f1fa;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+#sideBar{
+    width: 220px;
+    background: linear-gradient(145deg,#f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px 10px #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+.diff{
+    padding: 10px 15px;
+    margin-top: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.diff:hover{
+    background: #e8e4f5;
+}
+#leaderTabel{
+    flex: 1;
+    background: linear-gradient(145deg,#f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px 10px #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+.tRow{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+/* gemini helped with this  */
+tRow:not(:first-child){
+    background: rgba(255,255,255,0.5);
+}
+
+.pRank, .pName, .totalBox, .pTime{
+    flex: 1;
+    text-align: center;
+}
