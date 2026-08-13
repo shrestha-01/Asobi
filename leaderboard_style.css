@@ -7,8 +7,40 @@ body{
     min-height: 100vh;
     background: #f3f1fa;
     display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
+}
+#pageRow{
+    display: flex;
+    gap: 20px;
+    flex: 1;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px 10px #ffffff;
+    border-radius: 20px;
+    padding: 15px 20px;
+}
+#logoBox{
+    font-size: 20px;
+    font-weight: 800;
+    color: #444;
+}
+#backBtn{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    box-shadow: 3px 3px 6px #d1cce8,
+    -3px -3px 6px #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+
 }
 #sideBar{
     width: 220px;
@@ -40,9 +72,12 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 15px;
-    margin-top: 5px;
-    border-radius: 10px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    background: linear-gradient(140deg, #f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px  10px #ffffff;
 }
 
 /* gemini helped with this  */
@@ -53,4 +88,11 @@ tRow:not(:first-child){
 .pRank, .pName, .totalBox, .pTime{
     flex: 1;
     text-align: center;
+}
+
+.tRow:first-child{
+    background: none;
+    box-shadow: none;
+    font-weight: bold;
+    color: #6a4fd6;
 }
