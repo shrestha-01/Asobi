@@ -4,3 +4,4 @@ Hover sound [Title]: Modern technology select from mixkit.co
 Card effect[username]: https://uiverse.io/dylanharriscameron/stupid-mole-90
 Submit Btn design: https://uiverse.io/elijahgummer/sweet-rabbit-5
 Play Btn[Gamelist]: https://uiverse.io/ke1221/ancient-walrus-24
+Trophy SVG[Leaderboard]: https://lottiefiles.com/free-animation/trophy-ITXDedW9Xd
