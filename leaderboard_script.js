@@ -4,8 +4,10 @@ var diffs = document.getElementsByClassName("diff");
 
 //showing players on the leaderbaord
 function showBoard(players){
+    var hero = leaderTabel.querySelector("#hero");
     var header = leaderTabel.querySelector(".tRow");
     leaderTabel.innerHTML = "";
+    leaderTabel.appendChild(hero);
     leaderTabel.appendChild(header);
 
     for(var i =0; i<players.length; i++){
@@ -19,16 +21,16 @@ function showBoard(players){
     }
 }
 //loading total leaderboard
-function loadTotal(){
-    fetch("Backend/total_Board.php")
-    .then(function(r){
-        return r.json();
-    })
-    .then(function(players){
-        showBoard(players);
-    });
-}
-loadTotal();
+// function loadTotal(){
+//     fetch("Backend/total_Board.php")
+//     .then(function(r){
+//         return r.json();
+//     })
+//     .then(function(players){
+//         showBoard(players);
+//     });
+// }
+// loadTotal();
 for(var i=0; i<diffs.length; i++){
     diffs[i].addEventListener("click",function(){
         var text = this.textContent;

@@ -498,7 +498,7 @@ h1 {
 #guessHistoryBox {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    /* gap: 10px; */
     margin-top: 2px;
     justify-content: center;
     overflow-y: auto;

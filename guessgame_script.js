@@ -29,7 +29,7 @@ var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
 var pRank = document.getElementById("pRank");
-var totalBoard = document.getElementById("totalBoard");
+// var totalBoard = document.getElementById("totalBoard");
 //point giving system
 var basePoints = {
     "beginner": 10,
@@ -128,7 +128,7 @@ guessBtn.addEventListener("click", function () {
         })
             .then(function () {
                 loadLeaderboard();
-                loadTotalBoard();
+                // loadTotalBoard();
             });
     }
     var distance = Math.abs(randomNum - playerGuess);
@@ -298,4 +298,4 @@ function loadTotalBoard() {
             }
         });
 }
-loadTotalBoard();
+// loadTotalBoard();
