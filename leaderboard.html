@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Asobi - Leaderboard</title>
     <link rel="stylesheet" href="leaderboard_style.css">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.4/dist/dotlottie-wc.js" type="module"></script>
 </head>
-
 <body>
     <div id="header">
         <span id="logoBox">Asobi</span>
         <button id="backBtn">Back to Games</button>
     </div>
     <div id="pageRow">
-        <div id="sideBar">
-            <p>Leaderboard</p>
-            <div class="diff">Total Leaderboard</div>
-            <p>By Difficulty</p>
-            <div class="diff">Beginner (1 - 10)</div>
-            <div class="diff">Normal (1 - 100)</div>
-            <div class="diff">Hard (1 - 1K)</div>
-            <div class="diff">Expert (1 - 10k)</div>
-            <div class="diff">Master (1 - 100K)</div>
-            <div class="diff">Impossible (1 - 1M)</div>
+    <div id="sideBar">
+        <p>Leaderboard</p>
+        <div class="diff">Total Leaderboard</div>
+        <p>By Difficulty</p>
+        <div class="diff">Beginner  (1 - 10)</div>
+        <div class="diff">Normal  (1 - 100)</div>
+        <div class="diff">Hard  (1 - 1K)</div>
+        <div class="diff">Expert  (1 - 10k)</div>
+        <div class="diff">Master  (1 - 100K)</div>
+        <div class="diff">Impossible  (1 - 1M)</div>
+    </div>
+    <div id="leaderTabel">
+        <div id="hero">
+            <dotlottie-wc id="trophy" src="https://lottie.host/77ff6101-1a8d-4db0-9af1-d7e480e02a9c/4rFKUrI1qN.lottie" autoplay loop></dotlottie-wc>
+            <h1 id="title">Total Leaderboard</h1>
+            <p id="subtitle">Rankings are based on Total Score across all difficulties.<br>The more you play, the higher you climb!</p>
         </div>
-        <div id="leaderTabel">
-            <div class="tRow">
-                <span class="pRank">Rank</span>
-                <span class="pName">Player</span>
-                <span class="totalBox">Total Score</span>
-                <span class="pTime">Games Played</span>
-            </div>
-        </div>
+        <div class="tRow">
+            <span class="pRank">Rank</span>
+            <span class="pName">Player</span>
+            <span class="totalBox">Total Score</span>
+            <span class="pTime">Games Played</span>
+        </div>    </div>
     </div>
 
     <script src="leaderboard_script.js"></script>
 </body>
-
 </html>

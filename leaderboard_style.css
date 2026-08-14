@@ -66,7 +66,9 @@ body{
     box-shadow: 5px 5px 10px #d1cce8,
     -5px -5px 10px #ffffff;
     border-radius: 20px;
-    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: -5px;
 }
 .tRow{
     display: flex;
@@ -95,4 +97,24 @@ tRow:not(:first-child){
     box-shadow: none;
     font-weight: bold;
     color: #6a4fd6;
+}
+#hero{
+    text-align: center;
+    margin-bottom: 20px;
+}
+#trophy{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto
+     0px auto;
+    display: block;
+}
+#title{
+    font-size: 25px;
+    color: #444;
+    margin-bottom: 8px;
+}
+#subtitle{
+    font-size: 15px;
+    color: #777;
 }
