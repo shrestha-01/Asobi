@@ -118,3 +118,70 @@ tRow:not(:first-child){
     font-size: 15px;
     color: #777;
 }
+/* your info  */
+#rightSide{
+    width: 260px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#stats{
+    background: linear-gradient(145deg,#f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px 10px #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+#statsTitle{
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.statline{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background: rgba(255,255,255,0.5);
+}
+.statValue{
+    font-weight: bold;
+    color: #6a4fd6;
+    font-size: 15px;
+}
+.statLabel{
+    font-size: 13px;
+    color: #777;
+}
+#scoreBox{
+    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px 10px #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+}
+#scoreTitle{
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+#scoreText{
+    font-size: 13px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+#scoreBtn{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 3px 3px 6px #d1cce8,
+    -3px -3px 6px #ffffff;
+}
