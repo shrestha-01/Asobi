@@ -14,23 +14,23 @@ function showBoard(players){
         var row = document.createElement("div");
         row.className = "tRow";
         row.innerHTML = '<span class="pRank">'+(i+1)+'</span>'
-        + '<span class="pName:">' + players[i].username + '</span>'
+        + '<span class="pName">' + players[i].username + '</span>'
         +'<span class="totalBox">' + players[i].score + '</span>'
         +'<span class="pTime">' + players[i].games+'</span>';
         leaderTabel.appendChild(row);
     }
 }
-//loading total leaderboard
-// function loadTotal(){
-//     fetch("Backend/total_Board.php")
-//     .then(function(r){
-//         return r.json();
-//     })
-//     .then(function(players){
-//         showBoard(players);
-//     });
-// }
-// loadTotal();
+// loading total leaderboard
+function loadTotal(){
+    fetch("Backend/total_Board.php")
+    .then(function(r){
+        return r.json();
+    })
+    .then(function(players){
+        showBoard(players);
+    });
+}
+loadTotal();
 for(var i=0; i<diffs.length; i++){
     diffs[i].addEventListener("click",function(){
         var text = this.textContent;
