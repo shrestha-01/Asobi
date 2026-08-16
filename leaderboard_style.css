@@ -190,6 +190,27 @@ tRow:not(:first-child){
     box-shadow: 5px 5px 12px #d9d4ec,
     -5px -5px 10px #ffffff;
 }
+.rank1{
+    background: linear-gradient(140deg, #fff6e0, #ffe9b3);
+}
+.rank1 .rankBox{
+    background: linear-gradient(145deg,#ffe9b3,#ffd873);
+    color: #a67c00;
+}
+.rank2{
+    background: linear-gradient(140deg, #eceef2, #d3d5dc);
+}
+.rank2 .rankBox{
+    background: linear-gradient(145deg,#dcdde3,#b8bac2);
+    color: #4a4c53;
+}
+.rank3{
+    background: linear-gradient(140deg, #fbeade, #f2d3b8);
+}
+.rank3 .rankBox{
+    background: linear-gradient(145deg,#f2d3b8,#e3b483);
+    color: #8a5a26;
+}
 .rankBox{
     display: inline-flex;
     align-items: center;

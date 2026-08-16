@@ -12,9 +12,13 @@ function showBoard(players){
 
     for(var i =0; i<players.length; i++){
         var row = document.createElement("div");
-        row.className ="tRow";
-        if(i<3){
-            row.className = "tRow topRow";
+        row.className = "tRow";
+        if(i == 0){
+            row.className = "tRow topRow rank1";
+        } else if(i == 1){
+            row.className = "tRow topRow rank2";
+        } else if(i == 2){
+            row.className = "tRow topRow rank3";
         }
         row.innerHTML = '<span class="pRank"><span class="rankBox">'+(i+1)+'</span></span>'
         + '<span class="pName">' + players[i].username + '</span>'
