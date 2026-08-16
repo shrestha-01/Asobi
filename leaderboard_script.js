@@ -12,8 +12,11 @@ function showBoard(players){
 
     for(var i =0; i<players.length; i++){
         var row = document.createElement("div");
-        row.className = "tRow";
-        row.innerHTML = '<span class="pRank">'+(i+1)+'</span>'
+        row.className ="tRow";
+        if(i<3){
+            row.className = "tRow topRow";
+        }
+        row.innerHTML = '<span class="pRank"><span class="rankBox">'+(i+1)+'</span></span>'
         + '<span class="pName">' + players[i].username + '</span>'
         +'<span class="totalBox">' + players[i].score + '</span>'
         +'<span class="pTime">' + players[i].games+'</span>';

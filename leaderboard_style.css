@@ -185,3 +185,21 @@ tRow:not(:first-child){
     box-shadow: 3px 3px 6px #d1cce8,
     -3px -3px 6px #ffffff;
 }
+.topRow{
+    background: linear-gradient(140deg, #ece8fa, #e0daf7);
+    box-shadow: 5px 5px 12px #d9d4ec,
+    -5px -5px 10px #ffffff;
+}
+.rankBox{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
+    box-shadow: 3px 3px 6px #d1cce8,
+    -3px -3px 6px #ffffff;
+    font-weight: bold;
+    color: #6a4fd6;
+}
