@@ -7,6 +7,7 @@ var gamesNum = document.getElementById("gamesNum");
 var yourRank = document.getElementById("yourRank");
 var yourScore = document.getElementById("yourScore");
 var yourGames = document.getElementById("yourGames");
+var backBtn = document.getElementById("backBtn");
 
 //showing players on the leaderbaord
 function showBoard(players){
@@ -83,3 +84,6 @@ for(var i=0; i<diffs.length; i++){
         }
     });
 }
+backBtn.addEventListener("click",function(){
+    window.location.href = "guess.html";
+});
