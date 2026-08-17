@@ -78,6 +78,7 @@ for(var i=0; i<diffs.length; i++){
             })
             .then(function(scores){
                 showBoard(scores);
+                showInfo(scores);
             });
         }
     });
