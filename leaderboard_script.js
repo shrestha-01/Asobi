@@ -1,6 +1,12 @@
 //getting elements
 var leaderTabel = document.getElementById("leaderTabel");
 var diffs = document.getElementsByClassName("diff");
+var rankNum = document.getElementById("rankNum");
+var scoreNum = document.getElementById("scoreNum");
+var gamesNum = document.getElementById("gamesNum");
+var yourRank = document.getElementById("yourRank");
+var yourScore = document.getElementById("yourScore");
+var yourGames = document.getElementById("yourGames");
 
 //showing players on the leaderbaord
 function showBoard(players){
@@ -36,6 +42,26 @@ function loadTotal(){
     .then(function(players){
         showBoard(players);
     });
+}
+//shwoing your own rank , score and games
+function showInfo(p){
+    var myName = localStorage.getItem("asobi_username");
+    var myRank = "-";
+    var myScore = "-";
+    var myGames = "-";
+    for(var i=0; i<players.length; i++){
+        if(players[i].username == myName){
+            myRank = "#" + (i+1);
+            myScore = players[i].score;
+            myGames =players[i].games;
+        }
+    }
+    rankNum.textContent = myRank;
+    scoreNum.textContent = myScore;
+    guessNum.textContent = myGames;
+    yourRank.textContent = myRank;
+    yourScore.textContent= myScore;
+    yourGames.textContent = myGames;
 }
 loadTotal();
 for(var i=0; i<diffs.length; i++){
