@@ -41,6 +41,7 @@ function loadTotal(){
     })
     .then(function(players){
         showBoard(players);
+        showInfo(players);
     });
 }
 //shwoing your own rank , score and games
@@ -49,16 +50,16 @@ function showInfo(p){
     var myRank = "-";
     var myScore = "-";
     var myGames = "-";
-    for(var i=0; i<players.length; i++){
-        if(players[i].username == myName){
+    for(var i=0; i<p.length; i++){
+        if(p[i].username == myName){
             myRank = "#" + (i+1);
-            myScore = players[i].score;
-            myGames =players[i].games;
+            myScore = p[i].score;
+            myGames =p[i].games;
         }
     }
     rankNum.textContent = myRank;
     scoreNum.textContent = myScore;
-    guessNum.textContent = myGames;
+    gamesNum.textContent = myGames;
     yourRank.textContent = myRank;
     yourScore.textContent= myScore;
     yourGames.textContent = myGames;
