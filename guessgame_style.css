@@ -941,3 +941,13 @@ h1 {
 .score{
   font-weight: bold;
 }
+#vboard{
+  font-size: 13px;
+  color: #7c5cff;
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+}
+#vboard:hover{
+  text-decoration: underline;
+}

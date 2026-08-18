@@ -13,6 +13,7 @@ var difficultyBox = document.getElementById("difficultyBox");
 // var selectTitle = document.getElementById("selectTitle");
 // var selectValue = document.getElementById("selectValue");
 var optionItem = document.getElementsByClassName("optionItem");
+var vboard = document.getElementById("vboard");
 var minNum = 1;
 var maxNum = 10;
 randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
@@ -299,3 +300,7 @@ function loadTotalBoard() {
         });
 }
 // loadTotalBoard();
+//total leaderbaord link
+vboard.addEventListener("click",function(){
+    window.location.href = "leaderboard.html";
+});
