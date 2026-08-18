@@ -3,6 +3,20 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: "The Aliens";
+    src: url("Fonts/thealiens/thealiens-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "NV CHOOM";
+    src: url("Fonts/nv-choom-demo/NV CHOOM.ttf");
+}
+
+@font-face {
+    font-family: "VARINO";
+    src: url("Fonts/varino/Varino - Normal.ttf");
+}
 body{
     min-height: 100vh;
     background: #f3f1fa;
@@ -10,6 +24,7 @@ body{
     flex-direction: column;
     gap: 20px;
     padding: 20px;
+    font-family: 'Nunito';
 }
 #pageRow{
     display: flex;
@@ -30,6 +45,7 @@ body{
     font-size: 20px;
     font-weight: 800;
     color: #444;
+    font-family: VARINO;
 }
 #backBtn{
     padding: 8px 16px;

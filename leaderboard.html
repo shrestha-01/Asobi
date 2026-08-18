@@ -7,6 +7,7 @@
     <title>Asobi - Leaderboard</title>
     <link rel="stylesheet" href="leaderboard_style.css">
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.4/dist/dotlottie-wc.js" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -27,37 +28,38 @@
             <div class="diff">Impossible (1 - 1M)</div>
         </div>
         <div id="boardWrap">
-        <div id="leaderTabel">
-            <div id="hero">
-                <dotlottie-wc id="trophy"
-                    src="https://lottie.host/77ff6101-1a8d-4db0-9af1-d7e480e02a9c/4rFKUrI1qN.lottie" autoplay
-                    loop></dotlottie-wc>
-                <h1 id="title">Total Leaderboard</h1>
-                <p id="subtitle">Rankings are based on Total Score across all difficulties.<br>The more you play, the
-                    higher you climb!</p>
+            <div id="leaderTabel">
+                <div id="hero">
+                    <dotlottie-wc id="trophy"
+                        src="https://lottie.host/77ff6101-1a8d-4db0-9af1-d7e480e02a9c/4rFKUrI1qN.lottie" autoplay
+                        loop></dotlottie-wc>
+                    <h1 id="title">Total Leaderboard</h1>
+                    <p id="subtitle">Rankings are based on Total Score across all difficulties.<br>The more you play,
+                        the
+                        higher you climb!</p>
+                </div>
+                <div class="tRow firstplayer">
+                    <span class="pRank">Rank</span>
+                    <span class="pName">Player</span>
+                    <span class="totalBox">Total Score</span>
+                    <span class="pTime">Games Played</span>
+                </div>
+                <div id="plRows"></div>
             </div>
-            <div class="tRow firstplayer">
-                <span class="pRank">Rank</span>
-                <span class="pName">Player</span>
-                <span class="totalBox">Total Score</span>
-                <span class="pTime">Games Played</span>
+            <div id="yourbox">
+                <div class="yourinfo">
+                    <span class="statLabel">Your Rank</span>
+                    <span class="statValue" id="yourRank">#1</span>
+                </div>
+                <div class="yourinfo">
+                    <span class="statLabel">Your Total Score</span>
+                    <span class="statValue" id="yourScore">10,000</span>
+                </div>
+                <div class="yourinfo">
+                    <span class="statLabel">Games Played</span>
+                    <span class="statValue" id="yourGames">67</span>
+                </div>
             </div>
-            <div id="plRows"></div>
-        </div>
-        <div id="yourbox">
-            <div class="yourinfo">
-                <span class="statLabel">Your Rank</span>
-                <span class="statValue" id="yourRank">#1</span>
-            </div>
-            <div class="yourinfo">
-                <span class="statLabel">Your Total Score</span>
-                <span class="statValue" id="yourScore">10,000</span>
-            </div>
-            <div class="yourinfo">
-                <span class="statLabel">Games Played</span>
-                <span class="statValue" id="yourGames">67</span>
-            </div>
-        </div>
         </div>
         <div id="rightSide">
             <div id="stats">
