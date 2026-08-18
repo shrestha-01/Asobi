@@ -11,27 +11,24 @@ var backBtn = document.getElementById("backBtn");
 
 //showing players on the leaderbaord
 function showBoard(players){
-    var hero = leaderTabel.querySelector("#hero");
-    var header = leaderTabel.querySelector(".tRow");
-    leaderTabel.innerHTML = "";
-    leaderTabel.appendChild(hero);
-    leaderTabel.appendChild(header);
+    var plRows = document.getElementById("plRows");
+    plRows.innerHTML = "";
 
-    for(var i =0; i<players.length; i++){
+    for(var i=0; i<players.length; i++){
         var row = document.createElement("div");
-        row.className = "tRow";
-        if(i == 0){
+        row.className= "tRow";
+        if(i ==0){
             row.className = "tRow topRow rank1";
-        } else if(i == 1){
-            row.className = "tRow topRow rank2";
-        } else if(i == 2){
-            row.className = "tRow topRow rank3";
+        } else if(i==1){
+            row.className="tRow topRow rank2";
+        } else if(i ==2){
+            row.className ="tRow topRow rank3";
         }
         row.innerHTML = '<span class="pRank"><span class="rankBox">'+(i+1)+'</span></span>'
         + '<span class="pName">' + players[i].username + '</span>'
         +'<span class="totalBox">' + players[i].score + '</span>'
         +'<span class="pTime">' + players[i].games+'</span>';
-        leaderTabel.appendChild(row);
+        plRows.appendChild(row);
     }
 }
 // loading total leaderboard

@@ -98,7 +98,7 @@ tRow:not(:first-child){
     text-align: center;
 }
 
-.tRow:first-child{
+.firstplayer{
     background: none;
     box-shadow: none;
     font-weight: bold;
@@ -243,4 +243,8 @@ tRow:not(:first-child){
     display: flex;
     align-items: center;
     gap: 8px;
+}
+#plRows{
+    max-height: 300px;
+    overflow-y: auto;
 }
