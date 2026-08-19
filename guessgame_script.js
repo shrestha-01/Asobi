@@ -136,44 +136,46 @@ guessBtn.addEventListener("click", function () {
         }
         showBestScore();
 
-        var difficultyName = scoreKey.replace("best_", "");
-        var points = basePoints[difficultyName] - ((guessCount - 1) * attemptPenalty[difficultyName]);
-        if (points < minimumPoints[difficultyName]) {
-            points = minimumPoints[difficultyName];
+        var isCustom = scoreKey.indexOf("custom") !== -1;
+        if (!isCustom) {
+            var difficultyName = scoreKey.replace("best_", "");
+            var points = basePoints[difficultyName] - ((guessCount - 1) * attemptPenalty[difficultyName]);
+            if (points < minimumPoints[difficultyName]) {
+                points = minimumPoints[difficultyName];
+            }
+            if (hardcoreCheck.checked) {
+                points = points * 2;
+            }
+
+            var playerId = localStorage.getItem("asobi_player_id");
+            fetch("Backend/score_save.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + points + "&attempts=" + guessCount + "&won=1"
+            })
+                .then(function () {
+                    loadLeaderboard();
+                    // loadTotalBoard();
+                });
         }
+        var distance = Math.abs(randomNum - playerGuess);
+        var range = maxNum - minNum;
         if (hardcoreCheck.checked) {
-            points = points * 2;
+            distanceHintBox.textContent = "";
+        } else if (playerGuess == randomNum) {
+            distanceHintBox.textContent = "";
+        } else if (distance < range * 0.05) {
+            distanceHintBox.textContent = "You are very close!";
+        } else if (distance < range * 0.2) {
+            distanceHintBox.textContent = "Getting close!"
+        } else {
+            distanceHintBox.textContent = "Nah buddy, Too far!";
         }
-        
-        var playerId = localStorage.getItem("asobi_player_id");
-        fetch("Backend/score_save.php", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + points + "&attempts=" + guessCount + "&won=1"
-        })
-            .then(function () {
-                loadLeaderboard();
-                // loadTotalBoard();
-            });
-    }
-    var distance = Math.abs(randomNum - playerGuess);
-    var range = maxNum - minNum;
-    if (hardcoreCheck.checked) {
-        distanceHintBox.textContent = "";
-    } else if (playerGuess == randomNum) {
-        distanceHintBox.textContent = "";
-    } else if (distance < range * 0.05) {
-        distanceHintBox.textContent = "You are very close!";
-    } else if (distance < range * 0.2) {
-        distanceHintBox.textContent = "Getting close!"
-    } else {
-        distanceHintBox.textContent = "Nah buddy, Too far!";
-    }
-    guessInput.value = "";
-    guessInput.focus();
-});
+        guessInput.value = "";
+        guessInput.focus();
+    });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
 function loadLeaderboard() {
