@@ -141,7 +141,10 @@ guessBtn.addEventListener("click", function () {
         if (points < minimumPoints[difficultyName]) {
             points = minimumPoints[difficultyName];
         }
-
+        if (hardcoreCheck.checked) {
+            points = points * 2;
+        }
+        
         var playerId = localStorage.getItem("asobi_player_id");
         fetch("Backend/score_save.php", {
             method: "POST",
@@ -179,7 +182,7 @@ function loadLeaderboard() {
             return response.json();
         })
         .then(function (scores) {
-                        leaderboardList.innerHTML = "";
+            leaderboardList.innerHTML = "";
             var playerName = localStorage.getItem("asobi_username");
             var myRank = null;
             for (var i = 0; i < scores.length; i++) {
