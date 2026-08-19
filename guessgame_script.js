@@ -179,12 +179,19 @@ function loadLeaderboard() {
             return response.json();
         })
         .then(function (scores) {
-            leaderboardList.innerHTML = "";
+                        leaderboardList.innerHTML = "";
             var playerName = localStorage.getItem("asobi_username");
             var myRank = null;
             for (var i = 0; i < scores.length; i++) {
                 var row = document.createElement("div");
                 row.className = "leaderRow";
+                if (i == 0) {
+                    row.className = "leaderRow rank1";
+                } else if (i == 1) {
+                    row.className = "leaderRow rank2";
+                } else if (i == 2) {
+                    row.className = "leaderRow rank3";
+                }
                 row.innerHTML = '<span class="rank">' + (i + 1) + '</span>'
                     + '<span class ="username">' + scores[i].username + '</span>'
                     + '<span class="score">' + scores[i].score + '</span>';
