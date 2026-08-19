@@ -1,8 +1,9 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 @font-face {
     font-family: "The Aliens";
     src: url("Fonts/thealiens/thealiens-Regular.ttf") format("truetype");
@@ -17,7 +18,8 @@
     font-family: "VARINO";
     src: url("Fonts/varino/Varino - Normal.ttf");
 }
-body{
+
+body {
     min-height: 100vh;
     background: #f3f1fa;
     display: flex;
@@ -26,177 +28,203 @@ body{
     padding: 20px;
     font-family: 'Nunito';
 }
-#pageRow{
+
+#pageRow {
     display: flex;
     gap: 20px;
     flex: 1;
 }
-#header{
+
+#header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 15px 20px;
 }
-#logoBox{
+
+#logoBox {
     font-size: 20px;
     font-weight: 800;
     color: #444;
     font-family: VARINO;
 }
-#backBtn{
+
+#backBtn {
     padding: 8px 16px;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 3px 3px 6px #d1cce8,
-    -3px -3px 6px #ffffff;
+        -3px -3px 6px #ffffff;
     font-size: 15px;
     cursor: pointer;
 
 }
-#sideBar{
+
+#sideBar {
     width: 220px;
-    background: linear-gradient(145deg,#f5f3fb,#e8e4f5);
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 20px;
 }
-.diff{
+
+.diff {
     padding: 10px 15px;
     margin-top: 8px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
 }
-.diff:hover{
+
+.diff:hover {
     background: #e8e4f5;
 }
-#boardWrap{
+
+#boardWrap {
     flex: 1;
     display: flex;
     gap: 15px;
     min-width: 0;
     flex-direction: column;
 }
-#leaderTabel{
-    background: linear-gradient(145deg,#f5f3fb,#e8e4f5);
+
+#leaderTabel {
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: -5px;
 }
-.tRow{
+
+.tRow {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     margin-bottom: 12px;
     border-radius: 15px;
-    background: linear-gradient(140deg, #f5f3fb,#e8e4f5);
+    background: linear-gradient(140deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px  10px #ffffff;
+        -5px -5px 10px #ffffff;
 }
 
 /* gemini helped with this  */
-tRow:not(:first-child){
-    background: rgba(255,255,255,0.5);
+tRow:not(:first-child) {
+    background: rgba(255, 255, 255, 0.5);
 }
 
-.pRank, .pName, .totalBox, .pTime{
+.pRank,
+.pName,
+.totalBox,
+.pTime {
     flex: 1;
     text-align: center;
 }
 
-.firstplayer{
+.firstplayer {
     background: none;
     box-shadow: none;
     font-weight: bold;
     color: #6a4fd6;
 }
-#hero{
+
+#hero {
     text-align: center;
     margin-bottom: 20px;
 }
-#trophy{
+
+#trophy {
     width: 150px;
     height: 150px;
-    margin: 0 auto
-     0px auto;
+    margin: 0 auto 0px auto;
     display: block;
 }
-#title{
+
+#title {
     font-size: 25px;
     color: #444;
     margin-bottom: 8px;
 }
-#subtitle{
+
+#subtitle {
     font-size: 15px;
     color: #777;
 }
+
 /* your info  */
-#rightSide{
+#rightSide {
     width: 260px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-#stats{
-    background: linear-gradient(145deg,#f5f3fb,#e8e4f5);
+
+#stats {
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 20px;
 }
-#statsTitle{
+
+#statsTitle {
     color: #555;
     font-size: 15px;
     margin-bottom: 10px;
 }
-.statline{
+
+.statline {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 12px;
     margin-bottom: 10px;
     border-radius: 15px;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.5);
 }
-.statValue{
+
+.statValue {
     font-weight: bold;
     color: #6a4fd6;
     font-size: 15px;
 }
-.statLabel{
+
+.statLabel {
     font-size: 13px;
     color: #777;
 }
-#scoreBox{
-    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+
+#scoreBox {
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 20px;
 }
-#scoreTitle{
+
+#scoreTitle {
     color: #555;
     font-size: 15px;
     margin-bottom: 10px;
 }
-#scoreText{
+
+#scoreText {
     font-size: 13px;
     color: #777;
     line-height: 1.5;
     margin-bottom: 15px;
 }
-#scoreBtn{
+
+#scoreBtn {
     width: 100%;
     padding: 10px;
     border: none;
@@ -205,35 +233,43 @@ tRow:not(:first-child){
     font-size: 15px;
     cursor: pointer;
     box-shadow: 3px 3px 6px #d1cce8,
-    -3px -3px 6px #ffffff;
+        -3px -3px 6px #ffffff;
 }
-.topRow{
+
+.topRow {
     background: linear-gradient(140deg, #ece8fa, #e0daf7);
     box-shadow: 5px 5px 12px #d9d4ec,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
 }
-.rank1{
+
+.rank1 {
     background: linear-gradient(140deg, #fff6e0, #ffe9b3);
 }
-.rank1 .rankBox{
-    background: linear-gradient(145deg,#ffe9b3,#ffd873);
+
+.rank1 .rankBox {
+    background: linear-gradient(145deg, #ffe9b3, #ffd873);
     color: #a67c00;
 }
-.rank2{
+
+.rank2 {
     background: linear-gradient(140deg, #eceef2, #d3d5dc);
 }
-.rank2 .rankBox{
-    background: linear-gradient(145deg,#dcdde3,#b8bac2);
+
+.rank2 .rankBox {
+    background: linear-gradient(145deg, #dcdde3, #b8bac2);
     color: #4a4c53;
 }
-.rank3{
+
+.rank3 {
     background: linear-gradient(140deg, #fbeade, #f2d3b8);
 }
-.rank3 .rankBox{
-    background: linear-gradient(145deg,#f2d3b8,#e3b483);
+
+.rank3 .rankBox {
+    background: linear-gradient(145deg, #f2d3b8, #e3b483);
     color: #8a5a26;
 }
-.rankBox{
+
+.rankBox {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -242,25 +278,141 @@ tRow:not(:first-child){
     border-radius: 50%;
     background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 3px 3px 6px #d1cce8,
-    -3px -3px 6px #ffffff;
+        -3px -3px 6px #ffffff;
     font-weight: bold;
     color: #6a4fd6;
 }
-#yourbox{
+
+#yourbox {
     display: flex;
-    justify-content: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    justify-content: linear-gradient(145deg, #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
-    -5px -5px 10px #ffffff;
+        -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 15px 25px;
     justify-content: space-between;
 }
-.yourinfo{
+
+.yourinfo {
     display: flex;
     align-items: center;
     gap: 8px;
 }
-#plRows{
+
+#plRows {
     max-height: 300px;
     overflow-y: auto;
+}
+
+/* design for how scoring works */
+#scorePopup {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+#scorePopupCard {
+    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
+    border-radius: 20px;
+    padding: 25px 30px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+    box-shadow: 5px 5px 7px #d1cce8,
+        -5px -5px 7px #ffffff;
+}
+
+#closeBtn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #888;
+}
+
+#closeBtn:hover {
+    color: #444;
+}
+
+/* card design by mark miro (credited with link in github)*/
+#scorePopup{
+    perspective: 1500px;
+}
+.card{
+    font-weight: bold;
+    padding: 25px 30px;
+    color: #444;
+    max-width: 90%;
+    box-shadow: 0 1px 5px #00000099;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    position: relative;
+    transition-duration: 300ms;
+    transition-property: transform,box-shadow;
+    transition-timing-function: ease-out;
+    transform: rotate3d(0);
+}
+.card:hover{
+    transition-duration: 150ms;
+    box-shadow: 0 5px 20px 5px #00000044;
+}
+.card .glow{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 20px;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 50% -20%,
+    #ffffff55, #0000000f);
+}
+#scoreIntro{
+    font-weight: normal;
+    font-size: 14px;
+    color: #666;
+    text-align: left;
+    margin: 10px 0 15px 0;
+    line-height: 1.5;
+}
+#sTable{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+.sRow{
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.6);
+}
+.sHead{
+    background: none;
+    font-weight: bold;
+    color: #6a4fd6;
+    font-size: 12px;
+}
+.sName{
+    flex: 2;
+    font-size: 14px;
+    color: #444;
+    text-align: left;
+}
+.sCol{
+    flex: 1;
+    font-size: 13px;
+    color: #666;
+    font-weight: normal;
+    text-align: center;
 }
