@@ -30,6 +30,11 @@ var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
 var pRank = document.getElementById("pRank");
+var gif = document.getElementById("gif");
+var correctGifs = ["GIFs/Correct/Win_01.gif", "GIFs/Correct/Win_02.gif", "GIFs/Correct/Win_03.gif"];
+var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Down_03.gif"];
+var upGifs = ["GIFs/UP/Point_Up_01.gif", "GIFs/UP/Point_Up_02.gif", "GIFs/UP/Point_Up_03.gif"];
+var errorGifs = ["GIFs/Error/Error_01.gif", "GIFs/Error/Error_02.gif", "GIFs/Error/Error_03.gif", "GIFs/Error/Error_04.gif", "GIFs/Error/Error_05.gif", "GIFs/Error/Error_06.gif", "GIFs/Error/Error_07.gif", "GIFs/Error/Error_08.gif", "GIFs/Error/Error_09.gif"];
 // var totalBoard = document.getElementById("totalBoard");
 //point giving system
 var basePoints = {
@@ -100,13 +105,16 @@ guessBtn.addEventListener("click", function () {
     if (playerGuess > randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing lower...";
         msgBox.className = "msgHigh";
+        doGif("high");
     } else if (playerGuess < randomNum) {
         msgBox.textContent = "Nah Buddy, Try guessing higher....";
         msgBox.className = "msgLow";
+        doGif("low");
     } else {
         msgBox.textContent = "Perfect! Thats Correct..";
         msgBox.className = "msgCorrect";
         guessBtn.disabled = true;
+        doGif("win");
         var best = localStorage.getItem(scoreKey);
         if (best == null || guessCount < best) {
             localStorage.setItem(scoreKey, guessCount);
@@ -186,6 +194,8 @@ function resetGame() {
     distanceHintBox.textContent = "";
     guessInput.value = "";
     guessHistoryBox.innerHTML = "";
+    gif.style.display = "none";
+    gif.src = "";
 }
 playAgainBtn.addEventListener("click", function () {
     playAgainBtn.blur();
@@ -301,6 +311,21 @@ function loadTotalBoard() {
 }
 // loadTotalBoard();
 //total leaderbaord link
-vboard.addEventListener("click",function(){
+vboard.addEventListener("click", function () {
     window.location.href = "leaderboard.html";
 });
+
+// chosing random gifs 
+function doGif(result) {
+    var list;
+    if (result == "win") {
+        list = correctGifs;
+    } else if (result == "high") {
+        list = downGifs.concat(errorGifs);
+    } else {
+        list = upGifs.concat(errorGifs);
+    }
+    var pick = list[Math.floor(Math.random() * list.length)];
+    gif.src = pick;
+    gif.style.display = "block";
+}
