@@ -406,3 +406,10 @@ tRow:not(:first-child) {
     font-weight: normal;
     text-align: center;
 }
+#emsg{
+    display: none;
+    text-align: center;
+    color: #888;
+    font-size: 15px;
+    padding: 20px;
+}

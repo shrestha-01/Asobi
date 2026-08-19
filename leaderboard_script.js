@@ -17,9 +17,15 @@ var bounds;
 //showing players on the leaderbaord
 function showBoard(players){
     var plRows = document.getElementById("plRows");
+    var emsg = document.getElementById("emsg");
     plRows.innerHTML = "";
 
-    for(var i=0; i<players.length; i++){
+    if(players.length == 0){
+        emsg.style.display = "block";
+    } else {
+        emsg.style.display = "none";
+    }
+    for(var i =0; i<players.length; i++){
         var row = document.createElement("div");
         row.className= "tRow";
         if(i ==0){
