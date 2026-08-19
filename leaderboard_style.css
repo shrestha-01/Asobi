@@ -318,17 +318,6 @@ tRow:not(:first-child) {
     z-index: 100;
 }
 
-#scorePopupCard {
-    background: linear-gradient(145deg, #f5f3fb, #e8e4f5);
-    border-radius: 20px;
-    padding: 25px 30px;
-    width: 400px;
-    max-width: 90%;
-    position: relative;
-    box-shadow: 5px 5px 7px #d1cce8,
-        -5px -5px 7px #ffffff;
-}
-
 #closeBtn {
     position: absolute;
     top: 15px;
@@ -338,8 +327,10 @@ tRow:not(:first-child) {
     color: #888;
 }
 
-#closeBtn:hover {
-    color: #444;
+.card:hover{
+    transition-duration: 150ms;
+    box-shadow: 6px 6px 18px #a1a1a1,
+                -6px -6px 18px #ffffff;
 }
 
 /* card design by mark miro (credited with link in github)*/
@@ -350,30 +341,21 @@ tRow:not(:first-child) {
     font-weight: bold;
     padding: 25px 30px;
     color: #444;
+    width: 400px;
     max-width: 90%;
-    box-shadow: 0 1px 5px #00000099;
-    border-radius: 20px;
-    background: linear-gradient(145deg, #f5f3fb,#e8e4f5);
+    border-radius: 24px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  5px 5px 15px #a1a1a1,
+                 -5px -5px 15px #ffffff;
     position: relative;
     transition-duration: 300ms;
-    transition-property: transform,box-shadow;
+    transition-property: transform;
     transition-timing-function: ease-out;
     transform: rotate3d(0);
 }
 .card:hover{
     transition-duration: 150ms;
     box-shadow: 0 5px 20px 5px #00000044;
-}
-.card .glow{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    border-radius: 20px;
-    pointer-events: none;
-    background-image: radial-gradient(circle at 50% -20%,
-    #ffffff55, #0000000f);
 }
 #scoreIntro{
     font-weight: normal;
