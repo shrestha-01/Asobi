@@ -30,6 +30,7 @@ var clearHistory = document.getElementById("clearHistory");
 var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
 var pRank = document.getElementById("pRank");
+var hardcoreCheck = document.getElementById("hardcore-check");
 var gif = document.getElementById("gif");
 var correctGifs = ["GIFs/Correct/Win_01.gif", "GIFs/Correct/Win_02.gif", "GIFs/Correct/Win_03.gif"];
 var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Down_03.gif"];
@@ -88,6 +89,10 @@ guessBtn.addEventListener("click", function () {
         arrow = "&uarr;";
         arrowClass = "arrowLow";
     }
+    if (hardcoreCheck.checked) {
+        arrow = "";
+        arrowClass = "";
+    }
     var card = document.createElement("div");
     card.className = "historyItem";
     card.innerHTML = playerGuess + '<span class="' + arrowClass + '">'
@@ -103,11 +108,19 @@ guessBtn.addEventListener("click", function () {
     //     guessBtn.disabled = true;
     // } else 
     if (playerGuess > randomNum) {
-        msgBox.textContent = "Nah Buddy, Try guessing lower...";
+        if (hardcoreCheck.checked) {
+            msgBox.textContent = "Wrong guess! No hints in Hardcore Mode.";
+        } else {
+            msgBox.textContent = "Nah Buddy, Try guessing lower...";
+        }
         msgBox.className = "msgHigh";
         doGif("high");
     } else if (playerGuess < randomNum) {
-        msgBox.textContent = "Nah Buddy, Try guessing higher....";
+        if (hardcoreCheck.checked) {
+            msgBox.textContent = "Wrong guess! No hints in Hardcore Mode.";
+        } else {
+            msgBox.textContent = "Nah Buddy, Try guessing higher....";
+        }
         msgBox.className = "msgLow";
         doGif("low");
     } else {
@@ -142,7 +155,9 @@ guessBtn.addEventListener("click", function () {
     }
     var distance = Math.abs(randomNum - playerGuess);
     var range = maxNum - minNum;
-    if (playerGuess == randomNum) {
+    if (hardcoreCheck.checked) {
+        distanceHintBox.textContent = "";
+    } else if (playerGuess == randomNum) {
         distanceHintBox.textContent = "";
     } else if (distance < range * 0.05) {
         distanceHintBox.textContent = "You are very close!";
