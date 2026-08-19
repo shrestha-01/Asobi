@@ -420,3 +420,13 @@ tRow:not(:first-child) {
     font-size: 15px;
     padding: 20px;
 }
+/* hardcore mode note  */
+#hardcoreNote{
+    font-weight: normal;
+    font-size: 12px;
+    color: #a80a0a;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
