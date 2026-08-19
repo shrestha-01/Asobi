@@ -31,6 +31,8 @@ var minNumText = document.getElementById("minNumText");
 var maxNumText = document.getElementById("maxNumText");
 var pRank = document.getElementById("pRank");
 var hardcoreCheck = document.getElementById("hardcore-check");
+var baseDif = "beginner";
+var hardcoreCheck = document.getElementById("hardcore-check");
 var gif = document.getElementById("gif");
 var correctGifs = ["GIFs/Correct/Win_01.gif", "GIFs/Correct/Win_02.gif", "GIFs/Correct/Win_03.gif"];
 var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Down_03.gif"];
@@ -62,12 +64,22 @@ var minimumPoints = {
     "master": 40,
     "impossible": 100
 };
+function updateScoreKey() {
+    if (hardcoreCheck.checked) {
+        scoreKey = "best_" + baseDif + "_hardcore";
+    } else {
+        scoreKey = "best_" + baseDif;
+    }
+}
 //making sure player has username
 var checkPlayerId = localStorage.getItem("asobi_player_id");
 if (checkPlayerId == null) {
     window.location.href = "index.html";
 }
 hardcoreCheck.addEventListener("change", function () {
+    updateScoreKey();
+    showBestScore();
+    loadLeaderboard();
     resetGame();
 });
 minNumText.textContent = minNum;
@@ -138,10 +150,9 @@ guessBtn.addEventListener("click", function () {
 
         var isCustom = scoreKey.indexOf("custom") !== -1;
         if (!isCustom) {
-            var difficultyName = scoreKey.replace("best_", "");
-            var points = basePoints[difficultyName] - ((guessCount - 1) * attemptPenalty[difficultyName]);
-            if (points < minimumPoints[difficultyName]) {
-                points = minimumPoints[difficultyName];
+            var points = basePoints[baseDif] - ((guessCount - 1) * attemptPenalty[baseDif]);
+            if (points < minimumPoints[baseDif]) {
+                points = minimumPoints[baseDif];
             }
             if (hardcoreCheck.checked) {
                 points = points * 2;
@@ -160,22 +171,23 @@ guessBtn.addEventListener("click", function () {
                     // loadTotalBoard();
                 });
         }
-        var distance = Math.abs(randomNum - playerGuess);
-        var range = maxNum - minNum;
-        if (hardcoreCheck.checked) {
-            distanceHintBox.textContent = "";
-        } else if (playerGuess == randomNum) {
-            distanceHintBox.textContent = "";
-        } else if (distance < range * 0.05) {
-            distanceHintBox.textContent = "You are very close!";
-        } else if (distance < range * 0.2) {
-            distanceHintBox.textContent = "Getting close!"
-        } else {
-            distanceHintBox.textContent = "Nah buddy, Too far!";
-        }
-        guessInput.value = "";
-        guessInput.focus();
-    });
+    }
+    var distance = Math.abs(randomNum - playerGuess);
+    var range = maxNum - minNum;
+    if (hardcoreCheck.checked) {
+        distanceHintBox.textContent = "";
+    } else if (playerGuess == randomNum) {
+        distanceHintBox.textContent = "";
+    } else if (distance < range * 0.05) {
+        distanceHintBox.textContent = "You are very close!";
+    } else if (distance < range * 0.2) {
+        distanceHintBox.textContent = "Getting close!"
+    } else {
+        distanceHintBox.textContent = "Nah buddy, Too far!";
+    }
+    guessInput.value = "";
+    guessInput.focus();
+});
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
 function loadLeaderboard() {
@@ -262,7 +274,8 @@ for (var i = 0; i < optionItem.length; i++) {
             minNum = 1;
             maxNum = 1000000;
         }
-        scoreKey = "best_" + optionId;
+        baseDif = optionId;
+        updateScoreKey();
         minNumText.textContent = minNum;
         maxNumText.textContent = maxNum;
         showBestScore();
@@ -291,7 +304,8 @@ startGameBtn.addEventListener("click", function () {
     maxNum = newMaxNum;
     maxGuess = newMaxGuess;
     resetGame();
-    scoreKey = "best_custom_" + minNum + "_" + maxNum;
+        baseDif = "custom_" + minNum + "_" + maxNum;
+    updateScoreKey();
     minNumText.textContent = minNum;
     maxNumText.textContent = maxNum;
     showBestScore();
