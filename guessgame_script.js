@@ -67,7 +67,9 @@ var checkPlayerId = localStorage.getItem("asobi_player_id");
 if (checkPlayerId == null) {
     window.location.href = "index.html";
 }
-
+hardcoreCheck.addEventListener("change", function () {
+    resetGame();
+});
 minNumText.textContent = minNum;
 maxNumText.textContent = maxNum;
 
