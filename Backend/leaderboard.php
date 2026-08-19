@@ -1,7 +1,7 @@
 <?php
 require "db.php";
 $difficulty = $_GET["difficulty"];
-$sql="SELECT players.username, SUM(guess_the_number_scores.score) AS score
+$sql="SELECT players.username, SUM(guess_the_number_scores.score) AS score, COUNT(*) AS games
 FROM guess_the_number_scores
 JOIN players
 ON guess_the_number_scores.player_id = players.id
