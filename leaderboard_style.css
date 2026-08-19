@@ -80,12 +80,20 @@ body {
     border-radius: 10px;
     cursor: pointer;
     font-size: 15px;
+    transition: background-color 0.2s;
 }
 
 .diff:hover {
     background: #e8e4f5;
 }
 
+.diff.selected {
+    background: #b8a4f7;
+    box-shadow: 5px 5px 10px #d1cce8,
+        -5px -5px 10px #ffffff;
+    color: #fff;
+    font-weight: bold;
+}
 #boardWrap {
     flex: 1;
     display: flex;

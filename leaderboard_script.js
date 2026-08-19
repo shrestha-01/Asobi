@@ -70,6 +70,11 @@ function showInfo(p){
 loadTotal();
 for(var i=0; i<diffs.length; i++){
     diffs[i].addEventListener("click",function(){
+        for(var j=0; j<diffs.length; j++){
+            diffs[j].classList.remove("selected");
+        }
+        this.classList.add("selected");
+
         var text = this.textContent;
         if(text == "Total Leaderboard"){
             loadTotal();
