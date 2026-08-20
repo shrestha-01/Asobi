@@ -209,8 +209,12 @@ function loadLeaderboard() {
                 } else if (i == 2) {
                     row.className = "leaderRow rank3";
                 }
+                var showName = scores[i].username;
+                if(scores[i].username == playerName){
+                    showName = showName + " (You)";
+                }
                 row.innerHTML = '<span class="rank">' + (i + 1) + '</span>'
-                    + '<span class ="username">' + scores[i].username + '</span>'
+                    + '<span class ="username">' + showName + '</span>'
                     + '<span class="score">' + scores[i].score + '</span>';
                 leaderboardList.appendChild(row);
                 if (scores[i].username == playerName) {

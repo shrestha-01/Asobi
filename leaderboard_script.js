@@ -26,6 +26,7 @@ function showBoard(players){
     } else {
         emsg.style.display = "none";
     }
+    var myName = localStorage.getItem("asobi_username");
     for(var i =0; i<players.length; i++){
         var row = document.createElement("div");
         row.className= "tRow";
@@ -36,8 +37,12 @@ function showBoard(players){
         } else if(i ==2){
             row.className ="tRow topRow rank3";
         }
+        var showName = players[i].username;
+        if(players[i].username == myName){
+            showName = showName + " (You)";
+        }
         row.innerHTML = '<span class="pRank"><span class="rankBox">'+(i+1)+'</span></span>'
-        + '<span class="pName">' + players[i].username + '</span>'
+        + '<span class="pName">' + showName + '</span>'
         +'<span class="totalBox">' + players[i].score + '</span>'
         +'<span class="pTime">' + players[i].games+'</span>';
         plRows.appendChild(row);
