@@ -18,3 +18,4 @@ CREATE TABLE guess_the_number_scores(
 SELECT * FROM players;
 SELECT * FROM guess_the_number_scores;
 TRUNCATE guess_the_number_scores;
+ALTER TABLE guess_the_number_scores MODIFY difficulty VARCHAR(50);
