@@ -3,6 +3,12 @@ var asobiUser = document.getElementById("asobiuser");
 var submitBtn = document.getElementById("submit");
 var msgBox = document.getElementById("msgBox");
 
+// skipping page for username saved people 
+var checkUser = localStorage.getItem("asobi_username");
+if(checkUser != null){
+    window.location.href = "gamelist.html";
+}
+
 submitBtn.addEventListener("click",function(){
     if(asobiUser.value == ""){
         msgBox.textContent = "Bruh, Please enter a username first";
