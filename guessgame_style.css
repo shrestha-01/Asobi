@@ -1230,3 +1230,25 @@ h1 {
   background-size: cover;
   background-position: center;
 }
+
+/* labeling points,name and rank for user clarity */
+#listHead{
+  display: flex;
+  /* justify-content: space-between; */
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 5px;
+  padding: 0px 12px;
+}
+#listHead span:nth-child(1){
+  width: 40px;
+  flex-shrink: 0;
+  margin-left: -10px;
+}
+#listHead span:nth-child(2){
+  flex: 1;
+  text-align: left;
+}
+#listHead span:nth-child(3){
+  flex-shrink: 0;
+}
