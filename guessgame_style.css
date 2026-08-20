@@ -588,7 +588,7 @@ h1 {
   text-align: left;
 }
 
-.optionItem {
+.optionItem{
   border-radius: 12px;
   padding: 7px 12px;
   text-align: left;
@@ -599,7 +599,8 @@ h1 {
   font-size: 14px;
   align-items: center;
   color: #444;
-  transition: background-color 0.2s;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: background-color 0.3s;
 }
 
 .optionItem .optionValue {
