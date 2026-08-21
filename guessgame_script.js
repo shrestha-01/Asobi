@@ -64,6 +64,10 @@ var minimumPoints = {
     "master": 40,
     "impossible": 100
 };
+var weekBtn = document.getElementById("week-btn");
+var weekMenu = document.getElementById("week-menu");
+var weekOptions = document.getElementsByClassName("weekOption");
+var weekText = document.getElementById("weekText");
 function updateScoreKey() {
     if (hardcoreCheck.checked) {
         scoreKey = "best_" + baseDif + "_hardcore";
@@ -376,3 +380,22 @@ function doGif(result) {
     gif.src = pick;
     gif.style.display = "block";
 }
+weekBtn.addEventListener("click",function(){
+    if(weekMenu.style.display == "block"){
+        weekMenu.style.display = "none";
+    } else {
+        weekMenu.style.display = "block";
+    }
+});
+for(var i = 0; i<weekOptions.length; i++){
+    weekOptions[i].addEventListener("click", function(e){
+        e.stopPropagation();
+        weekText.textContent = this.textContent;
+        weekMenu.style.display = "none";
+    });
+}
+document.addEventListener("click",function(e){
+    if(!weekBtn.contains(e.target)){
+        weekMenu.style.display = "none";
+    }
+});

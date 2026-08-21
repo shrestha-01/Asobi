@@ -1300,3 +1300,50 @@ h1 {
 #listHead span:nth-child(3){
   flex-shrink: 0;
 }
+/* adding interval design */
+#leaderTop{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+#leaderTop #leaderTitle{
+  margin: 0;
+}
+#week-btn{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #eef0f5;
+  box-shadow: 3px 3px 6px #c8cad0,
+  -3px -3px 6px #ffffff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  color: #555;
+  cursor: pointer;
+}
+#week-menu{
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: #eef0f5;
+  box-shadow: 5px 5px 10px #c8cad0,
+  -5px -5px 10px #ffffff;
+  border-radius: 10px;
+  white-space: nowrap;
+  padding: 6px;
+  z-index: 10;
+}
+.weekOption{
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #555;
+  cursor: pointer;
+}
+.weekOption:hover{
+  background-color: #e4e6ec;
+}

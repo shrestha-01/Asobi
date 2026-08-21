@@ -190,25 +190,36 @@
         </div>
         <div id="rightsidebarBox">
             <div id="leaderCard">
-                <p id="leaderTitle">Leaderboard</p>
-                <div id="listHead">
-                    <span>Rank</span>
-                    <span>Name</span>
-                    <span>Points</span>
+                <div id="leaderTop">
+                    <p id="leaderTitle">Leaderboard</p>
+                    <div id="week-btn">
+                        <span id="weekText">Last 24 Hours</span>
+                        <span id="weekArrow">&#9662;</span>
+                        <div id="week-menu">
+                            <div class="weekOption" data-range="24h">Last 24 Hours</div>
+                            <div class="weekOption" data-range="week">This Week</div>
+                            <div class="weekOption" data-range="all">All Time</div>
+                        </div>
+                    </div>
                 </div>
-                <div id="leaderboardList"></div>
-                <p id="pRank"></p>
-                <p id="vboard">View Full Leaderboard</p>
-                <!-- <div id="totalCard">
+            <div id="listHead">
+                <span>Rank</span>
+                <span>Name</span>
+                <span>Points</span>
+            </div>
+            <div id="leaderboardList"></div>
+            <p id="pRank"></p>
+            <p id="vboard">View Full Leaderboard</p>
+            <!-- <div id="totalCard">
                     <p id="totalTitle">Total Score</p>
                     <div id="totalBoard"></div>
                 </div> -->
-            </div>
-            <div id="reactionCard">
-                <p id="reactionTitle">Hint Reaction</p>
-                <img id="gif" src="" alt="">
-            </div>
         </div>
+        <div id="reactionCard">
+            <p id="reactionTitle">Hint Reaction</p>
+            <img id="gif" src="" alt="">
+        </div>
+    </div>
     </div>
     <script src="guessgame_script.js"></script>
 </body>
