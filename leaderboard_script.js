@@ -14,6 +14,10 @@ var closeBtn = document.getElementById("closeBtn");
 var card= document.getElementById("scorePopupCard");
 var bounds;
 var hcCheck = document.getElementById("hc-check");
+var weekBtn = document.getElementById("week-btn");
+var weekMenu = document.getElementById("week-menu");
+var weekOptions = document.getElementsByClassName("weekOption");
+var weekText = document.getElementById("weekText");
 
 //showing players on the leaderbaord
 function showBoard(players){
@@ -150,4 +154,24 @@ card.addEventListener("mouseenter", function () {
 card.addEventListener("mouseleave", function () {
     document.removeEventListener("mousemove", rotateToMouse);
     card.style.transform = "";
+});
+// the interval drop down 
+weekBtn.addEventListener("click",function(){
+    if(weekMenu.style.display == "block"){
+        weekMenu.style.display = "none";
+    } else{
+        weekMenu.style.display = "block";
+    }
+});
+for(var i = 0; i< weekOptions.length; i++){
+    weekOptions[i].addEventListener("click",function(e){
+        e.stopPropagation();
+        weekText.textContent = this.textContent;
+        weekMenu.style.display = "none";
+    });
+}
+document.addEventListener("click",function(e){
+    if(!weekBtn.contains(e.target)){
+        weekMenu.style.display = "none";
+    }
 });
