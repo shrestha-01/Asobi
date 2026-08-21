@@ -745,8 +745,8 @@ h1 {
 #headerBox{
   background-color: #eef0f5;
   border-radius: 20px;
-  padding: 10px 16px;
-  margin-bottom: 20px;
+  padding: 16px;
+  margin-bottom: 7px;
   box-shadow: 8px 8px 15px #c8cad0,
   -8px -8px 15px #ffffff;
   display: flex;
@@ -775,14 +775,20 @@ h1 {
   gap: 4px;
   padding: 8px 16px;
   border-radius: 14px;
+  margin-top: 6px;
 }
 .nav-link img{
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   display: block;
 }
 .nav-link:hover{
   color: #7c5cff;
+}
+
+/* used gemini for this filter */
+.nav-link:hover img{
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(228deg) brightness(101%) contrast(101%);
 }
 .nav-link.curr-nav{
   color: #7c5cff;
@@ -793,6 +799,13 @@ h1 {
   font-weight: 800;
   color: #444;
   font-family: 'VARINO';
+}
+#logoJp{
+  font-size: 15px;
+  font-weight: 400;
+  color: #ff5cdc;
+  font-family: 'Nunito';
+  margin-top: 2px;
 }
 
 #rightsidebarBox {

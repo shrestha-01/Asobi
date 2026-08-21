@@ -44,6 +44,53 @@ body {
         -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 15px 20px;
+    position: relative;
+}
+
+#logoJp {
+    font-size: 15px;
+    font-weight: 400;
+    color: #ff5cdc;
+    font-family: 'Nunito';
+    margin-top: 2px;
+}
+
+#nav-box {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #888;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 6px;
+    padding: 8px 16px;
+}
+
+.nav-link img {
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+.nav-link:hover {
+    color: #7c5cff;
+}
+
+.nav-link:hover img {
+    filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(228deg) brightness(101%) contrast(101%);
 }
 
 #logoBox {
@@ -68,14 +115,14 @@ body {
 #sideBar {
     width: 220px;
     background: linear-gradient(145deg,
-     #f5f3fb, #e8e4f5);
+            #f5f3fb, #e8e4f5);
     box-shadow: 5px 5px 10px #d1cce8,
         -5px -5px 10px #ffffff;
     border-radius: 20px;
     padding: 20px;
 }
 
-.diff{
+.diff {
     padding: 10px 15px;
     margin-top: 8px;
     border-radius: 10px;
@@ -84,7 +131,8 @@ body {
     transition: background-color 0.2s;
     background: rgba(255, 255, 255, 0.5);
 }
-.diff:hover{
+
+.diff:hover {
     background: #e8e4f5;
 }
 
@@ -95,6 +143,7 @@ body {
     color: #fff;
     font-weight: bold;
 }
+
 #boardWrap {
     flex: 1;
     display: flex;
@@ -251,37 +300,42 @@ tRow:not(:first-child) {
         -5px -5px 10px #ffffff;
 }
 
-.rank1{
+.rank1 {
     background-image: linear-gradient(140deg,
-     rgba(255,246,224,0.85), rgba(255,233,179,0.85)),
-      url("Textures/gold.png");
+            rgba(255, 246, 224, 0.85), rgba(255, 233, 179, 0.85)),
+        url("Textures/gold.png");
     background-size: cover;
     background-position: center;
 }
-.rank1 .rankBox{
-    background: linear-gradient(145deg,#ffe9b3,#ffd873);
+
+.rank1 .rankBox {
+    background: linear-gradient(145deg, #ffe9b3, #ffd873);
     color: #a67c00;
 }
-.rank2{
+
+.rank2 {
     background-image: linear-gradient(140deg,
-     rgba(236,238,242,0.85), rgba(211,213,220,0.85)),
-      url("Textures/silver.png");
+            rgba(236, 238, 242, 0.85), rgba(211, 213, 220, 0.85)),
+        url("Textures/silver.png");
     background-size: cover;
     background-position: center;
 }
-.rank2 .rankBox{
-    background: linear-gradient(145deg,#dcdde3,#b8bac2);
+
+.rank2 .rankBox {
+    background: linear-gradient(145deg, #dcdde3, #b8bac2);
     color: #4a4c53;
 }
-.rank3{
-    background-image: linear-gradient(140deg, 
-    rgba(251,234,222,0.85), rgba(242,211,184,0.85)), 
-    url("Textures/bronze.png");
+
+.rank3 {
+    background-image: linear-gradient(140deg,
+            rgba(251, 234, 222, 0.85), rgba(242, 211, 184, 0.85)),
+        url("Textures/bronze.png");
     background-size: cover;
     background-position: center;
 }
-.rank3 .rankBox{
-    background: linear-gradient(145deg,#f2d3b8,#e3b483);
+
+.rank3 .rankBox {
+    background: linear-gradient(145deg, #f2d3b8, #e3b483);
     color: #8a5a26;
 }
 
@@ -344,10 +398,11 @@ tRow:not(:first-child) {
 }
 
 /* card design by mark miro (credited with link in github)*/
-#scorePopup{
+#scorePopup {
     perspective: 1500px;
 }
-.card{
+
+.card {
     font-weight: bold;
     padding: 25px 30px;
     color: #444;
@@ -355,19 +410,21 @@ tRow:not(:first-child) {
     max-width: 90%;
     border-radius: 24px;
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    box-shadow:  5px 5px 15px #a1a1a1,
-                 -5px -5px 15px #ffffff;
+    box-shadow: 5px 5px 15px #a1a1a1,
+        -5px -5px 15px #ffffff;
     position: relative;
     transition-duration: 300ms;
     transition-property: transform;
     transition-timing-function: ease-out;
     transform: rotate3d(0);
 }
-.card:hover{
+
+.card:hover {
     transition-duration: 150ms;
     box-shadow: 0 5px 20px 5px #00000044;
 }
-#scoreIntro{
+
+#scoreIntro {
     font-weight: normal;
     font-size: 14px;
     color: #666;
@@ -375,48 +432,55 @@ tRow:not(:first-child) {
     margin: 10px 0 15px 0;
     line-height: 1.5;
 }
-#sTable{
+
+#sTable {
     display: flex;
     flex-direction: column;
     gap: 8px;
     max-height: 220px;
     overflow-y: auto;
 }
-.sRow{
+
+.sRow {
     display: flex;
     align-items: center;
     padding: 8px 12px;
     border-radius: 12px;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.6);
 }
-.sHead{
+
+.sHead {
     background: none;
     font-weight: bold;
     color: #6a4fd6;
     font-size: 12px;
 }
-.sName{
+
+.sName {
     flex: 2;
     font-size: 14px;
     color: #444;
     text-align: left;
 }
-.sCol{
+
+.sCol {
     flex: 1;
     font-size: 13px;
     color: #666;
     font-weight: normal;
     text-align: center;
 }
-#emsg{
+
+#emsg {
     display: none;
     text-align: center;
     color: #888;
     font-size: 15px;
     padding: 20px;
 }
+
 /* hardcore mode note  */
-#hardcoreNote{
+#hardcoreNote {
     font-weight: normal;
     font-size: 12px;
     color: #a80a0a;
@@ -425,8 +489,9 @@ tRow:not(:first-child) {
     margin-bottom: 15px;
     text-align: center;
 }
+
 /* the same hardcore design here too, as the leaderboard for hardcore will be different */
-#hc-wrap{
+#hc-wrap {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -437,7 +502,7 @@ tRow:not(:first-child) {
     color: #444;
 }
 
-#hc-check{
+#hc-check {
     appearance: none;
     -webkit-appearance: none;
     width: 28px;
@@ -446,15 +511,15 @@ tRow:not(:first-child) {
     cursor: pointer;
     position: relative;
     background: linear-gradient(145deg,
-     #1c1c1c, #0a0a0a);
+            #1c1c1c, #0a0a0a);
     border: 2px solid #5c0000;
     border-radius: 7px;
     box-shadow: inset 2px 2px 5px #000000,
-     inset -1px -1px 2px #2a2a2a;
+        inset -1px -1px 2px #2a2a2a;
     transition: box-shadow 0.3s ease;
 }
 
-#hc-check::before{
+#hc-check::before {
     content: "☠";
     position: absolute;
     inset: 0;
@@ -466,39 +531,44 @@ tRow:not(:first-child) {
     transition: color 0.3s ease;
 }
 
-#hc-check:checked{
+#hc-check:checked {
     border-color: #ff2020;
     background: linear-gradient(145deg,
-     #300000, #150000);
+            #300000, #150000);
     animation: hardcoreGlow 1.1s ease-in-out infinite;
 }
 
-#hc-check:hover{
+#hc-check:hover {
     border-color: #8a0000;
 }
 
-#hc-check:checked::before{
+#hc-check:checked::before {
     color: #ff3535;
     text-shadow: 0 0 6px #ff0000,
-     0 0 14px #ff0000;
+        0 0 14px #ff0000;
 }
 
-#hc-wrap:has(#hc-check:checked) label{
+#hc-wrap:has(#hc-check:checked) label {
     color: #d40000;
     text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
 }
-@keyframes hardcoreGlow{
-    0%, 100%{
+
+@keyframes hardcoreGlow {
+
+    0%,
+    100% {
         box-shadow: inset 2px 2px 5px #000000,
-         0 0 6px 1px rgba(255, 0, 0, 0.55);
+            0 0 6px 1px rgba(255, 0, 0, 0.55);
     }
-    50%{
+
+    50% {
         box-shadow: inset 2px 2px 5px #000000,
-         0 0 16px 5px rgba(255, 0, 0, 0.9);
+            0 0 16px 5px rgba(255, 0, 0, 0.9);
     }
 }
+
 /* just a line  */
-#diffLine{
+#diffLine {
     border: none;
     border-top: 1px solid #d9d5ea;
     margin: 15px 0;
