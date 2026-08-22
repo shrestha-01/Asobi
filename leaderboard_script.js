@@ -52,9 +52,10 @@ function showBoard(players){
         plRows.appendChild(row);
     }
 }
+var currentTime = "24h";
 // loading total leaderboard
 function loadTotal(){
-    fetch("Backend/total_Board.php")
+    fetch("Backend/total_Board.php?time=" + currentTime)
     .then(function(r){
         return r.json();
     })
@@ -107,7 +108,7 @@ function loadDifficulty(difficulty){
     if(hcCheck.checked){
         key = key + "_hardcore";
     }
-    fetch("Backend/leaderboard.php?difficulty="+key)
+    fetch("Backend/leaderboard.php?difficulty="+key+"&time="+currentTime)
     .then(function(r){
         return r.json();
     })
@@ -163,11 +164,17 @@ weekBtn.addEventListener("click",function(){
         weekMenu.style.display = "block";
     }
 });
-for(var i = 0; i< weekOptions.length; i++){
+for(var i = 0; i<weekOptions.length; i++){
     weekOptions[i].addEventListener("click",function(e){
         e.stopPropagation();
         weekText.textContent = this.textContent;
         weekMenu.style.display = "none";
+        currentTime = this.getAttribute("data-range");
+        if(lastDiff == ""){
+            loadTotal();
+        } else {
+            loadDifficulty(lastDiff);
+        }
     });
 }
 document.addEventListener("click",function(e){
