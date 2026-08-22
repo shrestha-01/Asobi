@@ -68,6 +68,8 @@ var weekBtn = document.getElementById("week-btn");
 var weekMenu = document.getElementById("week-menu");
 var weekOptions = document.getElementsByClassName("weekOption");
 var weekText = document.getElementById("weekText");
+var sUser = document.getElementById("sUser");
+sUser.textContent = localStorage.getItem("asobi_username");
 function updateScoreKey() {
     if (hardcoreCheck.checked) {
         scoreKey = "best_" + baseDif + "_hardcore";
@@ -195,8 +197,8 @@ guessBtn.addEventListener("click", function () {
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
 var currentTime = "24h";
-function loadLeaderboard(){
-    fetch("Backend/leaderbaord.php?difficulty=" + scoreKey + "&time=" + currentTime)
+function loadLeaderboard() {
+    fetch("Backend/leaderboard.php?difficulty=" + scoreKey + "&time=" + currentTime)
         .then(function (response) {
             return response.json();
         })
@@ -215,7 +217,7 @@ function loadLeaderboard(){
                     row.className = "leaderRow rank3";
                 }
                 var showName = scores[i].username;
-                if(scores[i].username == playerName){
+                if (scores[i].username == playerName) {
                     showName = showName + " (You)";
                 }
                 row.innerHTML = '<span class="rank">' + (i + 1) + '</span>'
@@ -313,7 +315,7 @@ startGameBtn.addEventListener("click", function () {
     maxNum = newMaxNum;
     maxGuess = newMaxGuess;
     resetGame();
-        baseDif = "custom_" + minNum + "_" + maxNum;
+    baseDif = "custom_" + minNum + "_" + maxNum;
     updateScoreKey();
     minNumText.textContent = minNum;
     maxNumText.textContent = maxNum;
@@ -381,24 +383,24 @@ function doGif(result) {
     gif.src = pick;
     gif.style.display = "block";
 }
-weekBtn.addEventListener("click",function(){
-    if(weekMenu.style.display == "block"){
+weekBtn.addEventListener("click", function () {
+    if (weekMenu.style.display == "block") {
         weekMenu.style.display = "none";
     } else {
         weekMenu.style.display = "block";
     }
 });
-for(var i = 0; i<weekOptions.length; i++){
-    weekOptions[i].addEventListener("click",function(e){
+for (var i = 0; i < weekOptions.length; i++) {
+    weekOptions[i].addEventListener("click", function (e) {
         e.stopPropagation();
-        weekText.textContent= this.textContent;
+        weekText.textContent = this.textContent;
         weekMenu.style.display = "none";
         currentTime = this.getAttribute("data-range");
         loadLeaderboard();
     })
 }
-document.addEventListener("click",function(e){
-    if(!weekBtn.contains(e.target)){
+document.addEventListener("click", function (e) {
+    if (!weekBtn.contains(e.target)) {
         weekMenu.style.display = "none";
     }
 });

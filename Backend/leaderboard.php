@@ -4,9 +4,9 @@ $difficulty = $_GET["difficulty"];
 $time = $_GET["time"];
 $extra = "";
 if($time == "24h"){
-    $extra = "AND created_at >= NOW() - INTERVAL 1 DAY";
+    $extra = "AND guess_the_number_scores.created_at >= NOW() - INTERVAL 1 DAY";
 } else if($time == "week"){
-    $extra = "AND created_at >=NOW() - INTERVAL 7 DAY";
+    $extra = "AND guess_the_number_scores.created_at >= NOW() - INTERVAL 7 DAY";
 }
 $sql = "SELECT players.username, SUM(guess_the_number_scores.score) AS score, COUNT(*) AS games
 FROM guess_the_number_scores

@@ -1347,3 +1347,13 @@ h1 {
 .weekOption:hover{
   background-color: #e4e6ec;
 }
+/* username design */
+#sUser{
+  padding: 10px 20px;
+  border-radius: 40px;
+  background: linear-gradient(140deg,
+  #f5f3fb,#e8e4f5);
+  box-shadow: 5px 5px 10px #d1cce8,
+  -5px -5px 10px #ffffff;
+  font-size: 15px;
+}
