@@ -194,8 +194,9 @@ guessBtn.addEventListener("click", function () {
 });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
-function loadLeaderboard() {
-    fetch("Backend/leaderboard.php?difficulty=" + scoreKey)
+var currentTime = "24h";
+function loadLeaderboard(){
+    fetch("Backend/leaderbaord.php?difficulty=" + scoreKey + "&time=" + currentTime)
         .then(function (response) {
             return response.json();
         })
@@ -388,11 +389,13 @@ weekBtn.addEventListener("click",function(){
     }
 });
 for(var i = 0; i<weekOptions.length; i++){
-    weekOptions[i].addEventListener("click", function(e){
+    weekOptions[i].addEventListener("click",function(e){
         e.stopPropagation();
-        weekText.textContent = this.textContent;
+        weekText.textContent= this.textContent;
         weekMenu.style.display = "none";
-    });
+        currentTime = this.getAttribute("data-range");
+        loadLeaderboard();
+    })
 }
 document.addEventListener("click",function(e){
     if(!weekBtn.contains(e.target)){
