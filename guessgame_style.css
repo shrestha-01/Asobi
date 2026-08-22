@@ -31,16 +31,18 @@ body {
 
 /* input box  */
 #guessInput {
+  margin-top: 4px;
   width: 350px;
-  padding: 12px;
+  padding: 5px;
   border: none;
   border-radius: 15px;
   background-color: #eef0f5;
   box-shadow: inset 4px 4px 10px #c8cad0,
     inset -4px -4px 10px #ffffff;
-  font-size: 16px;
+  font-size: 40px;
   outline: none;
   box-sizing: border-box;
+  text-align: center;
 }
 
 /* guess button [Designed by Pankaj Meharchandani (check credits for more)] */
@@ -1356,4 +1358,16 @@ h1 {
   box-shadow: 5px 5px 10px #d1cce8,
   -5px -5px 10px #ffffff;
   font-size: 15px;
+}
+/* color for wrong number guess  */
+#guessInput.wrongnum{
+  color: #ff0000;
+}
+/* color for correct one  */
+#guessInput.correctnum{
+  color: #2ecc71;
+}
+#guessInput::selection{
+  background: transparent;
+  color: inherit;
 }

@@ -191,8 +191,17 @@ guessBtn.addEventListener("click", function () {
     } else {
         distanceHintBox.textContent = "Nah buddy, Too far!";
     }
-    guessInput.value = "";
-    guessInput.focus();
+    if(playerGuess == randomNum){
+        guessInput.classList.add("correctnum");
+        guessInput.focus();
+    } else {
+        guessInput.classList.add("wrongnum");
+        guessInput.select();
+        setTimeout(function(){
+            guessInput.classList.remove("wrongnum");
+            guessInput.value = "";
+        },2000);
+    }
 });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
@@ -245,6 +254,7 @@ function resetGame() {
     msgBox.className = "";
     distanceHintBox.textContent = "";
     guessInput.value = "";
+    guessInput.classList.remove("correctnum");
     guessHistoryBox.innerHTML = "";
     gif.style.display = "none";
     gif.src = "";
