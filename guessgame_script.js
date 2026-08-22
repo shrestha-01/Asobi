@@ -69,7 +69,26 @@ var weekMenu = document.getElementById("week-menu");
 var weekOptions = document.getElementsByClassName("weekOption");
 var weekText = document.getElementById("weekText");
 var sUser = document.getElementById("sUser");
+var musicBtn = document.getElementById("musicBtn");
+var savedMute = localStorage.getItem("asobi_muted");
+var speaking = true;
+if(savedMute == null){
+    speaking = false;
+    localStorage.setItem("asobi_muted", "true");
+} else if(savedMute == "true"){
+    speaking = false;
+} else {
+    speaking = true;
+}
+if(speaking){
+    musicBtn.src = "Icons/sound-on.svg";
+} else {
+    musicBtn.src = "Icons/sound-off.svg";
+}
 sUser.textContent = localStorage.getItem("asobi_username");
+// music 
+var wsound = ["Sounds/Win/Yatta.mp3"];
+var lsound = ["Sounds/Error/error_01.mp3", "Sounds/Error/error_02.mp3", "Sounds/Error/error_03.mp3"];
 function updateScoreKey() {
     if (hardcoreCheck.checked) {
         scoreKey = "best_" + baseDif + "_hardcore";
@@ -135,6 +154,7 @@ guessBtn.addEventListener("click", function () {
         }
         msgBox.className = "msgHigh";
         doGif("high");
+        playmusic("lose");
     } else if (playerGuess < randomNum) {
         if (hardcoreCheck.checked) {
             msgBox.textContent = "Wrong guess! No hints in Hardcore Mode.";
@@ -143,11 +163,13 @@ guessBtn.addEventListener("click", function () {
         }
         msgBox.className = "msgLow";
         doGif("low");
+        playmusic("lose");
     } else {
         msgBox.textContent = "Perfect! Thats Correct..";
         msgBox.className = "msgCorrect";
         guessBtn.disabled = true;
         doGif("win");
+        playmusic("win");
         var best = localStorage.getItem(scoreKey);
         if (best == null || guessCount < best) {
             localStorage.setItem(scoreKey, guessCount);
@@ -392,6 +414,31 @@ function doGif(result) {
     var pick = list[Math.floor(Math.random() * list.length)];
     gif.src = pick;
     gif.style.display = "block";
+}
+musicBtn.addEventListener("click", function(){
+    speaking = !speaking;
+    if(speaking){
+        musicBtn.src = "Icons/sound-on.svg";
+        localStorage.setItem("asobi_muted", "false");
+    } else {
+        musicBtn.src = "Icons/sound-off.svg";
+        localStorage.setItem("asobi_muted", "true");
+    }
+});
+//playing the win or error music
+function playmusic(result){
+    if(!speaking){
+        return;
+    }
+    var list;
+    if(result == "win"){
+        list = wsound;
+    } else {
+        list = lsound;
+    }
+    var pick = list[Math.floor(Math.random() * list.length)];
+    var sound = new Audio(pick);
+    sound.play();
 }
 weekBtn.addEventListener("click", function () {
     if (weekMenu.style.display == "block") {

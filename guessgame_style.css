@@ -836,8 +836,18 @@ h1 {
   box-shadow: 8px 8px 15px #c8cad0,
     -8px -8px 15px #ffffff;
   margin-bottom: 2px;
+  position: relative;
 }
-
+/* the sound or music logo  */
+#musicBtn{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  mix-blend-mode: multiply;
+}
 #hintCard {
   background-color: #eef0f5;
   border-radius: 20px;
@@ -1370,4 +1380,21 @@ h1 {
 #guessInput::selection{
   background: transparent;
   color: inherit;
+}
+/* arranging the margin */
+#gameCard h1 {
+  margin-bottom: 1px;
+}
+#rangeBox p {
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+#rangeBox {
+  margin-bottom: 10px;
+}
+#minNumText,
+#maxNumText{
+  color: #575458;
+  font-size: 29px;
+  font-weight: bold;
 }
