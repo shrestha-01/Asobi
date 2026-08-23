@@ -116,18 +116,18 @@ guessBtn.addEventListener("click", function () {
     }
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
-    var hardcoreValue;
-    if (hardcoreCheck.checked) {
-        hardcoreValue = "1";
-    } else {
-        hardcoreValue = "0";
-    }
-    fetch("Backend/the_checker.php", {
+    // var hardcoreValue;
+    // if (hardcoreCheck.checked) {
+    //     hardcoreValue = "1";
+    // } else {
+    //     hardcoreValue = "0";
+    // }
+    fetch("Backend/the_checker.php",{
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: "guess=" + playerGuess + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue
+        body: "guess=" + playerGuess
     })
         .then(function (response) {
             return response.json();
@@ -180,25 +180,11 @@ guessBtn.addEventListener("click", function () {
                 doGif("win");
                 playmusic("win");
                 var best = localStorage.getItem(scoreKey);
-                if (best == null || guessCount < best) {
+                if(best == null || guessCount < best){
                     localStorage.setItem(scoreKey, guessCount);
                 }
                 showBestScore();
-
-                var isCustom = scoreKey.indexOf("custom") !== -1;
-                if (!isCustom) {
-                    var playerId = localStorage.getItem("asobi_player_id");
-                    fetch("Backend/score_save.php", {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded"
-                        },
-                        body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + data.points + "&attempts=" + guessCount + "&won=1"
-                    })
-                        .then(function () {
-                            loadLeaderboard();
-                        });
-                }
+                loadLeaderboard();
             }
             if (hardcoreCheck.checked || data.result == "correct") {
                 distanceHintBox.textContent = "";

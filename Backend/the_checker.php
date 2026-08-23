@@ -1,13 +1,11 @@
 <?php
 session_start();
 require "db.php";
-
 $playerGuess = $_POST["guess"];
 $playerGuess = (int)$playerGuess;
-$baseDif = $_POST["baseDif"];
-$hardcore = $_POST["hardcore"];
-
 $imposter = $_SESSION["imposter"];
+$baseDif = $_SESSION["diff"];
+$hardcore = $_SESSION["hard"];
 
 if(!isset($_SESSION["guessCount"])){
     $_SESSION["guessCount"] = 0;
@@ -40,9 +38,9 @@ $minimumPoints = [
     "impossible" => 100
 ];
 
-$result = "";
+$result =  "";
 $points = 0;
-if($playerGuess > $imposter){
+if($playerGuess>$imposter){
     $result = "high";
 } else if($playerGuess < $imposter){
     $result = "low";
@@ -54,8 +52,19 @@ if($playerGuess > $imposter){
         if($points < $minimumPoints[$baseDif]){
             $points = $minimumPoints[$baseDif];
         }
-        if($hardcore == "1"){
+        if($hardcore){
             $points = $points * 2;
+        }
+        if(isset($_SESSION["p_id"])){
+            $scoreKey = "best_" . $baseDif;
+            if($hardcore){
+                $scoreKey = $scoreKey . "_hardcore";
+            }
+            $playerId = $_SESSION["p_id"];
+            $stmt = $conn->prepare("INSERT INTO guess_the_number_scores (player_id,difficulty,score,attempts, won) VALUES (?, ?, ?, ?, ?)");
+            $won = 1;
+            $stmt->bind_param("isiii", $playerId, $scoreKey, $points, $guessCount, $won);
+            $stmt->execute();
         }
     }
 }
