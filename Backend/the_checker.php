@@ -59,5 +59,16 @@ if($playerGuess > $imposter){
         }
     }
 }
-echo json_encode(["result" => $result, "guesses" => $guessCount, "points" => $points]);
+// the closeness checker 
+$range = $_SESSION["maxNum"] - $_SESSION["minNum"];
+$distance = abs($playerGuess - $imposter);
+$closeness = "far";
+if($result == "correct"){
+    $closeness = "";
+} else if($distance < $range * 0.05){
+    $closeness = "close";
+} else if($distance < $range * 0.2){
+    $closeness = "warm";
+}
+echo json_encode(["result" => $result, "guesses" => $guessCount, "points" => $points, "closeness" => $closeness]);
 ?>

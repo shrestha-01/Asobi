@@ -71,15 +71,15 @@ var sUser = document.getElementById("sUser");
 var musicBtn = document.getElementById("musicBtn");
 var savedMute = localStorage.getItem("asobi_muted");
 var speaking = true;
-if(savedMute == null){
+if (savedMute == null) {
     speaking = false;
     localStorage.setItem("asobi_muted", "true");
-} else if(savedMute == "true"){
+} else if (savedMute == "true") {
     speaking = false;
 } else {
     speaking = true;
 }
-if(speaking){
+if (speaking) {
     musicBtn.src = "Icons/sound-on.svg";
 } else {
     musicBtn.src = "Icons/sound-off.svg";
@@ -109,120 +109,118 @@ hardcoreCheck.addEventListener("change", function () {
 minNumText.textContent = minNum;
 maxNumText.textContent = maxNum;
 
-guessBtn.addEventListener("click", function () {
-    if (guessInput.value == "") {
-        msgBox.textContent = "Ermm, Maybe enter a number first";
+guessBtn.addEventListener("click", function(){
+    if(guessInput.value == ""){
+        msgBox.textContent = "Ermm, maybe enter a number first";
         return;
     }
-    guessCount = guessCount + 1;
-    guessCountBox.textContent = "Guesses: " + guessCount;
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
-    var arrow = "";
-    var arrowClass = "";
-    if (playerGuess > randomNum) {
-        arrow = "&darr;";
-        arrowClass = "arrowHigh";
-    } else if (playerGuess < randomNum) {
-        arrow = "&uarr;";
-        arrowClass = "arrowLow";
-    }
-    if (hardcoreCheck.checked) {
-        arrow = "";
-        arrowClass = "";
-    }
-    var card = document.createElement("div");
-    card.className = "historyItem";
-    card.innerHTML = playerGuess + '<span class="' + arrowClass + '">'
-        + arrow + '</span>';
-    guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
-    while (guessHistoryBox.children.length > historyLimit) {
-        guessHistoryBox.removeChild(guessHistoryBox.lastChild);
-    }
-
-    // if (guessCount >= maxGuess && playerGuess != randomNum) {
-    //     msgBox.textContent = "Game over! Actually it was " + randomNum;
-    //     msgBox.className = "msgHigh";
-    //     guessBtn.disabled = true;
-    // } else 
-    if (playerGuess > randomNum) {
-        if (hardcoreCheck.checked) {
-            msgBox.textContent = "Wrong guess! No hints in Hardcore Mode.";
-        } else {
-            msgBox.textContent = "Nah Buddy, Try guessing lower...";
-        }
-        msgBox.className = "msgHigh";
-        doGif("high");
-        playmusic("lose");
-    } else if (playerGuess < randomNum) {
-        if (hardcoreCheck.checked) {
-            msgBox.textContent = "Wrong guess! No hints in Hardcore Mode.";
-        } else {
-            msgBox.textContent = "Nah Buddy, Try guessing higher....";
-        }
-        msgBox.className = "msgLow";
-        doGif("low");
-        playmusic("lose");
+    var hardcoreValue;
+    if(hardcoreCheck.checked){
+        hardcoreValue = "1";
     } else {
-        msgBox.textContent = "Perfect! Thats Correct..";
-        msgBox.className = "msgCorrect";
-        guessBtn.disabled = true;
-        doGif("win");
-        playmusic("win");
-        var best = localStorage.getItem(scoreKey);
-        if (best == null || guessCount < best) {
-            localStorage.setItem(scoreKey, guessCount);
+        hardcoreValue = "0";
+    }
+    fetch("Backend/the_checker.php",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "guess=" + playerGuess + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue
+    })
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data){
+        guessCount = data.guesses;
+        guessCountBox.textContent = "Guesses: " + guessCount;
+        var arrow = "";
+        var arrowClass = "";
+        if(data.result == "high"){
+            arrow = "&darr;";
+            arrowClass = "arrowHigh";
+        } else if (data.result == "low"){
+            arrow = "&uarr;";
+            arrowClass = "arrowLow";
         }
-        showBestScore();
-
-        var isCustom = scoreKey.indexOf("custom") !== -1;
-        if (!isCustom) {
-            var points = basePoints[baseDif] - ((guessCount - 1) * attemptPenalty[baseDif]);
-            if (points < minimumPoints[baseDif]) {
-                points = minimumPoints[baseDif];
+        if(hardcoreCheck.checked){
+            arrow = "";
+            arrowClass = "";
+        }
+        var card = document.createElement("div");
+        card.className = "historyItem";
+        card.innerHTML = playerGuess + '<span class="' + arrowClass + '">' + arrow + '</span>';
+        guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
+        while(guessHistoryBox.children.length > historyLimit){
+            guessHistoryBox.removeChild(guessHistoryBox.lastChild);
+        }
+        if(data.result == "high"){
+            if(hardcoreCheck.checked){
+                msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
+            } else {
+                msgBox.textContent = "Nah Buddy, Try guessing lower..";
             }
-            if (hardcoreCheck.checked) {
-                points = points * 2;
+            msgBox.className = "msgHigh";
+            doGif("high");
+            playmusic("lose");
+        } else if (data.result == "low"){
+            if(hardcoreCheck.checked){
+                msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
+            } else{
+                msgBox.textContent = "Nah buddy, Try guessing higher..";
             }
+            msgBox.className = "msgLow";
+            doGif("low");
+            playmusic("lose");
+        } else {
+            msgBox.textContent = "Perfect! Thats correct..";
+            msgBox.className = "msgCorrect";
+            guessBtn.disabled = true;
+            doGif("win");
+            playmusic("win");
+            var best = localStorage.getItem(scoreKey);
+            if(best == null || guessCount < best){
+                localStorage.setItem(scoreKey, guessCount);
+            }
+            showBestScore();
 
-            var playerId = localStorage.getItem("asobi_player_id");
-            fetch("Backend/score_save.php", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + points + "&attempts=" + guessCount + "&won=1"
-            })
-                .then(function () {
+            var isCustom = scoreKey.indexOf("custom") !== -1;
+            if(!isCustom){
+                var playerId = localStorage.getItem("asobi_player_id");
+                fetch("Backend/score_save.php",{
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + data.points + "&attempts=" + guessCount + "&won=1"
+                })
+                .then(function(){
                     loadLeaderboard();
-                    // loadTotalBoard();
                 });
+            }
         }
-    }
-    var distance = Math.abs(randomNum - playerGuess);
-    var range = maxNum - minNum;
-    if (hardcoreCheck.checked) {
-        distanceHintBox.textContent = "";
-    } else if (playerGuess == randomNum) {
-        distanceHintBox.textContent = "";
-    } else if (distance < range * 0.05) {
-        distanceHintBox.textContent = "You are very close!";
-    } else if (distance < range * 0.2) {
-        distanceHintBox.textContent = "Getting close!"
-    } else {
-        distanceHintBox.textContent = "Nah buddy, Too far!";
-    }
-    if(playerGuess == randomNum){
-        guessInput.classList.add("correctnum");
-        guessInput.focus();
-    } else {
-        guessInput.classList.add("wrongnum");
-        guessInput.select();
-        setTimeout(function(){
-            guessInput.classList.remove("wrongnum");
-            guessInput.value = "";
-        },1000);
-    }
+        if(hardcoreCheck.checked || data.result == "correct"){
+            distanceHintBox.textContent = "";
+        } else if(data.closeness == "close"){
+            distanceHintBox.textContent = "You are very close!";
+        } else if(data.closeness == "warm"){
+            distanceHintBox.textContent = "Getting close!";
+        } else{
+            distanceHintBox.textContent = "Nah buddy, Too far!";
+        }
+        if(data.result == "correct"){
+            guessInput.classList.add("correctnum");
+            guessInput.focus();
+        } else{
+            guessInput.classList.add("wrongnum");
+            guessInput.select();
+            setTimeout(function(){
+                guessInput.classList.remove("wrongnum");
+                guessInput.value = "";
+            },1000);
+        }
+    });
 });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
@@ -266,30 +264,30 @@ function loadLeaderboard() {
         });
 }
 //play again , now reseting the game
-function resetGame(){
-    fetch("Backend/the_game.php",{
+function resetGame() {
+    fetch("Backend/the_game.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         body: "minNum=" + minNum + "&maxNum=" + maxNum
     })
-    .then(function(r){
-        return r.json();
-    })
-    .then(function(d){
-        guessBtn.disabled= false;
-        guessCount = 0;
-        guessCountBox.textContent = "Guesses: 0";
-        msgBox.textContent = "";
-        msgBox.className = "";
-        distanceHintBox.textContent = "";
-        guessInput.value = "";
-        guessInput.classList.remove("correctnum");
-        guessHistoryBox.innerHTML = "";
-        gif.style.display = "none";
-        gif.src = "";
-    });
+        .then(function (r) {
+            return r.json();
+        })
+        .then(function (d) {
+            guessBtn.disabled = false;
+            guessCount = 0;
+            guessCountBox.textContent = "Guesses: 0";
+            msgBox.textContent = "";
+            msgBox.className = "";
+            distanceHintBox.textContent = "";
+            guessInput.value = "";
+            guessInput.classList.remove("correctnum");
+            guessHistoryBox.innerHTML = "";
+            gif.style.display = "none";
+            gif.src = "";
+        });
 }
 playAgainBtn.addEventListener("click", function () {
     playAgainBtn.blur();
@@ -425,9 +423,9 @@ function doGif(result) {
     gif.src = pick;
     gif.style.display = "block";
 }
-musicBtn.addEventListener("click", function(){
+musicBtn.addEventListener("click", function () {
     speaking = !speaking;
-    if(speaking){
+    if (speaking) {
         musicBtn.src = "Icons/sound-on.svg";
         localStorage.setItem("asobi_muted", "false");
     } else {
@@ -436,12 +434,12 @@ musicBtn.addEventListener("click", function(){
     }
 });
 //playing the win or error music
-function playmusic(result){
-    if(!speaking){
+function playmusic(result) {
+    if (!speaking) {
         return;
     }
     var list;
-    if(result == "win"){
+    if (result == "win") {
         list = wsound;
     } else {
         list = lsound;
