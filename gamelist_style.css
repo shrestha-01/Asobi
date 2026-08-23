@@ -152,3 +152,20 @@ body {
     -5px -5px 10px #ffffff;
     font-size: 15px;
 }
+/* coming soon  */
+#soon{
+    display: inline-block;
+    color: #999;
+    padding: 0.7em 1.7em;
+    font-size: 15px;
+    background: #e8e8e8;
+    border-radius: 0.5em;
+    cursor: pointer;
+    border: 1px solid #e8e8e8;
+    text-decoration: none;
+    margin-top: 15px;
+}
+#gamerow{
+    display: flex;
+    flex-wrap: wrap;
+}
