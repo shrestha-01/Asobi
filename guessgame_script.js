@@ -16,7 +16,6 @@ var optionItem = document.getElementsByClassName("optionItem");
 var vboard = document.getElementById("vboard");
 var minNum = 1;
 var maxNum = 10;
-randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
 var bestScoreBox = document.getElementById("bestScoreBox");
 var scoreKey = "best_beginner";
 var distanceHintBox = document.getElementById("distanceHintBox");
@@ -266,20 +265,31 @@ function loadLeaderboard() {
             }
         });
 }
-//play again
-function resetGame() {
-    guessBtn.disabled = false;
-    randomNum = Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
-    guessCount = 0;
-    guessCountBox.textContent = "Guesses: 0";
-    msgBox.textContent = "";
-    msgBox.className = "";
-    distanceHintBox.textContent = "";
-    guessInput.value = "";
-    guessInput.classList.remove("correctnum");
-    guessHistoryBox.innerHTML = "";
-    gif.style.display = "none";
-    gif.src = "";
+//play again , now reseting the game
+function resetGame(){
+    fetch("Backend/the_game.php",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "minNum=" + minNum + "&maxNum=" + maxNum
+    })
+    .then(function(r){
+        return r.json();
+    })
+    .then(function(d){
+        guessBtn.disabled= false;
+        guessCount = 0;
+        guessCountBox.textContent = "Guesses: 0";
+        msgBox.textContent = "";
+        msgBox.className = "";
+        distanceHintBox.textContent = "";
+        guessInput.value = "";
+        guessInput.classList.remove("correctnum");
+        guessHistoryBox.innerHTML = "";
+        gif.style.display = "none";
+        gif.src = "";
+    });
 }
 playAgainBtn.addEventListener("click", function () {
     playAgainBtn.blur();
