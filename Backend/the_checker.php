@@ -59,7 +59,6 @@ if($playerGuess > $imposter){
         }
     }
 }
-// the closeness checker 
 $range = $_SESSION["maxNum"] - $_SESSION["minNum"];
 $distance = abs($playerGuess - $imposter);
 $closeness = "far";
