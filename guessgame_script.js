@@ -334,6 +334,14 @@ function showBestScore() {
     } else {
         bestScoreBox.textContent = "Best: " + best;
     }
+    for (var i = 0; i < optionItem.length; i++) {
+        if (optionItem[i].classList.contains("selected")) {
+            optionItem[i].parentNode.insertBefore(bestScoreBox, optionItem[i].nextSibling);
+        }
+    }
+    bestScoreBox.classList.remove("showbest");
+    void bestScoreBox.offsetWidth;
+    bestScoreBox.classList.add("showbest");
 }
 showBestScore();
 //custom

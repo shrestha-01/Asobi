@@ -595,7 +595,7 @@ h1 {
   padding: 7px 12px;
   text-align: left;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
   cursor: pointer;
   margin-bottom: 3px;
   font-size: 14px;
@@ -603,7 +603,7 @@ h1 {
   color: #444;
   background-color: rgba(255, 255, 255, 0.5);
   transition: background-color 0.3s;
-}
+} 
 
 .optionItem .optionValue {
   font-size: 12px;
@@ -1397,4 +1397,38 @@ h1 {
   color: #575458;
   font-size: 29px;
   font-weight: bold;
+}
+#bestScoreBox {
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-top: -3px;
+    margin-right: 10px;
+    padding: 5px 12px;
+    border-radius: 0 0 8px 8px;
+    background-color: #e4e6ec;
+    color: #6a4fd6;
+    font-size: 12px;
+    font-weight: bold;
+    /* position: relative; */
+    /* z-index: -1; */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease,
+     opacity 0.3s ease;
+}
+
+#bestScoreBox.showbest {
+    max-height: 30px;
+    opacity: 1;
+}
+.optionItem.selected #bestScoreBox{
+  max-height: 30px;
+  opacity: 1;
+}
+.optionTop{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

@@ -35,36 +35,48 @@
     <div id="mainBox">
         <div id="sidebarBox">
             <div id="gameModeBox">
-                <p id="gameModeTitle">Game Modes</p>
+    <p id="gameModeTitle">Game Modes</p>
 
-                <div id="difficultyBox">
-                    <p id="bestScoreBox">Best: -</p>
-                    <div id="beginner" class="optionItem selected">
-                        <span id="beginnerTitle" class="optionTitle">Beginner</span>
-                        <span id="beginnerValue" class="optionValue">(1 - 10)</span>
-                    </div>
-                    <div id="normal" class="optionItem">
-                        <span id="normalTitle" class="optionTitle">Normal</span>
-                        <span id="normalValue" class="optionValue">(1 - 100)</span>
-                    </div>
-                    <div id="hard" class="optionItem">
-                        <span id="hardTitle" class="optionTitle">Hard</span>
-                        <span id="hardValue" class="optionValue">(1 - 1K)</span>
-                    </div>
-                    <div id="expert" class="optionItem">
-                        <span id="expertTitle" class="optionTitle">Expert</span>
-                        <span id="expertValue" class="optionValue">(1 - 10K)</span>
-                    </div>
-                    <div id="master" class="optionItem">
-                        <span id="masterTitle" class="optionTitle">Master</span>
-                        <span id="masterValue" class="optionValue">(1 - 100K)</span>
-                    </div>
-                    <div id="impossible" class="optionItem">
-                        <span id="impossibleTitle" class="optionTitle">Impossible</span>
-                        <span id="impossibleValue" class="optionValue">(1 - 1M)</span>
-                    </div>
-                </div>
+    <div id="difficultyBox">
+        <div id="beginner" class="optionItem selected">
+            <div class="optionTop">
+                <span id="beginnerTitle" class="optionTitle">Beginner</span>
+                <span id="beginnerValue" class="optionValue">(1 - 10)</span>
             </div>
+        </div>
+        <div id="normal" class="optionItem">
+            <div class="optionTop">
+                <span id="normalTitle" class="optionTitle">Normal</span>
+                <span id="normalValue" class="optionValue">(1 - 100)</span>
+            </div>
+        </div>
+        <div id="hard" class="optionItem">
+            <div class="optionTop">
+                <span id="hardTitle" class="optionTitle">Hard</span>
+                <span id="hardValue" class="optionValue">(1 - 1K)</span>
+            </div>
+        </div>
+        <div id="expert" class="optionItem">
+            <div class="optionTop">
+                <span id="expertTitle" class="optionTitle">Expert</span>
+                <span id="expertValue" class="optionValue">(1 - 10K)</span>
+            </div>
+        </div>
+        <div id="master" class="optionItem">
+            <div class="optionTop">
+                <span id="masterTitle" class="optionTitle">Master</span>
+                <span id="masterValue" class="optionValue">(1 - 100K)</span>
+            </div>
+        </div>
+        <div id="impossible" class="optionItem">
+            <div class="optionTop">
+                <span id="impossibleTitle" class="optionTitle">Impossible</span>
+                <span id="impossibleValue" class="optionValue">(1 - 1M)</span>
+            </div>
+        </div>
+    </div>
+    <p id="bestScoreBox">Best: -</p>
+</div>
             <div id="hardcore-wrap">
                 <input type="checkbox" id="hardcore-check">
                 <label for="hardcore-check">Hardcore Mode</label>
