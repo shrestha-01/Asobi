@@ -59,3 +59,28 @@ submitBtn.addEventListener("click",function(){
         window.location.href="gamelist.html";
     });
 });
+// making your life easy with enter key addition 
+asobiUser.addEventListener("keydown", function(event){
+    if(event.key == "Enter"){
+        nPasscode.focus();
+    }
+});
+nPasscode.addEventListener("keydown", function(event){
+    if(event.key == "Enter"){
+        nPasscode.focus();
+    }
+});
+nPasscode.addEventListener("keydown", function(event){
+    if(event.key == "Enter"){
+        if(which == "signup"){
+            repasscode.focus();
+        } else {
+            submitBtn.click();
+        }
+    }
+});
+repasscode.addEventListener("keydown", function(event){
+    if(event.key == "Enter"){
+        submitBtn.click();
+    }
+});
