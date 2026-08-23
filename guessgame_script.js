@@ -264,13 +264,20 @@ function loadLeaderboard() {
         });
 }
 //play again , now reseting the game
+//play again , now reseting the game
 function resetGame() {
+    var hardcoreValue;
+    if (hardcoreCheck.checked) {
+        hardcoreValue = "1";
+    } else {
+        hardcoreValue = "0";
+    }
     fetch("Backend/the_game.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: "minNum=" + minNum + "&maxNum=" + maxNum
+        body: "minNum=" + minNum + "&maxNum=" + maxNum + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue
     })
         .then(function (r) {
             return r.json();
