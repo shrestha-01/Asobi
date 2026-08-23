@@ -213,7 +213,9 @@ body {
     filter: drop-shadow(5px 5px 7px #d1cce8) drop-shadow(-5px -5px 8px #ffffff);
 }
 
-#asobiuser {
+#asobiuser,
+#nPasscode,
+#repasscode {
     width: 100%;
     padding: 15px 20px;
     border: none;
@@ -279,4 +281,16 @@ body {
     margin-top: 10px;
     margin-bottom: 15px;
     font-size: 20px;
+}
+/* the toggling text  */
+#noacc{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #6a4fd6;
+    cursor: pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#noacc:hover{
+    text-decoration: underline;
 }

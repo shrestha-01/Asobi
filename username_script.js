@@ -5,6 +5,8 @@ var submitBtn =document.getElementById("submit");
 var msgBox = document.getElementById("msgBox");
 var noacc = document.getElementById("noacc");
 var which = "login";
+var repasscode = document.getElementById("repasscode");
+repasscode.style.display = "none";
 
 //skipping page for username saved people
 var checkUser = localStorage.getItem("asobi_username");
@@ -13,22 +15,29 @@ if(checkUser != null){
 }
 
 noacc.addEventListener("click",function(){
-    if(which == "login"){
+    if(which == null || which == "login"){
         which = "signup";
-        noacc.textContent = "You already have an account ? Login";
+        noacc.textContent = "You have an account already? Login";
         submitBtn.textContent = "Sign Up";
+        repasscode.style.display = "block";
     } else {
         which = "login";
-        noacc.textContent = "Don't have an account? Sign Up";
+        noacc.textContent = "No account ? Sign Up";
         submitBtn.textContent = "Submit";
+        repasscode.style.display = "none";
     }
 });
+
 
 submitBtn.addEventListener("click",function(){
     if(asobiUser.value == "" || nPasscode.value == ""){
         msgBox.textContent = "Bruh, Please fill in both fields";
         return;
     }
+    if(which == "signup" && nPasscode.value != repasscode.value){
+    msgBox.textContent = "Umm, your passcode don't match";
+    return;
+}
     fetch("Backend/get_player.php",{
         method: "POST",
         headers: {
