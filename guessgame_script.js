@@ -1,5 +1,5 @@
 //getting elements
-var randomNum;
+// var randomNum; i moved it to the server side , bro you cant cheat anymore =)
 var playerGuess;
 var guessBtn = document.getElementById("guessBtn");
 var guessInput = document.getElementById("guessInput");
@@ -38,31 +38,31 @@ var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Dow
 var upGifs = ["GIFs/UP/Point_Up_01.gif", "GIFs/UP/Point_Up_02.gif", "GIFs/UP/Point_Up_03.gif"];
 var errorGifs = ["GIFs/Error/Error_01.gif", "GIFs/Error/Error_02.gif", "GIFs/Error/Error_03.gif", "GIFs/Error/Error_04.gif", "GIFs/Error/Error_05.gif", "GIFs/Error/Error_06.gif", "GIFs/Error/Error_07.gif", "GIFs/Error/Error_08.gif", "GIFs/Error/Error_09.gif"];
 // var totalBoard = document.getElementById("totalBoard");
-//point giving system
-var basePoints = {
-    "beginner": 10,
-    "normal": 25,
-    "hard": 50,
-    "expert": 100,
-    "master": 200,
-    "impossible": 500
-};
-var attemptPenalty = {
-    "beginner": 1,
-    "normal": 2,
-    "hard": 3,
-    "expert": 4,
-    "master": 5,
-    "impossible": 6
-};
-var minimumPoints = {
-    "beginner": 2,
-    "normal": 5,
-    "hard": 10,
-    "expert": 20,
-    "master": 40,
-    "impossible": 100
-};
+//point giving system , moved to the server side, bro you cant cheat anymore =)
+// var basePoints = {
+//     "beginner": 10,
+//     "normal": 25,
+//     "hard": 50,
+//     "expert": 100,
+//     "master": 200,
+//     "impossible": 500
+// };
+// var attemptPenalty = {
+//     "beginner": 1,
+//     "normal": 2,
+//     "hard": 3,
+//     "expert": 4,
+//     "master": 5,
+//     "impossible": 6
+// };
+// var minimumPoints = {
+//     "beginner": 2,
+//     "normal": 5,
+//     "hard": 10,
+//     "expert": 20,
+//     "master": 40,
+//     "impossible": 100
+// };
 var weekBtn = document.getElementById("week-btn");
 var weekMenu = document.getElementById("week-menu");
 var weekOptions = document.getElementsByClassName("weekOption");
@@ -109,118 +109,118 @@ hardcoreCheck.addEventListener("change", function () {
 minNumText.textContent = minNum;
 maxNumText.textContent = maxNum;
 
-guessBtn.addEventListener("click", function(){
-    if(guessInput.value == ""){
+guessBtn.addEventListener("click", function () {
+    if (guessInput.value == "") {
         msgBox.textContent = "Ermm, maybe enter a number first";
         return;
     }
     playerGuess = guessInput.value;
     playerGuess = Number(playerGuess);
     var hardcoreValue;
-    if(hardcoreCheck.checked){
+    if (hardcoreCheck.checked) {
         hardcoreValue = "1";
     } else {
         hardcoreValue = "0";
     }
-    fetch("Backend/the_checker.php",{
+    fetch("Backend/the_checker.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
         body: "guess=" + playerGuess + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue
     })
-    .then(function(response){
-        return response.json();
-    })
-    .then(function(data){
-        guessCount = data.guesses;
-        guessCountBox.textContent = "Guesses: " + guessCount;
-        var arrow = "";
-        var arrowClass = "";
-        if(data.result == "high"){
-            arrow = "&darr;";
-            arrowClass = "arrowHigh";
-        } else if (data.result == "low"){
-            arrow = "&uarr;";
-            arrowClass = "arrowLow";
-        }
-        if(hardcoreCheck.checked){
-            arrow = "";
-            arrowClass = "";
-        }
-        var card = document.createElement("div");
-        card.className = "historyItem";
-        card.innerHTML = playerGuess + '<span class="' + arrowClass + '">' + arrow + '</span>';
-        guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
-        while(guessHistoryBox.children.length > historyLimit){
-            guessHistoryBox.removeChild(guessHistoryBox.lastChild);
-        }
-        if(data.result == "high"){
-            if(hardcoreCheck.checked){
-                msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            guessCount = data.guesses;
+            guessCountBox.textContent = "Guesses: " + guessCount;
+            var arrow = "";
+            var arrowClass = "";
+            if (data.result == "high") {
+                arrow = "&darr;";
+                arrowClass = "arrowHigh";
+            } else if (data.result == "low") {
+                arrow = "&uarr;";
+                arrowClass = "arrowLow";
+            }
+            if (hardcoreCheck.checked) {
+                arrow = "";
+                arrowClass = "";
+            }
+            var card = document.createElement("div");
+            card.className = "historyItem";
+            card.innerHTML = playerGuess + '<span class="' + arrowClass + '">' + arrow + '</span>';
+            guessHistoryBox.insertBefore(card, guessHistoryBox.firstChild);
+            while (guessHistoryBox.children.length > historyLimit) {
+                guessHistoryBox.removeChild(guessHistoryBox.lastChild);
+            }
+            if (data.result == "high") {
+                if (hardcoreCheck.checked) {
+                    msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
+                } else {
+                    msgBox.textContent = "Nah Buddy, Try guessing lower..";
+                }
+                msgBox.className = "msgHigh";
+                doGif("high");
+                playmusic("lose");
+            } else if (data.result == "low") {
+                if (hardcoreCheck.checked) {
+                    msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
+                } else {
+                    msgBox.textContent = "Nah buddy, Try guessing higher..";
+                }
+                msgBox.className = "msgLow";
+                doGif("low");
+                playmusic("lose");
             } else {
-                msgBox.textContent = "Nah Buddy, Try guessing lower..";
-            }
-            msgBox.className = "msgHigh";
-            doGif("high");
-            playmusic("lose");
-        } else if (data.result == "low"){
-            if(hardcoreCheck.checked){
-                msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
-            } else{
-                msgBox.textContent = "Nah buddy, Try guessing higher..";
-            }
-            msgBox.className = "msgLow";
-            doGif("low");
-            playmusic("lose");
-        } else {
-            msgBox.textContent = "Perfect! Thats correct..";
-            msgBox.className = "msgCorrect";
-            guessBtn.disabled = true;
-            doGif("win");
-            playmusic("win");
-            var best = localStorage.getItem(scoreKey);
-            if(best == null || guessCount < best){
-                localStorage.setItem(scoreKey, guessCount);
-            }
-            showBestScore();
+                msgBox.textContent = "Perfect! Thats correct..";
+                msgBox.className = "msgCorrect";
+                guessBtn.disabled = true;
+                doGif("win");
+                playmusic("win");
+                var best = localStorage.getItem(scoreKey);
+                if (best == null || guessCount < best) {
+                    localStorage.setItem(scoreKey, guessCount);
+                }
+                showBestScore();
 
-            var isCustom = scoreKey.indexOf("custom") !== -1;
-            if(!isCustom){
-                var playerId = localStorage.getItem("asobi_player_id");
-                fetch("Backend/score_save.php",{
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/x-www-form-urlencoded"
-                    },
-                    body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + data.points + "&attempts=" + guessCount + "&won=1"
-                })
-                .then(function(){
-                    loadLeaderboard();
-                });
+                var isCustom = scoreKey.indexOf("custom") !== -1;
+                if (!isCustom) {
+                    var playerId = localStorage.getItem("asobi_player_id");
+                    fetch("Backend/score_save.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "player_id=" + playerId + "&difficulty=" + scoreKey + "&score=" + data.points + "&attempts=" + guessCount + "&won=1"
+                    })
+                        .then(function () {
+                            loadLeaderboard();
+                        });
+                }
             }
-        }
-        if(hardcoreCheck.checked || data.result == "correct"){
-            distanceHintBox.textContent = "";
-        } else if(data.closeness == "close"){
-            distanceHintBox.textContent = "You are very close!";
-        } else if(data.closeness == "warm"){
-            distanceHintBox.textContent = "Getting close!";
-        } else{
-            distanceHintBox.textContent = "Nah buddy, Too far!";
-        }
-        if(data.result == "correct"){
-            guessInput.classList.add("correctnum");
-            guessInput.focus();
-        } else{
-            guessInput.classList.add("wrongnum");
-            guessInput.select();
-            setTimeout(function(){
-                guessInput.classList.remove("wrongnum");
-                guessInput.value = "";
-            },1000);
-        }
-    });
+            if (hardcoreCheck.checked || data.result == "correct") {
+                distanceHintBox.textContent = "";
+            } else if (data.closeness == "close") {
+                distanceHintBox.textContent = "You are very close!";
+            } else if (data.closeness == "warm") {
+                distanceHintBox.textContent = "Getting close!";
+            } else {
+                distanceHintBox.textContent = "Nah buddy, Too far!";
+            }
+            if (data.result == "correct") {
+                guessInput.classList.add("correctnum");
+                guessInput.focus();
+            } else {
+                guessInput.classList.add("wrongnum");
+                guessInput.select();
+                setTimeout(function () {
+                    guessInput.classList.remove("wrongnum");
+                    guessInput.value = "";
+                }, 1000);
+            }
+        });
 });
 // for leaderboard 
 var leaderboardList = document.getElementById("leaderboardList");
@@ -388,6 +388,7 @@ clearHistory.addEventListener("click", function () {
     guessHistoryBox.innerHTML = "";
 });
 loadLeaderboard();
+resetGame();
 function loadTotalBoard() {
     fetch("Backend/total_Board.php")
         .then(function (response) {
