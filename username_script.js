@@ -15,6 +15,7 @@ if(checkUser != null){
 }
 
 noacc.addEventListener("click",function(){
+    msgBox.textContent = "";
     if(which == null || which == "login"){
         which = "signup";
         noacc.textContent = "You have an account already? Login";
@@ -27,7 +28,6 @@ noacc.addEventListener("click",function(){
         repasscode.style.display = "none";
     }
 });
-
 
 submitBtn.addEventListener("click",function(){
     if(asobiUser.value == "" || nPasscode.value == ""){
