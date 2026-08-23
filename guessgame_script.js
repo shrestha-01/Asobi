@@ -222,7 +222,7 @@ guessBtn.addEventListener("click", function () {
         setTimeout(function(){
             guessInput.classList.remove("wrongnum");
             guessInput.value = "";
-        },2000);
+        },1000);
     }
 });
 // for leaderboard 
