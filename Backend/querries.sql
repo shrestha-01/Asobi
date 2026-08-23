@@ -20,3 +20,4 @@ SELECT * FROM guess_the_number_scores;
 TRUNCATE guess_the_number_scores;
 ALTER TABLE guess_the_number_scores MODIFY difficulty VARCHAR(50);
 ALTER TABLE players ADD passcode VARCHAR(255) NOT NULL DEFAULT '';
+ALTER TABLE players MODIFY passcode VARCHAR(255) NOT NULL;
