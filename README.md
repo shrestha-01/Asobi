@@ -9,3 +9,5 @@ Card Animation: https://codepen.io/markmiro
 SoundOn SVG: https://www.svgrepo.com/svg/522455/sound-max
 SoundOff SVG: https://www.svgrepo.com/svg/522456/sound-min
 Logout SVG: https://www.svgrepo.com/svg/507772/logout
+Eye close SVG: https://www.svgrepo.com/svg/445115/eye-close-solid
+Eye open SVG:https://www.svgrepo.com/svg/445116/eye-open-solid
