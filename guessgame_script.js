@@ -206,7 +206,7 @@ guessBtn.addEventListener("click", function () {
                 setTimeout(function () {
                     guessInput.classList.remove("wrongnum");
                     guessInput.value = "";
-                }, 1000);
+                }, 500);
             }
         });
 });
@@ -332,9 +332,9 @@ for (var i = 0; i < optionItem.length; i++) {
 function showBestScore() {
     var best = localStorage.getItem(scoreKey);
     if (best == null) {
-        bestScoreBox.textContent = "Best: -";
+        bestScoreBox.textContent = "Your Best: -";
     } else {
-        bestScoreBox.textContent = "Best: " + best;
+        bestScoreBox.textContent = "Your Best: " + best +" tries";
     }
     for (var i = 0; i < optionItem.length; i++) {
         if (optionItem[i].classList.contains("selected")) {

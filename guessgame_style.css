@@ -43,6 +43,7 @@ body {
   outline: none;
   box-sizing: border-box;
   text-align: center;
+  /* font-family: 'VARINO'; */
 }
 
 /* guess button [Designed by Pankaj Meharchandani (check credits for more)] */
@@ -897,6 +898,8 @@ h1 {
   margin-bottom: 20px;
   flex: 2;
   box-sizing: border-box;
+  max-height: 340px;
+  overflow-y: auto;
 }
 
 #reactionCard {
