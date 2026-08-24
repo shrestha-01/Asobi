@@ -1447,3 +1447,63 @@ h1 {
   align-items: center;
   gap: 10px;
 }
+/* responsiveness now  */
+/* for tablet and laptops */
+@media (max-width: 1000px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
+    #mainBox {
+        flex-direction: column;
+    }
+
+    #sidebarBox,
+    #rightsidebarBox {
+        width: 100%;
+        height: auto;
+    }
+
+    #headerBox {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    #nav-box {
+        position: static;
+        transform: none;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/*phones */
+@media (max-width: 480px) {
+    #guessInput {
+        width: 100%;
+        font-size: 28px;
+    }
+
+    #minNumText,
+    #maxNumText {
+        font-size: 22px;
+    }
+
+    #logoBox {
+        font-size: 16px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    #gameModeBox,
+    #customGameBox {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
