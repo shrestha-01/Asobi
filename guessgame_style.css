@@ -1465,6 +1465,12 @@ h1 {
         height: auto;
     }
 
+    #sidebarBox {
+        height: auto;
+        overflow-y: visible;
+        max-height: none;
+    }
+
     #headerBox {
         flex-wrap: wrap;
         gap: 10px;
