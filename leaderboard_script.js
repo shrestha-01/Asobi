@@ -182,3 +182,12 @@ document.addEventListener("click",function(e){
         weekMenu.style.display = "none";
     }
 });
+// logout 
+logoutbTn.addEventListener("click", function(){
+    fetch("Backend/logout.php")
+    .then(function(){
+        localStorage.removeItem("asobi_username");
+        localStorage.removeItem("asobi_player_id");
+        window.location.href = "username.html";
+    });
+});

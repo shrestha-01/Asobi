@@ -169,3 +169,14 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+#userBox{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#logoutbTn{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}

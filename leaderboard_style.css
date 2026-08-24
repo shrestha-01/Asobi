@@ -616,3 +616,15 @@ tRow:not(:first-child) {
 .weekOption:hover{
     background-color: #e8e4f5;
 }
+/* for the sake of logout btn  */
+#userBox{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#logoutbTn{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}
