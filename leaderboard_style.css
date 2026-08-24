@@ -628,3 +628,71 @@ tRow:not(:first-child) {
     cursor: pointer;
     margin-left: 5px;
 }
+/* responsiveness  */
+/* tablet and small laptops  */
+@media (max-width: 1000px) {
+    body {
+        height: auto;
+    }
+
+    #pageRow {
+        flex-direction: column;
+    }
+
+    #sideBar,
+    #rightSide {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    #header {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    #nav-box {
+        position: static;
+        transform: none;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* for phones  */
+@media (max-width: 480px) {
+    #logoBox {
+        font-size: 16px;
+    }
+
+    .nav-link {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .tRow {
+        font-size: 12px;
+        padding: 10px 8px;
+    }
+
+    .pTime {
+        display: none;
+    }
+
+    #trophy {
+        width: 100px;
+        height: 100px;
+    }
+
+    #title {
+        font-size: 20px;
+    }
+
+    #subtitle {
+        font-size: 13px;
+    }
+
+    .card {
+        padding: 18px 15px;
+    }
+}
