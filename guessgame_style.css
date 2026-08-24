@@ -1432,3 +1432,15 @@ h1 {
   justify-content: space-between;
   width: 100%;
 }
+/* logout button  */
+#logoutbTn{
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+#userBox{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

@@ -70,6 +70,8 @@ var weekText = document.getElementById("weekText");
 var sUser = document.getElementById("sUser");
 var musicBtn = document.getElementById("musicBtn");
 var savedMute = localStorage.getItem("asobi_muted");
+// for logout btn 
+var logoutbTn = document.getElementById("logoutbTn");
 var speaking = true;
 if (savedMute == null) {
     speaking = false;
@@ -470,4 +472,13 @@ document.addEventListener("click", function (e) {
     if (!weekBtn.contains(e.target)) {
         weekMenu.style.display = "none";
     }
+});
+//adding the logout 
+logoutbTn.addEventListener("click", function(){
+    fetch("Backend/logout.php")
+    .then(function(){
+        localStorage.removeItem("asobi_username");
+        localStorage.removeItem("asobi_player_id");
+        window.location.href = "username.html";
+    });
 });

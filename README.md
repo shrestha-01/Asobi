@@ -6,5 +6,6 @@ Submit Btn design: https://uiverse.io/elijahgummer/sweet-rabbit-5
 Play Btn[Gamelist]: https://uiverse.io/ke1221/ancient-walrus-24
 Trophy SVG[Leaderboard]: https://lottiefiles.com/free-animation/trophy-ITXDedW9Xd
 Card Animation: https://codepen.io/markmiro
-SoundOn Logo: https://www.svgrepo.com/svg/522455/sound-max
-SoundOff Logo: https://www.svgrepo.com/svg/522456/sound-min
+SoundOn SVG: https://www.svgrepo.com/svg/522455/sound-max
+SoundOff SVG: https://www.svgrepo.com/svg/522456/sound-min
+Logout SVG: https://www.svgrepo.com/svg/507772/logout
