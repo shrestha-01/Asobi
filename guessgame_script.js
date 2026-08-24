@@ -102,6 +102,18 @@ var checkPlayerId = localStorage.getItem("asobi_player_id");
 if (checkPlayerId == null) {
     window.location.href = "index.html";
 }
+// localStorage can still remember you even if the server forgot you
+// so double check with the server too, or else scores just dont save
+//gemini helped debug this 
+// fetch("Backend/check_session.php")
+//     .then(function (response) {
+//         return response.json();
+//     })
+//     .then(function (data) {
+//         if (!data.loggedIn) {
+//             window.location.href = "username.html";
+//         }
+//     });
 hardcoreCheck.addEventListener("change", function () {
     updateScoreKey();
     showBestScore();
