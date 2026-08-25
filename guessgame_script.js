@@ -73,6 +73,21 @@ var savedMute = localStorage.getItem("asobi_muted");
 // for logout btn 
 var logoutbTn = document.getElementById("logoutbTn");
 var speaking = true;
+// preloading audio and gifs so they dont lag when actually needed
+var preloadaudio = {};
+var allSounds = wsound.concat(lsound);
+for (var i = 0; i < allSounds.length; i++) {
+    var audio = new Audio(allSounds[i]);
+    preloadaudio[allSounds[i]] = audio;
+}
+
+var preloadgif = [];
+var allGifs = correctGifs.concat(downGifs, upGifs, errorGifs);
+for (var i = 0; i < allGifs.length; i++) {
+    var img = new Image();
+    img.src = allGifs[i];
+    preloadgif.push(img);
+}
 if (savedMute == null) {
     speaking = false;
     localStorage.setItem("asobi_muted", "true");
@@ -461,7 +476,8 @@ function playmusic(result) {
         list = lsound;
     }
     var pick = list[Math.floor(Math.random() * list.length)];
-    var sound = new Audio(pick);
+    var sound = preloadaudio[pick];
+    sound.currentTime = 0;
     sound.play();
 }
 weekBtn.addEventListener("click", function () {
