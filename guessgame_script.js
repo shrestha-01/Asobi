@@ -181,7 +181,8 @@ guessBtn.addEventListener("click", function () {
     // } else {
     //     hardcoreValue = "0";
     // }
-    fetch("Backend/the_checker.php",{
+
+    fetch("Backend/the_checker.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
@@ -214,7 +215,13 @@ guessBtn.addEventListener("click", function () {
             while (guessHistoryBox.children.length > historyLimit) {
                 guessHistoryBox.removeChild(guessHistoryBox.lastChild);
             }
-            if (data.result == "high") {
+            if (data.result == "outofguesses") {
+                msgBox.textContent = "Oh Oh, Out of guesses =( It was " + data.imposter;
+                msgBox.className = "msgHigh";
+                guessBtn.disabled = true;
+                doGif("high");
+                playmusic("lose");
+            } else if (data.result == "high") {
                 if (hardcoreCheck.checked) {
                     msgBox.textContent = "Wrong guess and No hints in Hardcore mode";
                 } else {
@@ -239,7 +246,7 @@ guessBtn.addEventListener("click", function () {
                 doGif("win");
                 playmusic("win");
                 var best = localStorage.getItem(scoreKey);
-                if(best == null || guessCount < best){
+                if (best == null || guessCount < best) {
                     localStorage.setItem(scoreKey, guessCount);
                 }
                 showBestScore();
@@ -322,7 +329,7 @@ function resetGame() {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: "minNum=" + minNum + "&maxNum=" + maxNum + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue
+        body: "minNum=" + minNum + "&maxNum=" + maxNum + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue + "&maxGuess=" + maxGuess
     })
         .then(function (r) {
             return r.json();
@@ -391,7 +398,7 @@ function showBestScore() {
     if (best == null) {
         bestScoreBox.textContent = "Your Best: -";
     } else {
-        bestScoreBox.textContent = "Your Best: " + best +" tries";
+        bestScoreBox.textContent = "Your Best: " + best + " tries";
     }
     for (var i = 0; i < optionItem.length; i++) {
         if (optionItem[i].classList.contains("selected")) {
@@ -414,13 +421,13 @@ startGameBtn.addEventListener("click", function () {
     minNum = newMinNum;
     maxNum = newMaxNum;
     maxGuess = newMaxGuess;
-    resetGame();
     baseDif = "custom_" + minNum + "_" + maxNum;
     updateScoreKey();
+    resetGame();
     minNumText.textContent = minNum;
     maxNumText.textContent = maxNum;
     showBestScore();
-});
+})
 guessInput.focus();
 guessInput.addEventListener("keydown", function (event) {
     if (event.key == "Enter") {
@@ -532,11 +539,11 @@ document.addEventListener("click", function (e) {
     }
 });
 //adding the logout 
-logoutbTn.addEventListener("click", function(){
+logoutbTn.addEventListener("click", function () {
     fetch("Backend/logout.php")
-    .then(function(){
-        localStorage.removeItem("asobi_username");
-        localStorage.removeItem("asobi_player_id");
-        window.location.href = "username.html";
-    });
+        .then(function () {
+            localStorage.removeItem("asobi_username");
+            localStorage.removeItem("asobi_player_id");
+            window.location.href = "username.html";
+        });
 });

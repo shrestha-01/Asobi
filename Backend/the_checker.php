@@ -12,6 +12,7 @@ if(!isset($_SESSION["guessCount"])){
 }
 $_SESSION["guessCount"] = $_SESSION["guessCount"] + 1;
 $guessCount = $_SESSION["guessCount"];
+$maxGuess = isset($_SESSION["maxGuess"]) ? $_SESSION["maxGuess"] : 10;
 
 $basePoints = [
     "beginner" => 10,
@@ -40,11 +41,7 @@ $minimumPoints = [
 
 $result =  "";
 $points = 0;
-if($playerGuess>$imposter){
-    $result = "high";
-} else if($playerGuess < $imposter){
-    $result = "low";
-} else {
+if($playerGuess == $imposter){
     $result = "correct";
     $isCustom = strpos($baseDif, "custom") !== false;
     if(!$isCustom && isset($basePoints[$baseDif])){
@@ -67,6 +64,12 @@ if($playerGuess>$imposter){
             $stmt->execute();
         }
     }
+} else if($guessCount >= $maxGuess){
+    $result = "outofguesses";
+} else if($playerGuess > $imposter){
+    $result = "high";
+} else {
+    $result = "low";
 }
 $range = $_SESSION["maxNum"] - $_SESSION["minNum"];
 $distance = abs($playerGuess - $imposter);
@@ -78,5 +81,5 @@ if($result == "correct"){
 } else if($distance < $range * 0.2){
     $closeness = "warm";
 }
-echo json_encode(["result" => $result, "guesses" => $guessCount, "points" => $points, "closeness" => $closeness]);
+echo json_encode(["result" => $result, "guesses" => $guessCount, "points" => $points, "closeness" => $closeness, "imposter" => ($result == "outofguesses" ? $imposter : null)]);
 ?>

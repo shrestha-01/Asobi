@@ -32,6 +32,7 @@ $_SESSION["minNum"] = $minNum;
 $_SESSION["maxNum"] = $maxNum;
 $_SESSION["guessCount"] = 0;
 $_SESSION["diff"] =  $baseDif;
+$_SESSION["maxGuess"] = (int)$_POST["maxGuess"];
 
 if($hardcoreValue == "1"){
     $_SESSION["hard"] = true;
