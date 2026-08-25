@@ -26,8 +26,14 @@
                 <span class="unique">Unique Username</span>
             </h1>
             <input type="text" id="asobiuser" placeholder="Enter a unique username" maxlength="20">
-            <input type="password" id="nPasscode" placeholder="Enter a passcode">
-            <input type="password" id="repasscode" placeholder="Retype your passcode">
+            <div class="passwordWrap">
+                <input type="password" id="nPasscode" placeholder="Enter a passcode">
+                <img id="supereye" src="Icons/eye-close.svg" alt="show passcode">
+            </div>
+            <div class="passwordWrap">
+                <input type="password" id="repasscode" placeholder="Retype your passcode">
+                <img id="resupereye" src="Icons/eye-close.svg" alt="show passcode">
+            </div>
             <p id="msgBox"></p>
             <button id="submit">Submit</button>
             <p id="noacc">No account yet ? Sign up</p>

@@ -6,7 +6,12 @@ var msgBox = document.getElementById("msgBox");
 var noacc = document.getElementById("noacc");
 var which = "login";
 var repasscode = document.getElementById("repasscode");
-repasscode.style.display = "none";
+var supereye = document.getElementById("supereye");
+var resupereye = document.getElementById("resupereye");
+var showing = false;
+var reshowing = false;
+repasscode.parentNode.style.display = "none";
+
 
 //skipping page for username saved people
 var checkUser = localStorage.getItem("asobi_username");
@@ -20,12 +25,12 @@ noacc.addEventListener("click",function(){
         which = "signup";
         noacc.textContent = "You have an account already? Login";
         submitBtn.textContent = "Sign Up";
-        repasscode.style.display = "block";
+        repasscode.parentNode.style.display = "block";
     } else {
         which = "login";
         noacc.textContent = "No account ? Sign Up";
         submitBtn.textContent = "Submit";
-        repasscode.style.display = "none";
+        repasscode.parentNode.style.display = "none";
     }
 });
 
@@ -67,11 +72,6 @@ asobiUser.addEventListener("keydown", function(event){
 });
 nPasscode.addEventListener("keydown", function(event){
     if(event.key == "Enter"){
-        nPasscode.focus();
-    }
-});
-nPasscode.addEventListener("keydown", function(event){
-    if(event.key == "Enter"){
         if(which == "signup"){
             repasscode.focus();
         } else {
@@ -82,5 +82,27 @@ nPasscode.addEventListener("keydown", function(event){
 repasscode.addEventListener("keydown", function(event){
     if(event.key == "Enter"){
         submitBtn.click();
+    }
+});
+//password show / hide toggel
+supereye.addEventListener("click", function(){
+    showing = !showing;
+    if(showing){
+        nPasscode.type = "text";
+        supereye.src = "Icons/eye-open.svg";
+    } else {
+        nPasscode.type = "password";
+        supereye.src = "Icons/eye-close.svg";
+    }
+});
+
+resupereye.addEventListener("click", function(){
+    reshowing = !reshowing;
+    if(reshowing){
+        repasscode.type = "text";
+        resupereye.src = "Icons/eye-open.svg";
+    } else{
+        repasscode.type = "password";
+        resupereye.src = "Icons/eye-close.svg";
     }
 });
