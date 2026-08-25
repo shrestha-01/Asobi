@@ -37,7 +37,7 @@ var loadingScreen = document.getElementById("loading");
 var correctGifs = ["GIFs/Correct/Win_01.gif", "GIFs/Correct/Win_02.gif", "GIFs/Correct/Win_03.gif"];
 var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Down_03.gif"];
 var upGifs = ["GIFs/UP/Point_Up_01.gif", "GIFs/UP/Point_Up_02.gif", "GIFs/UP/Point_Up_03.gif"];
-var errorGifs = ["GIFs/Error/Error_01.gif", "GIFs/Error/Error_02.gif", "GIFs/Error/Error_03.gif", "GIFs/Error/Error_04.gif", "GIFs/Error/Error_05.gif", "GIFs/Error/Error_06.gif", "GIFs/Error/Error_07.gif", "GIFs/Error/Error_08.gif", "GIFs/Error/Error_09.gif"];
+var errorGifs = ["GIFs/Error/Error_01.gif", "GIFs/Error/Error_03.gif", "GIFs/Error/Error_04.gif", "GIFs/Error/Error_05.gif", "GIFs/Error/Error_06.gif", "GIFs/Error/Error_07.gif", "GIFs/Error/Error_08.gif", "GIFs/Error/Error_09.gif"];
 // var totalBoard = document.getElementById("totalBoard");
 //point giving system , moved to the server side, bro you cant cheat anymore =)
 // var basePoints = {
@@ -71,6 +71,8 @@ var weekText = document.getElementById("weekText");
 var sUser = document.getElementById("sUser");
 var musicBtn = document.getElementById("musicBtn");
 var savedMute = localStorage.getItem("asobi_muted");
+var loadingwhat = document.getElementById("loadingwhat");
+var amount = document.getElementById("amount");
 // for logout btn 
 var logoutbTn = document.getElementById("logoutbTn");
 var speaking = true;
@@ -96,8 +98,11 @@ var preloadaudio = {};
 var totalToLoad = 0;
 var loadedCount = 0;
 
-function checkAllLoaded() {
+function checkAllLoaded(type) {
     loadedCount = loadedCount + 1;
+    loadingwhat.textContent = "Loading " + type + "...";
+    var percent = Math.floor((loadedCount / totalToLoad) * 100);
+    amount.textContent = percent + "%";
     if (loadedCount >= totalToLoad) {
         loadingScreen.classList.add("hideLoading");
     }
@@ -109,16 +114,24 @@ totalToLoad = allSounds.length + allGifs.length;
 
 for (var i = 0; i < allSounds.length; i++) {
     var audio = new Audio(allSounds[i]);
-    audio.addEventListener("canplaythrough", checkAllLoaded);
-    audio.addEventListener("error", checkAllLoaded);
+    audio.addEventListener("canplaythrough", function () {
+        checkAllLoaded("sounds");
+    });
+    audio.addEventListener("error", function () {
+        checkAllLoaded("sounds");
+    });
     preloadaudio[allSounds[i]] = audio;
 }
 
 var preloadgif = [];
 for (var i = 0; i < allGifs.length; i++) {
     var img = new Image();
-    img.addEventListener("load", checkAllLoaded);
-    img.addEventListener("error", checkAllLoaded);
+    img.addEventListener("load", function () {
+        checkAllLoaded("gifs");
+    });
+    img.addEventListener("error", function () {
+        checkAllLoaded("gifs");
+    });
     img.src = allGifs[i];
     preloadgif.push(img);
 }
