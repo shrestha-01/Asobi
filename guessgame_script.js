@@ -33,6 +33,7 @@ var hardcoreCheck = document.getElementById("hardcore-check");
 var baseDif = "beginner";
 var hardcoreCheck = document.getElementById("hardcore-check");
 var gif = document.getElementById("gif");
+var loadingScreen = document.getElementById("loading");
 var correctGifs = ["GIFs/Correct/Win_01.gif", "GIFs/Correct/Win_02.gif", "GIFs/Correct/Win_03.gif"];
 var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Down_03.gif"];
 var upGifs = ["GIFs/UP/Point_Up_01.gif", "GIFs/UP/Point_Up_02.gif", "GIFs/UP/Point_Up_03.gif"];
@@ -73,21 +74,6 @@ var savedMute = localStorage.getItem("asobi_muted");
 // for logout btn 
 var logoutbTn = document.getElementById("logoutbTn");
 var speaking = true;
-// preloading audio and gifs so they dont lag when actually needed
-var preloadaudio = {};
-var allSounds = wsound.concat(lsound);
-for (var i = 0; i < allSounds.length; i++) {
-    var audio = new Audio(allSounds[i]);
-    preloadaudio[allSounds[i]] = audio;
-}
-
-var preloadgif = [];
-var allGifs = correctGifs.concat(downGifs, upGifs, errorGifs);
-for (var i = 0; i < allGifs.length; i++) {
-    var img = new Image();
-    img.src = allGifs[i];
-    preloadgif.push(img);
-}
 if (savedMute == null) {
     speaking = false;
     localStorage.setItem("asobi_muted", "true");
@@ -105,6 +91,37 @@ sUser.textContent = localStorage.getItem("asobi_username");
 // music 
 var wsound = ["Sounds/Win/Yatta.mp3"];
 var lsound = ["Sounds/Error/error_01.mp3", "Sounds/Error/error_02.mp3", "Sounds/Error/error_03.mp3"];
+// preloading audio and gifs, hiding loading screen once done
+var preloadaudio = {};
+var totalToLoad = 0;
+var loadedCount = 0;
+
+function checkAllLoaded() {
+    loadedCount = loadedCount + 1;
+    if (loadedCount >= totalToLoad) {
+        loadingScreen.classList.add("hideLoading");
+    }
+}
+
+var allSounds = wsound.concat(lsound);
+var allGifs = correctGifs.concat(downGifs, upGifs, errorGifs);
+totalToLoad = allSounds.length + allGifs.length;
+
+for (var i = 0; i < allSounds.length; i++) {
+    var audio = new Audio(allSounds[i]);
+    audio.addEventListener("canplaythrough", checkAllLoaded);
+    audio.addEventListener("error", checkAllLoaded);
+    preloadaudio[allSounds[i]] = audio;
+}
+
+var preloadgif = [];
+for (var i = 0; i < allGifs.length; i++) {
+    var img = new Image();
+    img.addEventListener("load", checkAllLoaded);
+    img.addEventListener("error", checkAllLoaded);
+    img.src = allGifs[i];
+    preloadgif.push(img);
+}
 function updateScoreKey() {
     if (hardcoreCheck.checked) {
         scoreKey = "best_" + baseDif + "_hardcore";
