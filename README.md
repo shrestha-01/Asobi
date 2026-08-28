@@ -241,7 +241,7 @@ I did **not use it to create the code**, just the image.
 
 Later, I tried to make a similar layout based on that image and added similar features that I thought would be good for the site.
 
-I have also **added the reference images on the GitHub**.
+I have also **added the reference images on the GitHub , just in case you wanna see them**.
 
 ---
 
