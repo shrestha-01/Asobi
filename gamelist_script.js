@@ -12,6 +12,8 @@ fetch("Backend/check_session.php")
     })
     .then(function (data) {
         if (!data.loggedIn) {
+            localStorage.removeItem("asobi_username");
+            localStorage.removeItem("asobi_player_id");
             window.location.href = "username.html";
         }
     });
