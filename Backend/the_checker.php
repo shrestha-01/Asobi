@@ -12,7 +12,7 @@ if(!isset($_SESSION["guessCount"])){
 }
 $_SESSION["guessCount"] = $_SESSION["guessCount"] + 1;
 $guessCount = $_SESSION["guessCount"];
-$maxGuess = isset($_SESSION["maxGuess"]) ? $_SESSION["maxGuess"] : 10;
+$maxGuess = $_SESSION["maxGuess"];
 
 $basePoints = [
     "beginner" => 10,
@@ -64,7 +64,7 @@ if($playerGuess == $imposter){
             $stmt->execute();
         }
     }
-} else if($guessCount >= $maxGuess){
+} else if($maxGuess > 0 && $guessCount >= $maxGuess){
     $result = "outofguesses";
 } else if($playerGuess > $imposter){
     $result = "high";

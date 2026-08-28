@@ -316,7 +316,7 @@ function loadLeaderboard() {
             }
         });
 }
-//play again , now reseting the game
+
 //play again , now reseting the game
 function resetGame() {
     var hardcoreValue;
@@ -325,12 +325,17 @@ function resetGame() {
     } else {
         hardcoreValue = "0";
     }
+    var isCustom = baseDif.indexOf("custom") !== -1;
+    var body = "minNum=" + minNum + "&maxNum=" + maxNum + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue;
+    if (isCustom) {
+        body = body + "&maxGuess=" + maxGuess;
+    }
     fetch("Backend/the_game.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: "minNum=" + minNum + "&maxNum=" + maxNum + "&baseDif=" + baseDif + "&hardcore=" + hardcoreValue + "&maxGuess=" + maxGuess
+        body: body
     })
         .then(function (r) {
             return r.json();
