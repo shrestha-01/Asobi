@@ -300,3 +300,12 @@ https://www.svgrepo.com/svg/445116/eye-open-solid
 
 **Loading Screen:**  
 https://uiverse.io/mobinkakei/proud-ladybug-46
+
+**Logo [Pintrest]**
+https://www.pinterest.com/pin/9288742975986437/
+
+**Guess the number Game Logo [Pintrest]**
+https://www.pinterest.com/pin/775111785906990366/
+
+**The Clicker Game Logo [Pintrest]**
+https://www.pinterest.com/pin/976366394241594361/
