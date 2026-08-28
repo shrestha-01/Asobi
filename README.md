@@ -136,6 +136,8 @@ Someone who has just started playing shouldn't have to compete against someone w
 
 So, with the Last 24 Hours and Weekly leaderboards, new players can also have a chance to compete as well.
 
+One more thing I would like to mention is that the **Total Leaderboard** contains the points of **all the levels and despite being hardcore and non-hardcore** .
+
 ---
 
 ## Points System
