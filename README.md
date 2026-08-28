@@ -138,7 +138,7 @@ So, with the Last 24 Hours and Weekly leaderboards, new players can also have a 
 
 ---
 
-## ⭐ Points System
+## Points System
 
 I did think about making the leaderboard based on **tries**.
 
@@ -189,7 +189,7 @@ It is only available in the **Normal Mode**.
 
 ---
 
-## 🎮 Custom Games
+## Custom Games
 
 Let's talk about the **Custom Games** now.
 
@@ -219,7 +219,7 @@ And for Hardcore Mode, the points are **double** the normal points.
 
 ---
 
-## 🔊 Sound System
+## Sound System
 
 There is also a **sound system** in the game.
 
