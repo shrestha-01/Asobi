@@ -92,7 +92,7 @@ I have also added a **Hardcore Mode**.
 
 Basically, you will not get any sort of hints in Hardcore Mode.
 
-But there is one catch.
+But there are tow catches.
 
 You will get **2× the points** that you would usually get in Normal Mode.
 
