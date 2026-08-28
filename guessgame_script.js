@@ -34,10 +34,10 @@ var baseDif = "beginner";
 var hardcoreCheck = document.getElementById("hardcore-check");
 var gif = document.getElementById("gif");
 var loadingScreen = document.getElementById("loading");
-var correctGifs = ["GIFs/Correct/Win_01.gif", "GIFs/Correct/Win_02.gif", "GIFs/Correct/Win_03.gif"];
-var downGifs = ["GIFs/Down/Down_01.gif", "GIFs/Down/Down_02.gif", "GIFs/Down/Down_03.gif"];
-var upGifs = ["GIFs/UP/Point_Up_01.gif", "GIFs/UP/Point_Up_02.gif", "GIFs/UP/Point_Up_03.gif"];
-var errorGifs = ["GIFs/Error/Error_01.gif", "GIFs/Error/Error_03.gif", "GIFs/Error/Error_04.gif", "GIFs/Error/Error_05.gif", "GIFs/Error/Error_06.gif", "GIFs/Error/Error_07.gif", "GIFs/Error/Error_08.gif", "GIFs/Error/Error_09.gif"];
+var correctGifs = ["GIFs/Correct/Win_01.webm", "GIFs/Correct/Win_02.webm", "GIFs/Correct/Win_03.webm"];
+var downGifs = ["GIFs/Down/Down_01.webm", "GIFs/Down/Down_02.webm", "GIFs/Down/Down_03.webm"];
+var upGifs = ["GIFs/UP/Point_Up_01.webm", "GIFs/UP/Point_Up_02.webm", "GIFs/UP/Point_Up_03.webm"];
+var errorGifs = ["GIFs/Error/Error_01.webm", "GIFs/Error/Error_02.webm", "GIFs/Error/Error_03.webm", "GIFs/Error/Error_04.webm", "GIFs/Error/Error_05.webm", "GIFs/Error/Error_06.webm", "GIFs/Error/Error_07.webm", "GIFs/Error/Error_08.webm", "GIFs/Error/Error_09.webm"];
 // var totalBoard = document.getElementById("totalBoard");
 //point giving system , moved to the server side, bro you cant cheat anymore =)
 // var basePoints = {
@@ -125,15 +125,16 @@ for (var i = 0; i < allSounds.length; i++) {
 
 var preloadgif = [];
 for (var i = 0; i < allGifs.length; i++) {
-    var img = new Image();
-    img.addEventListener("load", function () {
+    var vid = document.createElement("video");
+    vid.addEventListener("canplaythrough", function () {
         checkAllLoaded("gifs");
     });
-    img.addEventListener("error", function () {
+    vid.addEventListener("error", function () {
         checkAllLoaded("gifs");
     });
-    img.src = allGifs[i];
-    preloadgif.push(img);
+    vid.src = allGifs[i];
+    vid.preload = "auto";
+    preloadgif.push(vid);
 }
 function updateScoreKey() {
     if (hardcoreCheck.checked) {
@@ -490,6 +491,7 @@ function doGif(result) {
     var pick = list[Math.floor(Math.random() * list.length)];
     gif.src = pick;
     gif.style.display = "block";
+    gif.play();
 }
 musicBtn.addEventListener("click", function () {
     speaking = !speaking;
