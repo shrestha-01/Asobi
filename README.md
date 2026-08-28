@@ -257,6 +257,9 @@ I hope you will enjoy playing =)
 
 # Credits
 
+**Neumorphism CSS Shadow Generator:** 
+https://neumorphism.io/#e0e0e0
+
 **Start Playing Button:**  
 https://uiverse.io/dexter-st/fuzzy-dog-81
 
