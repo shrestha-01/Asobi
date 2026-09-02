@@ -9,6 +9,8 @@ var timer;
 var clickno = 0;
 var timesup = true;
 var rest;
+var starttime;
+var endtime;
 
 //starting the game 
 // startBtn.addEventListener("click",function(){
@@ -38,6 +40,7 @@ var rest;
 clickMe.addEventListener("click",function(){
     if(timesup){
         timesup = false;
+        starttime = Date.now();
         timeremain = 10;
         time.textContent = timeremain;
         timer = setInterval(countdown, 1000);
@@ -54,6 +57,10 @@ function countdown(){
     if(timeremain <=0){
         clearInterval(timer);
         timesup = true;
+        endtime = Date.now();
+        var secPass = (endtime-starttime)/1000;
+        // cps.textContent = (clickno/10).toFixed(3);
+        cps.textContent = (clickno/secPass).toFixed(1);
         clickMe.disabled = true;
         clickMe.textContent = "Take a breath";
         rest = setTimeout(function(){
