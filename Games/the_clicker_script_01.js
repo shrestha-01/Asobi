@@ -42,24 +42,26 @@ clickMe.addEventListener("click",function(){
         timesup = false;
         starttime = performance.now();
         timeremain = 10;
-        time.textContent = timeremain;
-        timer = setInterval(countdown, 1000);
         clickno = 1;
         totalClks.textContent = clickno;
+        timer = requestAnimationFrame(countdown);
     } else {
         clickno = clickno + 1;
         totalClks.textContent = clickno;
+        var secPass = (performance.now() - starttime) / 1000;
+        cps.textContent = (clickno/secPass).toFixed(3);
     }
 });
 function countdown(){
-    timeremain = timeremain - 1;
-    time.textContent = timeremain;
-    if(timeremain <=0){
-        clearInterval(timer);
+    var secPass = (performance.now() - starttime) / 1000;
+    timeremain = 10 - secPass;
+    if(timeremain < 0){
+        timeremain = 0;
+    }
+    time.textContent = timeremain.toFixed(2);
+    if(timeremain <= 0){
+        cancelAnimationFrame(timer);
         timesup = true;
-        endtime = performance.now();
-        var secPass = (endtime-starttime)/1000;
-        // cps.textContent = (clickno/10).toFixed(3);
         cps.textContent = (clickno/secPass).toFixed(3);
         clickMe.disabled = true;
         clickMe.textContent = "Take a breath";
@@ -67,5 +69,7 @@ function countdown(){
             clickMe.disabled = false;
             clickMe.textContent = "Click Me!";
         }, 3000);
+    } else {
+        timer = requestAnimationFrame(countdown);
     }
 }
