@@ -6,6 +6,7 @@ var totalClks = document.getElementById("totalClks");
 var cps = document.getElementById("CPS");
 var timeremain;
 var timer;
+var clickno = 0;
 
 //starting the game 
 startBtn.addEventListener("click",function(){
@@ -20,3 +21,8 @@ function countdown(){
         clearInterval(timer);
     }
 }
+// counting cliks
+clickMe.addEventListener("click", function(){
+    clickno = clickno + 1;
+    totalClks.textContent = clickno;
+});
