@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: #f3f1fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+}
+#clickerCard {
+    width: 320px;
+    text-align: center;
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: linear-gradient(145deg,
+     #f5f3fb, #e8e4f5);
+   box-shadow: 5px 5px 10px #d1cce8,
+   -5px -5px 10px #ffffff;  
+} 
+#time {
+    font-size: 22px;
+    color: #6a4fd6;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+#clickMe{
+    font-size: 20px;
+    width: 180px; 
+    height: 180px;
+    border-radius: 50%;
+    border: none;
+    font-weight: 700;  
+    color:#ffffff;
+    background: linear-gradient(145deg, #9c7ff0, #7c5cff);
+    box-shadow: 8px 8px 16px #c8bdf0,
+    -8px -8px 16px #ffffff; 
+    cursor: pointer;
+}
+#clickMe:active {
+    box-shadow: inset 4px 4px 10px #6a4fd6,
+    inset -4px -4px 10px #a98ff5;
+}
+
+#clickMe:disabled {
+background: #cfc9e0;
+color: #8a8799;
+cursor: not-allowed;
+box-shadow: none;
+}
+#yourResult{
+    margin-top: 30px;
+}
+#totalClks,
+#CPS {
+    font-size: 16px;
+    color: #444;
+    margin-top: 8px;
+}
