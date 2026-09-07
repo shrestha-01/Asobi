@@ -10,12 +10,24 @@
 
 <body>
     <div id="clickerCard">
-        <p id="time"></p>
-        <button id="clickMe">Click Me!</button>
-        <div id="yourResult">
-            <p id="totalClks"></p>
-            <p id="CPS"></p>
+        <div id="statsRow">
+            <div id="timerCard" class="statCard">
+                <img src="Icons/lightning.svg" alt="timer">
+                <p class="statLabel">Time Left</p>
+                <p id="time"></p>
+            </div>
+            <div id="cpscard" class="statCard">
+                <img src="Icons/lightning.svg" alt="cps">
+                <p class="statLabel">Current CPS</p>
+                <p id="CPS"></p>
+            </div>
+            <div id="tcscard" class="statCard">
+                <img src="Icons/cursor.svg" alt="clicks">
+                <p class="statLabel">Total Clicks</p>
+                <p id="totalClks"></p>
+            </div>
         </div>
+        <button id="clickMe">Click Me!</button>
     </div>
     <script src="the_clicker_script_01.js"></script>
 </body>
