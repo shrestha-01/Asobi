@@ -3,14 +3,102 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: "The Aliens";
+    src: url("../Fonts/thealiens/thealiens-Regular.ttf") format("truetype");
+}
 
+@font-face {
+    font-family: "NV CHOOM";
+    src: url("../Fonts/nv-choom-demo/NV CHOOM.ttf");
+}
+
+@font-face {
+    font-family: "VARINO";
+    src: url("../Fonts/varino/Varino\ -\ Normal.ttf");
+}
 body{
     min-height: 100vh;
     background: #f3f1fa;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: stretch;
+    padding: 14px;
     font-family: 'Nunito', sans-serif;
+}
+#headerBox{
+    background-color: #eef0f5;
+    border-radius: 20px;
+    padding: 16px;
+    margin-bottom: 7px;
+    box-shadow: 8px 8px 15px #c8cad0,
+    -8px -8px 15px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+#logoBox{
+    font-size: 18px;
+    font-weight: 800;
+    color: #444;
+    font-family: 'VARINO';
+    margin-top: 2px;
+}
+#nav-box{
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav-link{
+    text-decoration: none;
+    font-size: 12px;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 9px 15px;
+    border-radius: 14px;
+    margin-top: 6px;
+}
+.nav-link img{
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+.nav-link:hover{
+    color: #7c5cff;
+}
+.nav-link:hover img {
+    filter: invert(48%) sepia(79%) saturate(2476%) 
+    hue-rotate(228deg) brightness(101%) contrast(101%);
+}
+#userBox{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#sUser{
+    padding: 10px 20px;
+    border-radius: 40px;
+    background: linear-gradient(140deg, 
+    #f5f3fb,#e8e4f5);
+    box-shadow: 5px 5px 10px #d1cce8,
+    -5px -5px 10px #ffffff;
+    font-size: 15px;
+}
+#logoutbTn{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
 }
 #clickerCard{
     width: 380px;
@@ -133,3 +221,10 @@ box-shadow: none;
     justify-content: center;
     margin-bottom: 8px;
  }
+ #logoJp{
+  font-size: 15px;
+  font-weight: 400;
+  color: #ff5cdc;
+  font-family: 'Nunito';
+  margin-top: 2px;
+}

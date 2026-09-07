@@ -4,6 +4,8 @@ var time = document.getElementById("time");
 var clickMe = document.getElementById("clickMe");
 var totalClks = document.getElementById("totalClks");
 var cps = document.getElementById("CPS");
+var sUser = document.getElementById("sUser");
+var logoutbTn = document.getElementById("logoutbTn");
 var timeremain;
 var timer;
 var clickno = 0;
@@ -37,8 +39,8 @@ var endtime;
 //     }
 // });
 
-clickMe.addEventListener("click",function(){
-    if(timesup){
+clickMe.addEventListener("click", function () {
+    if (timesup) {
         timesup = false;
         starttime = performance.now();
         timeremain = 10;
@@ -49,23 +51,23 @@ clickMe.addEventListener("click",function(){
         clickno = clickno + 1;
         totalClks.textContent = clickno;
         var secPass = (performance.now() - starttime) / 1000;
-        cps.textContent = (clickno/secPass).toFixed(3);
+        cps.textContent = (clickno / secPass).toFixed(3);
     }
 });
-function countdown(){
+function countdown() {
     var secPass = (performance.now() - starttime) / 1000;
     timeremain = 10 - secPass;
-    if(timeremain < 0){
+    if (timeremain < 0) {
         timeremain = 0;
     }
     time.textContent = timeremain.toFixed(2);
-    if(timeremain <= 0){
+    if (timeremain <= 0) {
         cancelAnimationFrame(timer);
         timesup = true;
-        cps.textContent = (clickno/secPass).toFixed(3);
+        cps.textContent = (clickno / secPass).toFixed(3);
         clickMe.disabled = true;
         clickMe.textContent = "Take a breath";
-        rest = setTimeout(function(){
+        rest = setTimeout(function () {
             clickMe.disabled = false;
             clickMe.textContent = "Click Me!";
         }, 3000);
@@ -73,3 +75,27 @@ function countdown(){
         timer = requestAnimationFrame(countdown);
     }
 }
+// showing loged username
+var savedName = localStorage.getItem("asobi_username");
+sUser.textContent = savedName;
+
+fetch("../Backend/check_session.php")
+    .then(function (r) {
+        return r.json();
+    })
+    .then(function(d){
+        if(!d.loggedIn){
+            localStorage.removeItem("asobi_username");
+            localStorage.removeItem("asobi_player_id");
+            window.location.href="../username.html";
+        }
+    });
+// logout 
+logoutbTn.addEventListener("click",function(){
+    fetch("../Backend/logout.php")
+       .then(function(){
+        localStorage.removeItem("asobi_username");
+        localStorage.removeItem("asobi_player_id");
+        window.location.href = "../username.html";
+       });
+});
