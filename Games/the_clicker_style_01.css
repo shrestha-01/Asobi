@@ -12,7 +12,68 @@ body{
     align-items: center;
     font-family: 'Nunito', sans-serif;
 }
-#clickerCard {
+#clickerCard{
+    width: 380px;
+    text-align: center;
+    padding: 30px;
+}
+#statsRow{
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.statCard{
+    flex: 1;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 15px 10px;
+    box-shadow: 5px 5px 12px #d9d4ec,
+    -5px -5px 12px #ffffff;
+}
+.statCard img{
+    width: 20px;
+    height: 20px;
+}
+.statLabel{
+    font-size: 11px;
+    color: #9a96ab;
+    margin-bottom: 4px;
+}
+#time,
+#CPS,
+#totalClks{
+    font-size: 20px;
+    font-weight: 700;
+    color: #6a4fd6;
+}
+#clickMe{
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+    color: #6a4fd6;
+    background: #ffffff;
+    box-shadow: 0 0 0 8px #ede9fb,
+    0 0 40px 10px #c9baf7,
+    8px 8px 16px #d9d4ec,
+    -8px -8px 16px #ffffff;
+    cursor: pointer;
+}
+#clickMe:active{
+    box-shadow: 0 0 0 8px #ede9fb,
+    0 0 20px 5px #c9baf7,
+    inset 4px 4px 10px #d9d4ec,
+    inset -4px -4px 10px #ffffff;
+}
+#clickMe:disabled{
+    background: #f3f1fa;
+    color: #b3aec4;
+    box-shadow: 0 0 0 8px #ede9fb;
+    cursor: not-allowed;
+}
+/* #clickerCard {
     width: 320px;
     text-align: center;
     padding: 40px 30px;
@@ -60,4 +121,15 @@ box-shadow: none;
     font-size: 16px;
     color: #444;
     margin-top: 8px;
-}
+} */ 
+ #cursorIcon{
+    width: 30px;
+    height: 30px;
+ }
+ .iconbox{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+ }
